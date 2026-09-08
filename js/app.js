@@ -99,6 +99,88 @@ function renderTier(){const personal=tierMode==='personal';document.getElementBy
 function openModal(id){const a=CATALOG.find(x=>x.id===id),e=entry(id);document.getElementById('modalContent').innerHTML=`<div class="sheet-head">${thumbHTML(a)}<div style="flex:1"><div class="eyebrow">Consensus #${a.rank} · ${a.sourceCount}/3 sources</div><h3>${esc(a.title)}</h3><div style="display:flex;gap:5px">${sourceHTML(a)}</div><div style="margin-top:10px;font-size:11px;color:var(--muted)">Preset : <b style="color:white">${a.consensusRating}★ · ${esc(tierFor(a.consensusRating).label)}</b></div></div></div><div class="sheet-ratings">${ratingButtons(a.id,e.rating,true)}</div><label class="eyebrow" style="display:block;margin-top:15px">Note perso</label><textarea id="modalNote" class="field note" placeholder="Pourquoi ça marche — ou pas — pour toi ?">${esc(e.note||'')}</textarea><div class="actions-row"><button class="btn ${e.favorite?'orange':''}" id="modalFav">♥ Favori</button><button class="btn primary" id="modalSave">Enregistrer</button></div>`;document.getElementById('modalBackdrop').classList.add('open');document.querySelectorAll('#modalContent [data-rating]').forEach(b=>b.onclick=()=>{e.rating=+b.dataset.rating;document.querySelectorAll('#modalContent [data-rating]').forEach(x=>x.classList.toggle('selected',x===b))});document.getElementById('modalFav').onclick=()=>{e.favorite=!e.favorite;document.getElementById('modalFav').classList.toggle('orange',e.favorite)};document.getElementById('modalSave').onclick=()=>{e.note=document.getElementById('modalNote').value;save();closeModal();renderLibrary();renderDeck(true);if(tierMode==='personal')renderTier();toast('Fiche enregistrée')}}
 function closeModal(){document.getElementById('modalBackdrop').classList.remove('open')}
 
+
+/* ---------- PNG tier-list export -------------------------------------------------
+ * The project deliberately avoids a screenshot library here.  We compose the image
+ * ourselves on a <canvas>, which keeps GitHub Pages fully static/offline and gives
+ * us a predictable share format on phones.  Real WEBP posters are used when they
+ * exist; the committed SVG posters are the automatic fallback.
+ */
+function canvasPosterSource(a){
+  return new Promise(resolve=>{
+    const p=posterPaths(a), img=new Image();
+    img.decoding='async';
+    img.onload=()=>resolve(img);
+    img.onerror=()=>{
+      const fallback=new Image();
+      fallback.onload=()=>resolve(fallback);
+      fallback.onerror=()=>resolve(null);
+      fallback.src=p.fallback;
+    };
+    img.src=p.primary;
+  });
+}
+function roundRect(ctx,x,y,w,h,r){
+  const rr=Math.min(r,w/2,h/2);ctx.beginPath();ctx.moveTo(x+rr,y);ctx.arcTo(x+w,y,x+w,y+h,rr);ctx.arcTo(x+w,y+h,x,y+h,rr);ctx.arcTo(x,y+h,x,y,rr);ctx.arcTo(x,y,x+w,y,rr);ctx.closePath();
+}
+function drawImageCover(ctx,img,x,y,w,h){
+  if(!img){ctx.fillStyle='#2b2033';ctx.fillRect(x,y,w,h);return}
+  const ir=img.width/img.height, r=w/h;let sx=0,sy=0,sw=img.width,sh=img.height;
+  if(ir>r){sw=img.height*r;sx=(img.width-sw)/2}else{sh=img.width/r;sy=(img.height-sh)/2}
+  ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
+}
+function wrapCanvasText(ctx,text,maxWidth,maxLines=2){
+  const words=String(text).split(/\s+/),lines=[];let line='';
+  for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width<=maxWidth||!line){line=test}else{lines.push(line);line=word;if(lines.length===maxLines-1)break}}
+  if(line&&lines.length<maxLines)lines.push(line);
+  const consumed=lines.join(' ').length;if(consumed<text.length&&lines.length)lines[lines.length-1]=lines[lines.length-1].replace(/[.…]*$/,'')+'…';
+  return lines;
+}
+async function exportTierImage(kind){
+  const quick=kind==='quick';
+  const rows=quick
+    ? QUICK_TIERS.map(t=>({key:t.key,title:`${t.key} · ${t.label}`,sub:t.sub,color:getComputedStyle(document.documentElement).getPropertyValue(`--q${t.key.toLowerCase()}`).trim()||'#8f68ff',items:CATALOG.filter(a=>quickState.assignments[a.id]===t.key)}))
+    : TIERS.filter(t=>t.rating>0).map(t=>({key:String(t.rating),title:`${t.rating}★ · ${t.label}`,sub:t.sub,color:t.rating===5?'#ff8b3d':t.rating===4.5?'#d78bff':t.rating===4?'#8f68ff':t.rating===3.5?'#5e8cff':t.rating===3?'#70e0ae':t.rating===2.5?'#dcc071':'#a77878',items:CATALOG.filter(a=>(tierMode==='personal'?entry(a.id).rating:a.consensusRating)===t.rating)}));
+  const visibleRows=rows.filter(r=>r.items.length||quick);if(!visibleRows.length){toast('Rien à exporter pour le moment');return}
+  toast('Création de l’image…');
+  const W=1600,margin=64,labelW=310,cardW=126,cardH=176,gap=14,titleH=54,rowPad=20,rowGap=24,cols=Math.max(1,Math.floor((W-margin*2-labelW-32+gap)/(cardW+gap)));
+  const rowHeights=visibleRows.map(r=>{const lines=Math.max(1,Math.ceil(r.items.length/cols));return Math.max(210,rowPad*2+lines*(cardH+titleH)+(lines-1)*gap)});
+  const headerH=210,footerH=88,H=headerH+rowHeights.reduce((a,b)=>a+b,0)+rowGap*(visibleRows.length-1)+footerH+margin;
+  const canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');
+  ctx.fillStyle='#120e17';ctx.fillRect(0,0,W,H);
+  // subtle editorial grid
+  ctx.strokeStyle='rgba(143,104,255,.08)';ctx.lineWidth=1;for(let x=0;x<W;x+=64){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}for(let y=0;y<H;y+=64){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+  ctx.fillStyle='#ff8b3d';ctx.fillRect(margin,56,92,12);ctx.fillStyle='#f7f0fb';ctx.font='900 66px system-ui, sans-serif';ctx.fillText('ANISHELF',margin,132);
+  ctx.fillStyle='#a997b5';ctx.font='800 22px system-ui, sans-serif';const modeLabel=quick?'TIER SPRINT · S/A/B/C/D':(tierMode==='personal'?`CANON DE ${String(state.profileName||'MOI').toUpperCase()}`:'CONSENSUS ACTUEL');ctx.fillText(modeLabel,margin,170);
+  ctx.textAlign='right';ctx.fillStyle='#8f68ff';ctx.font='900 24px system-ui, sans-serif';ctx.fillText(`${CATALOG.length} ANIME`,W-margin,92);ctx.fillStyle='#82738d';ctx.font='700 18px system-ui, sans-serif';ctx.fillText(new Date().toLocaleDateString('fr-CA'),W-margin,126);ctx.textAlign='left';
+  let y=headerH;const posterCache=new Map();
+  for(let ri=0;ri<visibleRows.length;ri++){
+    const r=visibleRows[ri],rh=rowHeights[ri];ctx.fillStyle='#1b1422';roundRect(ctx,margin,y,W-margin*2,rh,14);ctx.fill();
+    ctx.fillStyle=r.color||'#8f68ff';roundRect(ctx,margin,y,labelW,rh,14);ctx.fill();
+    ctx.fillStyle='#171019';ctx.font='1000 44px system-ui, sans-serif';ctx.fillText(r.title,margin+28,y+66);
+    ctx.font='800 18px system-ui, sans-serif';const subLines=wrapCanvasText(ctx,r.sub,labelW-56,3);subLines.forEach((line,i)=>ctx.fillText(line,margin+28,y+104+i*25));
+    ctx.fillStyle='rgba(23,16,25,.65)';ctx.font='900 17px system-ui, sans-serif';ctx.fillText(`${r.items.length} œuvre${r.items.length>1?'s':''}`,margin+28,y+rh-28);
+    let cx=margin+labelW+28,cy=y+rowPad;
+    for(let i=0;i<r.items.length;i++){
+      const a=r.items[i];if(i>0&&i%cols===0){cx=margin+labelW+28;cy+=cardH+titleH+gap}
+      let img=posterCache.get(a.id);if(img===undefined){img=await canvasPosterSource(a);posterCache.set(a.id,img)}
+      ctx.save();roundRect(ctx,cx,cy,cardW,cardH,8);ctx.clip();drawImageCover(ctx,img,cx,cy,cardW,cardH);ctx.restore();
+      ctx.strokeStyle='#4a3658';ctx.lineWidth=2;roundRect(ctx,cx,cy,cardW,cardH,8);ctx.stroke();
+      ctx.fillStyle='#c9bbd2';ctx.font='800 16px system-ui, sans-serif';const lines=wrapCanvasText(ctx,a.title,cardW,2);lines.forEach((line,li)=>ctx.fillText(line,cx,cy+cardH+22+li*19));
+      cx+=cardW+gap;
+    }
+    y+=rh+(ri<visibleRows.length-1?rowGap:0);
+  }
+  const rated=quick?quickAssignedCount():CATALOG.filter(a=>entry(a.id).rating>0).length;ctx.fillStyle='#8f7e99';ctx.font='700 17px system-ui, sans-serif';ctx.fillText(quick?`${rated}/${CATALOG.length} classés`:(tierMode==='personal'?`${rated}/${CATALOG.length} vus et notés`:'Preset transculturel Japon · France · Ranker'),margin,H-52);ctx.textAlign='right';ctx.fillStyle='#ff8b3d';ctx.font='900 19px system-ui, sans-serif';ctx.fillText('anishelf · personal canon',W-margin,H-52);ctx.textAlign='left';
+  canvas.toBlob(async blob=>{
+    if(!blob){toast('Impossible de créer l’image');return}
+    const filename=quick?'anishelf-tier-sprint.png':`anishelf-${tierMode==='personal'?slug(state.profileName||'profil'):'consensus'}.png`;
+    const file=new File([blob],filename,{type:'image/png'});
+    if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'Ma tier list AniShelf'});toast('Image prête à partager');return}catch(e){/* cancelled: fall back to download */}}
+    const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);toast('Image PNG téléchargée ✓');
+  },'image/png',.94);
+}
+
 /* ---------- Portable JSON profiles & friend comparison -------------------------- */
 function exportProfile(){const payload={app:'AniShelf',version:APP_VERSION,exportedAt:new Date().toISOString(),profileName:state.profileName,catalogSize:CATALOG.length,entries:state.entries};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`anishelf-${slug(state.profileName||'profil')}.json`;a.click();URL.revokeObjectURL(url);toast('Profil exporté')}
 function slug(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'profil'}
@@ -115,14 +197,14 @@ document.querySelectorAll('.shelf-nav .nav-btn').forEach(b=>b.onclick=()=>switch
 document.querySelectorAll('[data-deckmode]').forEach(b=>b.onclick=()=>{deckMode=b.dataset.deckmode;document.querySelectorAll('[data-deckmode]').forEach(x=>x.classList.toggle('active',x===b));renderDeck()});
 document.getElementById('searchInput').oninput=renderLibrary;document.querySelectorAll('#filters [data-filter]').forEach(b=>b.onclick=()=>{libraryFilter=b.dataset.filter;document.querySelectorAll('#filters .chip').forEach(x=>x.classList.toggle('active',x===b));renderLibrary()});
 document.querySelectorAll('[data-tiermode]').forEach(b=>b.onclick=()=>{tierMode=b.dataset.tiermode;document.querySelectorAll('[data-tiermode]').forEach(x=>x.classList.toggle('active',x===b));renderTier()});
-document.getElementById('printBtn').onclick=()=>{document.body.classList.add('print-shelf');window.print();setTimeout(()=>document.body.classList.remove('print-shelf'),300)};document.getElementById('resetRatingsBtn').onclick=()=>{if(confirm('Remettre toutes tes notes à 0 = pas vu ? Les favoris et commentaires restent.')){CATALOG.forEach(a=>entry(a.id).rating=0);save();renderAll();toast('Notes réinitialisées')}};
+document.getElementById('tierImageBtn').onclick=()=>exportTierImage('shelf');document.getElementById('printBtn').onclick=()=>{document.body.classList.add('print-shelf');window.print();setTimeout(()=>document.body.classList.remove('print-shelf'),300)};document.getElementById('resetRatingsBtn').onclick=()=>{if(confirm('Remettre toutes tes notes à 0 = pas vu ? Les favoris et commentaires restent.')){CATALOG.forEach(a=>entry(a.id).rating=0);save();renderAll();toast('Notes réinitialisées')}};
 document.getElementById('profileName').value=state.profileName||'Moi';document.getElementById('saveNameBtn').onclick=()=>{state.profileName=document.getElementById('profileName').value.trim()||'Moi';save();renderCompare();toast('Pseudo enregistré')};
 document.getElementById('exportBtn').onclick=exportProfile;document.getElementById('importBtn').onclick=()=>document.getElementById('importFile').click();document.getElementById('importFile').onchange=e=>e.target.files[0]&&importOwn(e.target.files[0]);document.getElementById('friendImportBtn').onclick=()=>document.getElementById('friendFile').click();document.getElementById('friendFile').onchange=e=>e.target.files[0]&&importFriend(e.target.files[0]);
 
 document.querySelectorAll('[data-appmode]').forEach(b=>b.onclick=()=>setAppMode(b.dataset.appmode));
 document.querySelectorAll('.quick-nav [data-quick-view]').forEach(b=>b.onclick=()=>switchQuickView(b.dataset.quickView));
 document.querySelectorAll('[data-quick-tier]').forEach(b=>b.onclick=()=>quickAssign(b.dataset.quickTier));
-document.getElementById('quickUndo').onclick=quickUndo;document.getElementById('quickSkip').onclick=quickSkip;document.getElementById('quickFromStars').onclick=quickFromStars;document.getElementById('quickReset').onclick=resetQuick;document.getElementById('quickPrint').onclick=()=>{document.body.classList.add('print-quick');window.print();setTimeout(()=>document.body.classList.remove('print-quick'),300)};
+document.getElementById('quickUndo').onclick=quickUndo;document.getElementById('quickSkip').onclick=quickSkip;document.getElementById('quickFromStars').onclick=quickFromStars;document.getElementById('quickImage').onclick=()=>exportTierImage('quick');document.getElementById('quickReset').onclick=resetQuick;document.getElementById('quickPrint').onclick=()=>{document.body.classList.add('print-quick');window.print();setTimeout(()=>document.body.classList.remove('print-quick'),300)};
 
 document.getElementById('modalClose').onclick=closeModal;document.getElementById('modalBackdrop').onclick=e=>{if(e.target.id==='modalBackdrop')closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();if(document.getElementById('view-deck').classList.contains('active')){if(e.key==='ArrowDown')scrollDeckTo(1);if(e.key==='ArrowUp')scrollDeckTo(-1)}});
 normalizeQuickQueue();renderQuickTier();renderAll();setAppMode(appMode);

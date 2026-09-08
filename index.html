@@ -50,7 +50,12 @@
     <div class="eyebrow">Mode rapide</div><h1 class="page-title">Tier list</h1>
     <p class="lead">S/A/B/C/D reste volontairement grossier. Ton classement détaillé AniShelf vit à côté, sans être écrasé.</p>
     <div class="mode-note"><b>Pont optionnel :</b> tu peux préremplir ce tableau depuis tes étoiles AniShelf. Rien ne se synchronise automatiquement après ça.</div>
-    <div class="quick-tier-actions"><button class="btn primary" id="quickFromStars">Préremplir depuis AniShelf</button><button class="btn" id="quickPrint">Imprimer / PDF</button><button class="btn danger" id="quickReset">Réinitialiser</button></div>
+    <div class="quick-tier-actions">
+      <button class="btn primary" id="quickFromStars">Préremplir depuis AniShelf</button>
+      <button class="btn orange" id="quickImage">Partager en image</button>
+      <button class="btn" id="quickPrint">PDF</button>
+      <button class="btn danger" id="quickReset">Réinitialiser</button>
+    </div>
     <div class="quick-tier-board" id="quickTierBoard"></div>
     <div class="quick-unranked" id="quickUnranked"></div>
   </div>
@@ -96,7 +101,11 @@
     <p class="lead">Le preset “Consensus actuel” est notre version de départ. Ta tier list personnelle se construit à mesure que tu notes. Le mode rapide S/A/B/C/D reste séparé.</p>
     <div class="tier-top">
       <div class="mode-switch"><button data-tiermode="personal">Ma tier list</button><button class="active" data-tiermode="consensus">Consensus actuel</button></div>
-      <div class="actions-row" style="margin:0"><button class="btn" id="printBtn">Imprimer / PDF</button><button class="btn danger" id="resetRatingsBtn">Réinitialiser</button></div>
+      <div class="actions-row" style="margin:0">
+        <button class="btn orange" id="tierImageBtn">Partager en image</button>
+        <button class="btn" id="printBtn">PDF</button>
+        <button class="btn danger" id="resetRatingsBtn">Réinitialiser</button>
+      </div>
     </div>
     <div class="tier-board" id="tierBoard"></div>
   </div>

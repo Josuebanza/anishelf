@@ -89,6 +89,10 @@ node --check js/app.js
 node scripts/audit.mjs
 ```
 
+## Export image des tier lists
+
+Les deux modes proposent **Partager en image**. L’image PNG est composée directement dans le navigateur (sans dépendance externe), avec les posters locaux, le branding AniShelf et les tiers visibles. Sur mobile, le navigateur essaie d’ouvrir la feuille de partage native ; sinon le PNG est téléchargé. Le PDF reste disponible comme option secondaire.
+
 ## Sauvegardes et GitHub Pages
 
 Les notes utilisent `localStorage`. Elles sont donc liées au **navigateur + domaine**.
