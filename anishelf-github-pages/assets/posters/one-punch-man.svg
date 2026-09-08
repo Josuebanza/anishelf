@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900" role="img" aria-label="One-Punch Man">
+  <rect width="600" height="900" fill="#fff9f4"/>
+  <rect x="0" y="0" width="600" height="20" fill="#ff9b52"/>
+  <rect x="390" y="-80" width="260" height="420" rx="130" fill="#ff9b52" opacity=".92" transform="rotate(18 390 -80)"/>
+  <g opacity=".12" stroke="#291634" stroke-width="2">
+    <path d="M-80 180 L680 720"/><path d="M-80 110 L680 650"/><path d="M-80 250 L680 790"/>
+    <path d="M-80 320 L680 860"/><path d="M-80 390 L680 930"/>
+  </g>
+  <text x="42" y="142" fill="#291634" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="900" opacity=".13">027</text>
+  <text x="48" y="220" fill="#ff9b52" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" letter-spacing="5">ANISHELF / POSTER</text>
+  <text fill="#291634" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="900"><tspan x="48" y="550">One-Punch Man</tspan></text>
+  <rect x="48" y="768" width="504" height="2" fill="#291634" opacity=".25"/>
+  <text x="48" y="802" fill="#291634" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">CONSENSUS #27  ·  2/3 SOURCES</text>
+  <style>.badge{font:900 16px Arial,Helvetica,sans-serif;fill:#291634;letter-spacing:2px}</style>
+  <text x="48" y="825" class="badge">JP</text><text x="232" y="825" class="badge">INT</text>
+  <rect x="0" y="872" width="600" height="28" fill="#291634"/>
+  <rect x="0" y="872" width="180" height="28" fill="#ff9b52"/>
+</svg>

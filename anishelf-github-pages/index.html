@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#17111f">
+  <meta name="description" content="AniShelf — tier list et Letterbox anime personnel, statique et hébergeable sur GitHub Pages.">
+  <title>AniShelf — Tier Lab / Personal Canon</title>
+
+  <!-- GitHub Pages / installable web app metadata -->
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-app-mode="quick">
+  <!--
+    The HTML is deliberately semantic and static. JavaScript only fills dynamic
+    content (catalog cards, ratings, filters) and stores user choices locally.
+  -->
+<div class="app">
+<header class="masthead">
+  <div class="wordmark"><div class="mark">A</div><div><b>ANISHELF</b><small id="brandSub">tier lab / personal canon</small></div></div>
+  <div class="header-right">
+    <div class="app-mode-switch" aria-label="Choisir le mode"><button class="active" data-appmode="quick">RAPIDE</button><button data-appmode="shelf">ANISHELF</button></div>
+    <div class="top-counter" id="topCounter"><strong>0</strong>/168 classés</div>
+  </div>
+</header>
+
+
+<section class="quick-view active" id="quick-sort">
+  <div class="quick-shell">
+    <div class="quick-head"><div><div class="eyebrow">Mode rapide</div><h1>Tier sprint</h1></div><div class="quick-progress" id="quickProgress"></div></div>
+    <div class="quick-stage">
+      <div id="quickCardStage"></div>
+      <div class="quick-actions"><button class="btn" id="quickUndo">↶ Annuler</button><button class="btn" id="quickSkip">Passer →</button></div>
+      <div class="quick-picker" id="quickPicker">
+        <button class="quick-tier-btn" data-quick-tier="S">S<small>Immense</small></button>
+        <button class="quick-tier-btn" data-quick-tier="A">A<small>Chef-d’œuvre</small></button>
+        <button class="quick-tier-btn" data-quick-tier="B">B<small>Excellent</small></button>
+        <button class="quick-tier-btn" data-quick-tier="C">C<small>À voir</small></button>
+        <button class="quick-tier-btn" data-quick-tier="D">D<small>Correct</small></button>
+      </div>
+      <div class="quick-hint">Un gros tri instinctif. Pour les demi-étoiles, commentaires et comparaisons, passe en mode AniShelf.</div>
+    </div>
+  </div>
+</section>
+
+<section class="quick-view" id="quick-tier">
+  <div class="quick-shell">
+    <div class="eyebrow">Mode rapide</div><h1 class="page-title">Tier list</h1>
+    <p class="lead">S/A/B/C/D reste volontairement grossier. Ton classement détaillé AniShelf vit à côté, sans être écrasé.</p>
+    <div class="mode-note"><b>Pont optionnel :</b> tu peux préremplir ce tableau depuis tes étoiles AniShelf. Rien ne se synchronise automatiquement après ça.</div>
+    <div class="quick-tier-actions"><button class="btn primary" id="quickFromStars">Préremplir depuis AniShelf</button><button class="btn" id="quickPrint">Imprimer / PDF</button><button class="btn danger" id="quickReset">Réinitialiser</button></div>
+    <div class="quick-tier-board" id="quickTierBoard"></div>
+    <div class="quick-unranked" id="quickUnranked"></div>
+  </div>
+</section>
+
+<section class="view shelf-view active" id="view-deck">
+  <div class="deck-head">
+    <div class="deck-meta">
+      <div><div class="eyebrow">Mode classement</div><div class="deck-progress" id="deckProgress"></div></div>
+      <div class="mode-switch"><button class="active" data-deckmode="unrated">À classer</button><button data-deckmode="all">Tous</button></div>
+    </div>
+  </div>
+  <div class="deck-scroller" id="deckScroller"></div>
+</section>
+
+<section class="view shelf-view" id="view-library">
+  <div class="page">
+    <div class="eyebrow">Ta collection</div>
+    <h1 class="page-title">Bibliothèque</h1>
+    <p class="lead">168 franchises. Pas de serveur, pas de compte : tout reste dans ton navigateur.</p>
+    <div class="stats-strip" id="stats"></div>
+    <div class="library-toolbar">
+      <input id="searchInput" class="search" placeholder="Rechercher un anime…">
+      <div class="filters" id="filters">
+        <button class="chip active" data-filter="all">Tout</button>
+        <button class="chip" data-filter="seen">Vus</button>
+        <button class="chip" data-filter="unrated">Pas vus</button>
+        <button class="chip" data-filter="fav">Favoris</button>
+        <button class="chip" data-filter="3">3/3 sources</button>
+        <button class="chip" data-filter="japan">🇯🇵 Japon</button>
+        <button class="chip" data-filter="france">🇫🇷 France</button>
+        <button class="chip" data-filter="world">🌍 Ranker</button>
+      </div>
+    </div>
+    <div class="library-grid" id="libraryGrid"></div>
+  </div>
+</section>
+
+<section class="view shelf-view" id="view-tier">
+  <div class="page">
+    <div class="eyebrow">Le grand tableau</div>
+    <h1 class="page-title">Tier list</h1>
+    <p class="lead">Le preset “Consensus actuel” est notre version de départ. Ta tier list personnelle se construit à mesure que tu notes. Le mode rapide S/A/B/C/D reste séparé.</p>
+    <div class="tier-top">
+      <div class="mode-switch"><button data-tiermode="personal">Ma tier list</button><button class="active" data-tiermode="consensus">Consensus actuel</button></div>
+      <div class="actions-row" style="margin:0"><button class="btn" id="printBtn">Imprimer / PDF</button><button class="btn danger" id="resetRatingsBtn">Réinitialiser</button></div>
+    </div>
+    <div class="tier-board" id="tierBoard"></div>
+  </div>
+</section>
+
+<section class="view shelf-view" id="view-friends">
+  <div class="page">
+    <div class="eyebrow">Ton club privé</div>
+    <h1 class="page-title">Amis</h1>
+    <p class="lead">Exportez vos profils JSON et comparez vos goûts sans créer de compte.</p>
+    <div class="profile-box">
+      <div class="eyebrow">Mon profil</div>
+      <div class="profile-row" style="margin-top:9px"><input id="profileName" class="field" maxlength="40" placeholder="Ton pseudo"><button class="btn orange" id="saveNameBtn">OK</button></div>
+      <div class="actions-row"><button class="btn primary" id="exportBtn">Exporter mon profil</button><button class="btn" id="importBtn">Importer une sauvegarde</button><input type="file" id="importFile" accept="application/json" hidden></div>
+    </div>
+    <div class="friend-box">
+      <div class="eyebrow">Duel</div>
+      <h3 style="margin:6px 0 4px">Comparer avec un ami</h3>
+      <p class="lead" style="margin-bottom:8px">Charge son export AniShelf. Tes données ne seront jamais écrasées.</p>
+      <button class="btn primary" id="friendImportBtn">Charger son JSON</button><input type="file" id="friendFile" accept="application/json" hidden>
+      <div id="friendMeta" style="margin-top:8px;color:var(--muted);font-size:11px"></div>
+    </div>
+    <div class="compare-stats" id="compareStats"></div>
+    <div id="compareContent" class="empty">Aucun profil ami chargé.</div>
+  </div>
+</section>
+</div>
+
+<nav class="bottom-nav quick-nav" aria-label="Navigation mode rapide">
+  <button class="nav-btn active" data-quick-view="sort"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="m8 14 3 3 5-6"/></svg><span>TRIER</span></button>
+  <button class="nav-btn" data-quick-view="tier"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/><path d="M8 3v4M14 10v4M11 17v4"/></svg><span>TABLEAU</span></button>
+</nav>
+
+<nav class="bottom-nav shelf-nav" aria-label="Navigation AniShelf">
+  <button class="nav-btn active" data-view="deck" aria-label="Classer"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="m8 14 3 3 5-6"/></svg><span>CLASSER</span></button>
+  <button class="nav-btn" data-view="library" aria-label="Bibliothèque"><svg viewBox="0 0 24 24"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v5H4zM14 15h6v5h-6z"/></svg><span>BIBLIO</span></button>
+  <button class="nav-btn" data-view="tier" aria-label="Tier list"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/><path d="M8 3v4M14 10v4M11 17v4"/></svg><span>TIERS</span></button>
+  <button class="nav-btn" data-view="friends" aria-label="Amis"><svg viewBox="0 0 24 24"><path d="M16 20c0-3-2-5-5-5s-5 2-5 5M11 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM18 8v6M15 11h6"/></svg><span>AMIS</span></button>
+</nav>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="sheet"><button class="sheet-close" id="modalClose">×</button><div class="sheet-grab"></div><div id="modalContent"></div></div>
+</div>
+<div class="toast" id="toast"></div>
+
+  <!-- Catalog first, app controller second. No bundler is required. -->
+  <script src="data/catalog.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pwa.js"></script>
+</body>
+</html>

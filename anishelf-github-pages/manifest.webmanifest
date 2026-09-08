@@ -1,0 +1,22 @@
+{
+  "name": "AniShelf — Tier Lab / Personal Canon",
+  "short_name": "AniShelf",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#120e17",
+  "theme_color": "#17111f",
+  "description": "Tier list et carnet de notes anime mobile-first.",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
