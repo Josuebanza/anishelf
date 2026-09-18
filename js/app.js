@@ -1,210 +1,267 @@
+
 /*
- * AniShelf application controller
- * --------------------------------
- * This file intentionally uses plain JavaScript: no framework, no build step,
- * and no server are required for GitHub Pages.  Persistent user data lives in
- * localStorage; export/import JSON remains the portability mechanism.
+ * AniShelf main application.
+ * No framework is required: the site is intentionally plain HTML/CSS/JS so it can
+ * be deployed directly to GitHub Pages.
+ *
+ * Poster priority:
+ *   1) assets/posters/<id>.webp|jpg|jpeg|png  (manual/local override)
+ *   2) AniList GraphQL coverImage.extraLarge/large (cached in localStorage)
+ *   3) assets/posters/<id>.svg                (always available fallback)
  */
-const CATALOG = window.ANISHELF_CATALOG;
-/* ---------- Configuration & rating scales --------------------------------------- */
-const APP_VERSION='4.0.0', STORAGE_KEY='anishelf_state_v1', QUICK_KEY='anishelf_quick_v1', MODE_KEY='anishelf_mode_v1';
-const TIERS=[
- {rating:5,label:'IMMENSE / ABSOLUTE CINEMA',sub:'God tier. Le sommet.'},
- {rating:4.5,label:'CHEF-D’ŒUVRE / MASTERCLASS',sub:'Une œuvre parmi les grandes.'},
- {rating:4,label:'EXCELLENT / BANGER',sub:'Valeur sûre.'},
- {rating:3.5,label:'MÉRITE D’ÊTRE VU',sub:'Bon divertissement.'},
- {rating:3,label:'BON / SOLIDE',sub:'Tu ne regrettes pas.'},
- {rating:2.5,label:'CORRECT MAIS OUBLIABLE',sub:'Basique / passable.'},
- {rating:2,label:'MOYEN',sub:'Oui, bon…'},
- {rating:0,label:'PAS VU',sub:'Aucun jugement.'}
-];
-const DEFAULT_STATE={profileName:'Moi',entries:{}};
+(() => {
+  'use strict';
 
-let state=loadState(), friendProfile=null, tierMode='consensus', deckMode='unrated', libraryFilter='all';
-let appMode=localStorage.getItem(MODE_KEY)||'quick', quickView='sort';
-const QUICK_TIERS=[
- {key:'S',label:'IMMENSE',sub:'Absolute cinema',color:'var(--qs)'},
- {key:'A',label:'CHEF-D’ŒUVRE',sub:'Masterclass',color:'var(--qa)'},
- {key:'B',label:'EXCELLENT',sub:'Banger / valeur sûre',color:'var(--qb)'},
- {key:'C',label:'MÉRITE D’ÊTRE VU',sub:'Bon divertissement',color:'var(--qc)'},
- {key:'D',label:'CORRECT / MOYEN',sub:'Passable / oubliable',color:'var(--qd)'}
-];
-/* ---------- Quick mode state (S/A/B/C/D) ---------------------------------------- */
-function loadQuick(){try{const x=JSON.parse(localStorage.getItem(QUICK_KEY));if(x&&x.assignments)return {assignments:x.assignments||{},queue:x.queue||[],history:x.history||[]}}catch(e){}return {assignments:{},queue:[],history:[]}}
-let quickState=loadQuick();
-function saveQuick(){normalizeQuickQueue();try{localStorage.setItem(QUICK_KEY,JSON.stringify(quickState))}catch(e){}if(appMode==='quick')renderQuickCounter()}
-function normalizeQuickQueue(){const open=CATALOG.filter(a=>!quickState.assignments[a.id]).map(a=>a.id),set=new Set(open);quickState.queue=(quickState.queue||[]).filter(id=>set.has(Number(id))).map(Number);const qset=new Set(quickState.queue);open.forEach(id=>{if(!qset.has(id))quickState.queue.push(id)});quickState.history=(quickState.history||[]).map(Number).filter(id=>CATALOG.some(a=>a.id===id))}
-function quickAssignedCount(){return Object.keys(quickState.assignments).filter(id=>quickState.assignments[id]).length}
-function renderQuickCounter(){const n=quickAssignedCount();document.getElementById('topCounter').innerHTML=`<strong>${n}</strong>/${CATALOG.length} triés`;document.getElementById('quickProgress').innerHTML=`<b>${n}/${CATALOG.length}</b>${CATALOG.length-n} à placer`}
-function quickCoverHTML(a){return `<div class="cover-art poster-cover">${posterImgHTML(a)}<div class="poster-shade"></div><div class="cover-rank">${String(a.rank).padStart(3,'0')}</div><div class="cover-kicker">TIER SPRINT · ${a.sourceCount}/3</div><div class="cover-title"><small>${sourceHTML(a)}</small>${esc(a.title)}</div></div>`}
-function renderQuickSort(){normalizeQuickQueue();renderQuickCounter();const stage=document.getElementById('quickCardStage'),picker=document.getElementById('quickPicker'),actions=document.querySelector('#quick-sort .quick-actions');if(!quickState.queue.length){stage.innerHTML=`<div class="quick-empty"><div class="fin">FIN.</div><h2>Tout est placé.</h2><p>Maintenant vient la partie dangereuse : expliquer tes choix.</p><button class="btn primary" onclick="switchQuickView('tier')">Voir le tableau</button></div>`;picker.style.display='none';actions.style.display='none';return}picker.style.display='grid';actions.style.display='flex';const a=CATALOG.find(x=>x.id===Number(quickState.queue[0]));stage.innerHTML=`<article class="quick-card">${quickCoverHTML(a)}<div class="quick-card-meta"><div class="quick-rank">CONSENSUS #${a.rank} · ${a.sourceCount}/3 SOURCES</div><div class="quick-source-row">${sourceHTML(a)}</div></div></article>`}
-function quickAssign(tier){normalizeQuickQueue();const id=Number(quickState.queue.shift());if(!id)return;quickState.assignments[id]=tier;quickState.history.push(id);saveQuick();renderQuickSort();toast(`${tier} — ${QUICK_TIERS.find(t=>t.key===tier).label}`)}
-function quickSkip(){normalizeQuickQueue();if(quickState.queue.length<2){toast('Rien d’autre à passer');return}quickState.queue.push(quickState.queue.shift());saveQuick();renderQuickSort()}
-function quickUndo(){const id=Number((quickState.history||[]).pop());if(!id||!quickState.assignments[id]){toast('Rien à annuler');return}delete quickState.assignments[id];quickState.queue=quickState.queue.filter(x=>Number(x)!==id);quickState.queue.unshift(id);saveQuick();renderQuickSort()}
-function renderQuickTier(){renderQuickCounter();document.getElementById('quickTierBoard').innerHTML=QUICK_TIERS.map(t=>{const items=CATALOG.filter(a=>quickState.assignments[a.id]===t.key);return `<section class="quick-tier-row" data-tier="${t.key}"><div class="quick-tier-label"><b>${t.key}</b><span>${esc(t.label)}<br>${esc(t.sub)}</span></div><div class="quick-tier-items">${items.map(a=>`<div class="quick-tier-item" data-quick-remove="${a.id}">${thumbHTML(a)}<div class="quick-tier-name">${esc(a.title)}</div></div>`).join('')}</div></section>`}).join('');document.querySelectorAll('[data-quick-remove]').forEach(x=>x.onclick=()=>{const id=Number(x.dataset.quickRemove);delete quickState.assignments[id];quickState.queue=quickState.queue.filter(q=>Number(q)!==id);quickState.queue.unshift(id);saveQuick();renderQuickTier();toast('Retiré du tier')});const open=CATALOG.filter(a=>!quickState.assignments[a.id]);document.getElementById('quickUnranked').innerHTML=`<div class="quick-unranked-head"><span>Pas encore classés</span><b>${open.length}</b></div><div class="quick-unranked-grid">${open.slice(0,36).map(a=>thumbHTML(a)).join('')}${open.length>36?`<div style="align-self:center;color:var(--muted);font-size:10px">+${open.length-36}</div>`:''}</div>`}
-function starsToQuick(r){r=Number(r||0);if(r===5)return'S';if(r===4.5)return'A';if(r===4)return'B';if(r===3.5)return'C';if(r>=2)return'D';return null}
-function quickFromStars(){const rated=CATALOG.filter(a=>entry(a.id).rating>0);if(!rated.length){toast('Aucune note AniShelf à convertir');return}const occupied=quickAssignedCount();if(occupied&&!confirm(`Le mode rapide contient déjà ${occupied} classements. Remplacer par la conversion de tes étoiles AniShelf ?`))return;quickState.assignments={};rated.forEach(a=>{const t=starsToQuick(entry(a.id).rating);if(t)quickState.assignments[a.id]=t});quickState.queue=[];quickState.history=[];normalizeQuickQueue();saveQuick();renderQuickTier();toast(`${rated.length} notes converties`) }
-function resetQuick(){if(!confirm('Effacer tout le classement S/A/B/C/D ? Tes notes AniShelf ne seront pas touchées.'))return;quickState={assignments:{},queue:[],history:[]};saveQuick();renderQuickSort();renderQuickTier();toast('Mode rapide réinitialisé')}
-function switchQuickView(name){quickView=name;document.querySelectorAll('.quick-view').forEach(v=>v.classList.toggle('active',v.id==='quick-'+name));document.querySelectorAll('.quick-nav [data-quick-view]').forEach(b=>b.classList.toggle('active',b.dataset.quickView===name));if(name==='sort')renderQuickSort();if(name==='tier')renderQuickTier();window.scrollTo(0,0)}
-function setAppMode(mode){appMode=mode==='shelf'?'shelf':'quick';localStorage.setItem(MODE_KEY,appMode);document.body.dataset.appMode=appMode;document.querySelectorAll('[data-appmode]').forEach(b=>b.classList.toggle('active',b.dataset.appmode===appMode));document.getElementById('brandSub').textContent=appMode==='quick'?'tier sprint / S A B C D':'偏愛 / personal canon';if(appMode==='quick'){switchQuickView(quickView);renderQuickCounter()}else{renderAll();switchView(document.querySelector('.shelf-nav .nav-btn.active')?.dataset.view||'deck')}}
+  const CATALOG = window.ANISHELF_CATALOG || [];
+  const byId = new Map(CATALOG.map(a => [a.id, a]));
+  const STORAGE = {
+    mode: 'anishelf.mode.v3',
+    quick: 'anishelf.quick.v3',
+    shelf: 'anishelf.shelf.v3',
+    posterCache: 'anishelf.posterCache.v3'
+  };
+  const STAR_TIERS = [5,4.5,4,3.5,3,2.5,2];
+  const QUICK_TIERS = ['S','A','B','C','D'];
 
-/* ---------- AniShelf state & shared helpers -------------------------------------- */
-function clone(x){return JSON.parse(JSON.stringify(x))}
-function loadState(){try{const x=JSON.parse(localStorage.getItem(STORAGE_KEY));if(x&&x.entries)return Object.assign(clone(DEFAULT_STATE),x)}catch(e){}return clone(DEFAULT_STATE)}
-function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch(e){} renderGlobalStats()}
-function entry(id){if(!state.entries[id])state.entries[id]={rating:0,favorite:false,note:''};return state.entries[id]}
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-/* ---------- Poster assets ---------------------------------------------------------
- * GitHub Pages is static, so posters are resolved by deterministic file names.
- * - preferred: assets/posters/<slug>.webp (downloaded with scripts/fetch-posters.mjs)
- * - fallback : assets/posters/<slug>.svg  (always committed to the repository)
- */
-function posterPaths(a){
-  const base=`assets/posters/${a.posterSlug}`;
-  return {primary:`${base}.webp`,fallback:`${base}.svg`};
-}
-function posterImgHTML(a,className='poster-img'){
-  const p=posterPaths(a);
-  return `<img class="${className}" src="${p.primary}" data-fallback="${p.fallback}" alt="Affiche — ${esc(a.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=this.dataset.fallback">`;
-}
-function tierFor(r){return TIERS.find(t=>t.rating===Number(r))||TIERS[7]}
-function initials(title){const ignore=['the','of','and','in','a','an','to','my','no'];const parts=title.replace(/[^\p{L}\p{N} ]/gu,' ').split(/\s+/).filter(Boolean).filter(x=>!ignore.includes(x.toLowerCase()));return (parts.slice(0,2).map(x=>x[0]).join('')||title.slice(0,2)).toUpperCase()}
-function variant(a){return 'v'+((a.id+a.title.length)%6)}
-function sourceHTML(a){return `<span class="source-dot ${a.sources.japan?'':'off'}">🇯🇵</span><span class="source-dot ${a.sources.france?'':'off'}">🇫🇷</span><span class="source-dot ${a.sources.world?'':'off'}">🌍</span>`}
-function thumbHTML(a){return `<div class="thumb poster-thumb">${posterImgHTML(a)}<span class="n">${String(a.rank).padStart(3,'0')}</span><span class="t">${esc(a.title)}</span></div>`}
-function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),1700)}
-function renderGlobalStats(){const seen=CATALOG.filter(a=>entry(a.id).rating>0), fav=CATALOG.filter(a=>entry(a.id).favorite), five=seen.filter(a=>entry(a.id).rating===5);const avg=seen.length?seen.reduce((s,a)=>s+entry(a.id).rating,0)/seen.length:0;if(appMode==='shelf')document.getElementById('topCounter').innerHTML=`<strong>${seen.length}</strong>/${CATALOG.length} classés`;document.getElementById('stats').innerHTML=`<div class="stat"><b>${seen.length}</b><span>classés</span></div><div class="stat"><b>${CATALOG.length-seen.length}</b><span>pas vus</span></div><div class="stat"><b>${avg?avg.toFixed(2):'—'}</b><span>moyenne</span></div><div class="stat"><b>${five.length}</b><span>5 étoiles</span></div>`}
-function ratingButtons(id,current,compact=false){return TIERS.filter(t=>t.rating>0).map(t=>`<button class="rate-btn ${Number(current)===t.rating?'selected':''}" data-rate-id="${id}" data-rating="${t.rating}"><b>${t.rating}★</b><small>${compact?'':esc(t.label.split('/')[0])}</small></button>`).join('')+`<button class="rate-btn skip ${Number(current)===0?'selected':''}" data-rate-id="${id}" data-rating="0"><b>0</b><small>pas vu</small></button>`}
-function setRating(id,r,opts={}){entry(id).rating=Number(r);save();if(opts.fromDeck){renderDeck(true);renderLibrary();if(tierMode==='personal')renderTier();setTimeout(()=>scrollDeckTo(0),20);if(Number(r)>0)toast(`${r}★ — ${tierFor(r).label.split('/')[0].trim()}`)}else{renderLibrary();if(tierMode==='personal')renderTier();updateVisibleDeckCard(id)}}
-function toggleFav(id){entry(id).favorite=!entry(id).favorite;save();renderLibrary();updateVisibleDeckCard(id);toast(entry(id).favorite?'Ajouté aux favoris':'Retiré des favoris')}
+  let mode = localStorage.getItem(STORAGE.mode) || 'quick';
+  let route = mode === 'quick' ? 'deck' : 'deck';
+  let quick = readJson(STORAGE.quick, {assignments:{}, queue:[]});
+  let shelf = readJson(STORAGE.shelf, {ratings:{}, notes:{}, favorites:[], profileName:'Moi', queue:[]});
+  let posterCache = readJson(STORAGE.posterCache, {});
+  let quickHistory = [];
+  let shelfHistory = [];
+  let friendProfile = null;
+  let search = '';
 
-/* ---------- AniShelf: swipe/scroll deck ----------------------------------------- */
-function renderDeck(preserve=false){const scroller=document.getElementById('deckScroller');const list=deckMode==='unrated'?CATALOG.filter(a=>entry(a.id).rating===0):CATALOG;const done=CATALOG.length-CATALOG.filter(a=>entry(a.id).rating===0).length;document.getElementById('deckProgress').innerHTML=deckMode==='unrated'?`<b>${done}</b> classés · ${list.length} restant${list.length>1?'s':''}`:`${CATALOG.length} œuvres · swipe / scroll libre`;
- if(!list.length){scroller.innerHTML=`<div class="deck-empty"><div style="font:900 70px Impact;color:var(--orange)">FIN.</div><h2>Tu as tout classé.</h2><p>Bienvenue dans le problème suivant : défendre tes notes auprès de tes amis.</p><button class="btn primary" onclick="switchView('tier')">Voir ma tier list</button></div>`;return}
- scroller.innerHTML=list.map(a=>deckSlideHTML(a)).join('');bindDeckEvents();if(!preserve)scroller.scrollTop=0}
-function deckSlideHTML(a){const e=entry(a.id),t=tierFor(e.rating);return `<article class="deck-slide" data-deck-id="${a.id}"><div class="rate-card ${e.rating>0?'rated':''}"><div class="cover-art poster-cover" data-swipe-id="${a.id}">${posterImgHTML(a)}<div class="poster-shade"></div><div class="cover-rank">${String(a.rank).padStart(3,'0')}</div><div class="cover-kicker">${a.sourceCount}/3 sources</div><div class="cover-title"><small>${sourceHTML(a)} <span style="margin-left:3px">CONSENSUS #${a.rank}</span></small>${esc(a.title)}</div></div><div class="rate-panel"><div class="rate-panel-top"><div class="current-rating">${e.rating?`Ta note : <span>${e.rating}★</span> · ${esc(t.label.split('/')[0])}`:'Pas encore classé'}</div><div class="card-actions"><button class="square-btn ${e.favorite?'on':''}" data-fav="${a.id}" title="Favori">♥</button><button class="square-btn" data-detail="${a.id}" title="Notes">•••</button></div></div><div class="rating-grid">${ratingButtons(a.id,e.rating)}</div><div class="deck-hint">swipe vertical pour parcourir · glisse gauche/droite pour précédent/suivant</div></div></div></article>`}
-function bindDeckEvents(){document.querySelectorAll('#deckScroller [data-rating]').forEach(b=>b.onclick=()=>setRating(+b.dataset.rateId,+b.dataset.rating,{fromDeck:true}));document.querySelectorAll('#deckScroller [data-fav]').forEach(b=>b.onclick=()=>toggleFav(+b.dataset.fav));document.querySelectorAll('#deckScroller [data-detail]').forEach(b=>b.onclick=()=>openModal(+b.dataset.detail));document.querySelectorAll('#deckScroller [data-swipe-id]').forEach(enableHorizontalSwipe)}
-function updateVisibleDeckCard(id){const old=document.querySelector(`.deck-slide[data-deck-id="${id}"]`);if(!old)return;const a=CATALOG.find(x=>x.id===id);old.outerHTML=deckSlideHTML(a);const fresh=document.querySelector(`.deck-slide[data-deck-id="${id}"]`);fresh.querySelectorAll('[data-rating]').forEach(b=>b.onclick=()=>setRating(+b.dataset.rateId,+b.dataset.rating,{fromDeck:true}));fresh.querySelectorAll('[data-fav]').forEach(b=>b.onclick=()=>toggleFav(+b.dataset.fav));fresh.querySelectorAll('[data-detail]').forEach(b=>b.onclick=()=>openModal(+b.dataset.detail));const sw=fresh.querySelector('[data-swipe-id]');if(sw)enableHorizontalSwipe(sw)}
-function scrollDeckTo(delta){const sc=document.getElementById('deckScroller');const slides=[...sc.querySelectorAll('.deck-slide')];if(!slides.length)return;let idx=slides.findIndex(s=>Math.abs(s.offsetTop-sc.scrollTop)<s.offsetHeight*.55);if(idx<0)idx=0;idx=Math.max(0,Math.min(slides.length-1,idx+delta));slides[idx].scrollIntoView({behavior:'smooth',block:'start'})}
-function enableHorizontalSwipe(el){let sx=0,sy=0,active=false;el.addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY;active=true});el.addEventListener('pointerup',e=>{if(!active)return;active=false;const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.4)scrollDeckTo(dx<0?1:-1)})}
+  const main = document.getElementById('main');
+  const nav = document.getElementById('bottomNav');
+  const toast = document.getElementById('toast');
+  const settingsDialog = document.getElementById('settingsDialog');
 
-/* ---------- AniShelf: searchable library ---------------------------------------- */
-function renderLibrary(){const q=(document.getElementById('searchInput').value||'').trim().toLowerCase();let list=CATALOG.filter(a=>a.title.toLowerCase().includes(q));list=list.filter(a=>{const e=entry(a.id);if(libraryFilter==='all')return true;if(libraryFilter==='seen')return e.rating>0;if(libraryFilter==='unrated')return e.rating===0;if(libraryFilter==='fav')return e.favorite;if(libraryFilter==='3')return a.sourceCount===3;if(['japan','france','world'].includes(libraryFilter))return a.sources[libraryFilter];return true});document.getElementById('libraryGrid').innerHTML=list.map(a=>libCardHTML(a)).join('')||`<div class="empty">Aucun anime pour ce filtre.</div>`;document.querySelectorAll('#libraryGrid [data-open]').forEach(x=>x.onclick=()=>openModal(+x.dataset.open));document.querySelectorAll('#libraryGrid [data-fav]').forEach(x=>x.onclick=e=>{e.stopPropagation();toggleFav(+x.dataset.fav)})}
-function libCardHTML(a){const e=entry(a.id);return `<article class="lib-card" data-open="${a.id}">${thumbHTML(a)}<div class="lib-info"><div class="lib-rank">#${a.rank} · ${a.sourceCount}/3 SOURCES</div><div class="lib-title">${esc(a.title)}</div><div class="lib-meta">${a.sources.japan?'<span class="pill">🇯🇵 JAPON</span>':''}${a.sources.france?'<span class="pill">🇫🇷 FR</span>':''}${a.sources.world?'<span class="pill">🌍 RANKER</span>':''}</div><div class="lib-rating"><div class="rating-text">${e.rating?`<strong>${e.rating}★</strong> · ${esc(tierFor(e.rating).label.split('/')[0])}`:'0 · PAS VU'}</div><div class="mini-actions"><button class="${e.favorite?'on':''}" data-fav="${a.id}">♥</button><button>NOTER</button></div></div></div></article>`}
+  // ---------- Generic helpers ----------
+  function readJson(key, fallback){ try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch { return fallback; } }
+  function writeJson(key, value){ localStorage.setItem(key, JSON.stringify(value)); }
+  function save(){ writeJson(STORAGE.quick, quick); writeJson(STORAGE.shelf, shelf); writeJson(STORAGE.posterCache, posterCache); }
+  function esc(s=''){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+  function showToast(message){ toast.textContent=message; toast.classList.add('show'); clearTimeout(showToast.t); showToast.t=setTimeout(()=>toast.classList.remove('show'),2200); }
+  function download(name, blob){ const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),2000); }
+  function localPosterCandidates(anime){ const base=`assets/posters/${anime.id}`; return [`${base}.webp`,`${base}.jpg`,`${base}.jpeg`,`${base}.png`]; }
+  function fallbackPoster(anime){ return `assets/posters/${anime.id}.svg`; }
 
-/* ---------- AniShelf: personal / consensus tier boards -------------------------- */
-function renderTier(){const personal=tierMode==='personal';document.getElementById('tierBoard').innerHTML=TIERS.map(t=>{const items=CATALOG.filter(a=>(personal?entry(a.id).rating:a.consensusRating)===t.rating);return `<section class="tier-row" data-tier="${t.rating}"><div class="tier-label"><div class="tier-score">${t.rating===0?'0':t.rating+'★'}</div><div class="tier-copy"><strong>${esc(t.label)}</strong><span>${esc(t.sub)}</span></div><div class="tier-count">${items.length}</div></div><div class="tier-items">${items.map(a=>`<div class="tier-item" data-tier-open="${a.id}">${thumbHTML(a)}<div class="tier-item-title">${esc(a.title)}</div></div>`).join('')}</div></section>`}).join('');document.querySelectorAll('[data-tier-open]').forEach(x=>x.onclick=()=>openModal(+x.dataset.tierOpen))}
-
-/* ---------- Detail sheet --------------------------------------------------------- */
-function openModal(id){const a=CATALOG.find(x=>x.id===id),e=entry(id);document.getElementById('modalContent').innerHTML=`<div class="sheet-head">${thumbHTML(a)}<div style="flex:1"><div class="eyebrow">Consensus #${a.rank} · ${a.sourceCount}/3 sources</div><h3>${esc(a.title)}</h3><div style="display:flex;gap:5px">${sourceHTML(a)}</div><div style="margin-top:10px;font-size:11px;color:var(--muted)">Preset : <b style="color:white">${a.consensusRating}★ · ${esc(tierFor(a.consensusRating).label)}</b></div></div></div><div class="sheet-ratings">${ratingButtons(a.id,e.rating,true)}</div><label class="eyebrow" style="display:block;margin-top:15px">Note perso</label><textarea id="modalNote" class="field note" placeholder="Pourquoi ça marche — ou pas — pour toi ?">${esc(e.note||'')}</textarea><div class="actions-row"><button class="btn ${e.favorite?'orange':''}" id="modalFav">♥ Favori</button><button class="btn primary" id="modalSave">Enregistrer</button></div>`;document.getElementById('modalBackdrop').classList.add('open');document.querySelectorAll('#modalContent [data-rating]').forEach(b=>b.onclick=()=>{e.rating=+b.dataset.rating;document.querySelectorAll('#modalContent [data-rating]').forEach(x=>x.classList.toggle('selected',x===b))});document.getElementById('modalFav').onclick=()=>{e.favorite=!e.favorite;document.getElementById('modalFav').classList.toggle('orange',e.favorite)};document.getElementById('modalSave').onclick=()=>{e.note=document.getElementById('modalNote').value;save();closeModal();renderLibrary();renderDeck(true);if(tierMode==='personal')renderTier();toast('Fiche enregistrée')}}
-function closeModal(){document.getElementById('modalBackdrop').classList.remove('open')}
-
-
-/* ---------- PNG tier-list export -------------------------------------------------
- * The project deliberately avoids a screenshot library here.  We compose the image
- * ourselves on a <canvas>, which keeps GitHub Pages fully static/offline and gives
- * us a predictable share format on phones.  Real WEBP posters are used when they
- * exist; the committed SVG posters are the automatic fallback.
- */
-function canvasPosterSource(a){
-  return new Promise(resolve=>{
-    const p=posterPaths(a), img=new Image();
-    img.decoding='async';
-    img.onload=()=>resolve(img);
-    img.onerror=()=>{
-      const fallback=new Image();
-      fallback.onload=()=>resolve(fallback);
-      fallback.onerror=()=>resolve(null);
-      fallback.src=p.fallback;
-    };
-    img.src=p.primary;
-  });
-}
-function roundRect(ctx,x,y,w,h,r){
-  const rr=Math.min(r,w/2,h/2);ctx.beginPath();ctx.moveTo(x+rr,y);ctx.arcTo(x+w,y,x+w,y+h,rr);ctx.arcTo(x+w,y+h,x,y+h,rr);ctx.arcTo(x,y+h,x,y,rr);ctx.arcTo(x,y,x+w,y,rr);ctx.closePath();
-}
-function drawImageCover(ctx,img,x,y,w,h){
-  if(!img){ctx.fillStyle='#2b2033';ctx.fillRect(x,y,w,h);return}
-  const ir=img.width/img.height, r=w/h;let sx=0,sy=0,sw=img.width,sh=img.height;
-  if(ir>r){sw=img.height*r;sx=(img.width-sw)/2}else{sh=img.width/r;sy=(img.height-sh)/2}
-  ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
-}
-function wrapCanvasText(ctx,text,maxWidth,maxLines=2){
-  const words=String(text).split(/\s+/),lines=[];let line='';
-  for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width<=maxWidth||!line){line=test}else{lines.push(line);line=word;if(lines.length===maxLines-1)break}}
-  if(line&&lines.length<maxLines)lines.push(line);
-  const consumed=lines.join(' ').length;if(consumed<text.length&&lines.length)lines[lines.length-1]=lines[lines.length-1].replace(/[.…]*$/,'')+'…';
-  return lines;
-}
-async function exportTierImage(kind){
-  const quick=kind==='quick';
-  const rows=quick
-    ? QUICK_TIERS.map(t=>({key:t.key,title:`${t.key} · ${t.label}`,sub:t.sub,color:getComputedStyle(document.documentElement).getPropertyValue(`--q${t.key.toLowerCase()}`).trim()||'#8f68ff',items:CATALOG.filter(a=>quickState.assignments[a.id]===t.key)}))
-    : TIERS.filter(t=>t.rating>0).map(t=>({key:String(t.rating),title:`${t.rating}★ · ${t.label}`,sub:t.sub,color:t.rating===5?'#ff8b3d':t.rating===4.5?'#d78bff':t.rating===4?'#8f68ff':t.rating===3.5?'#5e8cff':t.rating===3?'#70e0ae':t.rating===2.5?'#dcc071':'#a77878',items:CATALOG.filter(a=>(tierMode==='personal'?entry(a.id).rating:a.consensusRating)===t.rating)}));
-  const visibleRows=rows.filter(r=>r.items.length||quick);if(!visibleRows.length){toast('Rien à exporter pour le moment');return}
-  toast('Création de l’image…');
-  const W=1600,margin=64,labelW=310,cardW=126,cardH=176,gap=14,titleH=54,rowPad=20,rowGap=24,cols=Math.max(1,Math.floor((W-margin*2-labelW-32+gap)/(cardW+gap)));
-  const rowHeights=visibleRows.map(r=>{const lines=Math.max(1,Math.ceil(r.items.length/cols));return Math.max(210,rowPad*2+lines*(cardH+titleH)+(lines-1)*gap)});
-  const headerH=210,footerH=88,H=headerH+rowHeights.reduce((a,b)=>a+b,0)+rowGap*(visibleRows.length-1)+footerH+margin;
-  const canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');
-  ctx.fillStyle='#120e17';ctx.fillRect(0,0,W,H);
-  // subtle editorial grid
-  ctx.strokeStyle='rgba(143,104,255,.08)';ctx.lineWidth=1;for(let x=0;x<W;x+=64){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}for(let y=0;y<H;y+=64){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
-  ctx.fillStyle='#ff8b3d';ctx.fillRect(margin,56,92,12);ctx.fillStyle='#f7f0fb';ctx.font='900 66px system-ui, sans-serif';ctx.fillText('ANISHELF',margin,132);
-  ctx.fillStyle='#a997b5';ctx.font='800 22px system-ui, sans-serif';const modeLabel=quick?'TIER SPRINT · S/A/B/C/D':(tierMode==='personal'?`CANON DE ${String(state.profileName||'MOI').toUpperCase()}`:'CONSENSUS ACTUEL');ctx.fillText(modeLabel,margin,170);
-  ctx.textAlign='right';ctx.fillStyle='#8f68ff';ctx.font='900 24px system-ui, sans-serif';ctx.fillText(`${CATALOG.length} ANIME`,W-margin,92);ctx.fillStyle='#82738d';ctx.font='700 18px system-ui, sans-serif';ctx.fillText(new Date().toLocaleDateString('fr-CA'),W-margin,126);ctx.textAlign='left';
-  let y=headerH;const posterCache=new Map();
-  for(let ri=0;ri<visibleRows.length;ri++){
-    const r=visibleRows[ri],rh=rowHeights[ri];ctx.fillStyle='#1b1422';roundRect(ctx,margin,y,W-margin*2,rh,14);ctx.fill();
-    ctx.fillStyle=r.color||'#8f68ff';roundRect(ctx,margin,y,labelW,rh,14);ctx.fill();
-    ctx.fillStyle='#171019';ctx.font='1000 44px system-ui, sans-serif';ctx.fillText(r.title,margin+28,y+66);
-    ctx.font='800 18px system-ui, sans-serif';const subLines=wrapCanvasText(ctx,r.sub,labelW-56,3);subLines.forEach((line,i)=>ctx.fillText(line,margin+28,y+104+i*25));
-    ctx.fillStyle='rgba(23,16,25,.65)';ctx.font='900 17px system-ui, sans-serif';ctx.fillText(`${r.items.length} œuvre${r.items.length>1?'s':''}`,margin+28,y+rh-28);
-    let cx=margin+labelW+28,cy=y+rowPad;
-    for(let i=0;i<r.items.length;i++){
-      const a=r.items[i];if(i>0&&i%cols===0){cx=margin+labelW+28;cy+=cardH+titleH+gap}
-      let img=posterCache.get(a.id);if(img===undefined){img=await canvasPosterSource(a);posterCache.set(a.id,img)}
-      ctx.save();roundRect(ctx,cx,cy,cardW,cardH,8);ctx.clip();drawImageCover(ctx,img,cx,cy,cardW,cardH);ctx.restore();
-      ctx.strokeStyle='#4a3658';ctx.lineWidth=2;roundRect(ctx,cx,cy,cardW,cardH,8);ctx.stroke();
-      ctx.fillStyle='#c9bbd2';ctx.font='800 16px system-ui, sans-serif';const lines=wrapCanvasText(ctx,a.title,cardW,2);lines.forEach((line,li)=>ctx.fillText(line,cx,cy+cardH+22+li*19));
-      cx+=cardW+gap;
-    }
-    y+=rh+(ri<visibleRows.length-1?rowGap:0);
+  // ---------- AniList poster service ----------
+  // Requests are grouped into small GraphQL batches. This prevents a library grid
+  // from firing dozens of API requests at once when it becomes visible.
+  const posterWaiters = new Map();
+  let posterQueue = [];
+  let posterFlushTimer = null;
+  function enqueueAniList(anime, force=false){
+    const cached = posterCache[anime.id];
+    if(!force && cached?.url) return Promise.resolve(cached.url);
+    if(posterWaiters.has(anime.id)) return posterWaiters.get(anime.id).promise;
+    let resolve; const promise = new Promise(r=>resolve=r);
+    posterWaiters.set(anime.id,{promise,resolve}); posterQueue.push(anime);
+    clearTimeout(posterFlushTimer); posterFlushTimer=setTimeout(flushPosterQueue,60);
+    return promise;
   }
-  const rated=quick?quickAssignedCount():CATALOG.filter(a=>entry(a.id).rating>0).length;ctx.fillStyle='#8f7e99';ctx.font='700 17px system-ui, sans-serif';ctx.fillText(quick?`${rated}/${CATALOG.length} classés`:(tierMode==='personal'?`${rated}/${CATALOG.length} vus et notés`:'Preset transculturel Japon · France · Ranker'),margin,H-52);ctx.textAlign='right';ctx.fillStyle='#ff8b3d';ctx.font='900 19px system-ui, sans-serif';ctx.fillText('anishelf · personal canon',W-margin,H-52);ctx.textAlign='left';
-  canvas.toBlob(async blob=>{
-    if(!blob){toast('Impossible de créer l’image');return}
-    const filename=quick?'anishelf-tier-sprint.png':`anishelf-${tierMode==='personal'?slug(state.profileName||'profil'):'consensus'}.png`;
-    const file=new File([blob],filename,{type:'image/png'});
-    if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'Ma tier list AniShelf'});toast('Image prête à partager');return}catch(e){/* cancelled: fall back to download */}}
-    const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);toast('Image PNG téléchargée ✓');
-  },'image/png',.94);
-}
+  async function flushPosterQueue(){
+    const batch=posterQueue.splice(0,10);
+    if(!batch.length) return;
+    const vars={}, defs=[], fields=[];
+    batch.forEach((a,i)=>{ vars['s'+i]=a.searchTitle||a.title; defs.push(`$s${i}: String`); fields.push(`m${i}: Media(search:$s${i}, type:ANIME, sort:POPULARITY_DESC){ id title{romaji english} coverImage{extraLarge large} }`); });
+    const query=`query(${defs.join(',')}){${fields.join('\n')}}`;
+    try{
+      const res=await fetch('https://graphql.anilist.co',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({query,variables:vars})});
+      if(!res.ok) throw new Error(`AniList ${res.status}`);
+      const json=await res.json();
+      batch.forEach((a,i)=>{
+        const media=json?.data?.['m'+i]; const url=media?.coverImage?.extraLarge||media?.coverImage?.large||null;
+        posterCache[a.id]={url,status:url?'anilist':'missing',anilistId:media?.id||null,updatedAt:Date.now()};
+        posterWaiters.get(a.id)?.resolve(url); posterWaiters.delete(a.id);
+      });
+      writeJson(STORAGE.posterCache,posterCache);
+    }catch(err){
+      console.warn('AniList poster batch failed',err);
+      batch.forEach(a=>{ posterCache[a.id]={url:null,status:'missing',updatedAt:Date.now()}; posterWaiters.get(a.id)?.resolve(null); posterWaiters.delete(a.id); });
+      writeJson(STORAGE.posterCache,posterCache);
+    }
+    if(posterQueue.length) setTimeout(flushPosterQueue,700);
+  }
 
-/* ---------- Portable JSON profiles & friend comparison -------------------------- */
-function exportProfile(){const payload={app:'AniShelf',version:APP_VERSION,exportedAt:new Date().toISOString(),profileName:state.profileName,catalogSize:CATALOG.length,entries:state.entries};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`anishelf-${slug(state.profileName||'profil')}.json`;a.click();URL.revokeObjectURL(url);toast('Profil exporté')}
-function slug(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'profil'}
-function importOwn(file){const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.entries)throw 0;state={profileName:x.profileName||'Moi',entries:x.entries};save();document.getElementById('profileName').value=state.profileName;renderAll();toast('Sauvegarde importée')}catch(e){alert('Fichier AniShelf invalide.')}};r.readAsText(file)}
-function importFriend(file){const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.entries)throw 0;friendProfile=x;renderCompare();toast(`Profil de ${x.profileName||'ton ami'} chargé`)}catch(e){alert('Fichier AniShelf invalide.')}};r.readAsText(file)}
-function friendEntry(id){return friendProfile?.entries?.[id]||friendProfile?.entries?.[String(id)]||{rating:0}}
-function renderCompare(){const meta=document.getElementById('friendMeta'),stats=document.getElementById('compareStats'),content=document.getElementById('compareContent');if(!friendProfile){meta.textContent='';stats.innerHTML='';content.className='empty';content.textContent='Aucun profil ami chargé.';return}meta.innerHTML=`Duel contre <b>${esc(friendProfile.profileName||'Ami')}</b>`;const rows=CATALOG.map(a=>({a,mine:Number(entry(a.id).rating||0),theirs:Number(friendEntry(a.id).rating||0)})).filter(x=>x.mine>0&&x.theirs>0).map(x=>({...x,delta:Math.abs(x.mine-x.theirs)})).sort((a,b)=>b.delta-a.delta||a.a.rank-b.a.rank);const shared=rows.length,exact=rows.filter(x=>x.delta===0).length,close=rows.filter(x=>x.delta<=.5).length,avg=shared?rows.reduce((s,x)=>s+x.delta,0)/shared:0;stats.innerHTML=`<div class="stat"><b>${shared}</b><span>en commun</span></div><div class="stat"><b>${exact}</b><span>identiques</span></div><div class="stat"><b>${close}</b><span>à ±0.5</span></div><div class="stat"><b>${shared?avg.toFixed(2):'—'}</b><span>écart moyen</span></div>`;if(!shared){content.className='empty';content.textContent='Vous n’avez encore aucun anime noté en commun.';return}content.className='compare-list';content.innerHTML=rows.map(x=>`<div class="cmp"><div><h4>${esc(x.a.title)}</h4><small>Consensus #${x.a.rank}</small></div><div class="cmp-score"><div>${esc(state.profileName||'Moi')} <b>${x.mine}★</b></div><div>${esc(friendProfile.profileName||'Ami')} <b>${x.theirs}★</b></div><small>écart ${x.delta.toFixed(1)}★</small></div></div>`).join('')}
-function switchView(name){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+name));document.querySelectorAll('.shelf-nav .nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.view===name));if(name==='deck')renderDeck();if(name==='library')renderLibrary();if(name==='tier')renderTier();if(name==='friends')renderCompare();window.scrollTo(0,0)}
-function renderAll(){renderGlobalStats();renderDeck();renderLibrary();renderTier();renderCompare()}
+  function tryImage(url, crossOrigin=false){
+    return new Promise(resolve=>{ const img=new Image(); if(crossOrigin) img.crossOrigin='anonymous'; img.onload=()=>resolve(url); img.onerror=()=>resolve(null); img.src=url; });
+  }
+  async function findLocalPoster(anime){ for(const url of localPosterCandidates(anime)){ if(await tryImage(url)) return url; } return null; }
+  async function resolvePoster(anime,{forceAniList=false}={}){
+    const local=await findLocalPoster(anime); if(local) return {url:local,source:'local'};
+    let remote=null;
+    if(!forceAniList && posterCache[anime.id]?.url) remote=posterCache[anime.id].url;
+    if(!remote) remote=await enqueueAniList(anime,forceAniList);
+    if(remote) return {url:remote,source:'anilist'};
+    return {url:fallbackPoster(anime),source:'fallback'};
+  }
 
-/* ---------- Navigation & DOM event wiring ---------------------------------------- */
-// Events are bound once after the static HTML has loaded.
-document.querySelectorAll('.shelf-nav .nav-btn').forEach(b=>b.onclick=()=>switchView(b.dataset.view));
-document.querySelectorAll('[data-deckmode]').forEach(b=>b.onclick=()=>{deckMode=b.dataset.deckmode;document.querySelectorAll('[data-deckmode]').forEach(x=>x.classList.toggle('active',x===b));renderDeck()});
-document.getElementById('searchInput').oninput=renderLibrary;document.querySelectorAll('#filters [data-filter]').forEach(b=>b.onclick=()=>{libraryFilter=b.dataset.filter;document.querySelectorAll('#filters .chip').forEach(x=>x.classList.toggle('active',x===b));renderLibrary()});
-document.querySelectorAll('[data-tiermode]').forEach(b=>b.onclick=()=>{tierMode=b.dataset.tiermode;document.querySelectorAll('[data-tiermode]').forEach(x=>x.classList.toggle('active',x===b));renderTier()});
-document.getElementById('tierImageBtn').onclick=()=>exportTierImage('shelf');document.getElementById('printBtn').onclick=()=>{document.body.classList.add('print-shelf');window.print();setTimeout(()=>document.body.classList.remove('print-shelf'),300)};document.getElementById('resetRatingsBtn').onclick=()=>{if(confirm('Remettre toutes tes notes à 0 = pas vu ? Les favoris et commentaires restent.')){CATALOG.forEach(a=>entry(a.id).rating=0);save();renderAll();toast('Notes réinitialisées')}};
-document.getElementById('profileName').value=state.profileName||'Moi';document.getElementById('saveNameBtn').onclick=()=>{state.profileName=document.getElementById('profileName').value.trim()||'Moi';save();renderCompare();toast('Pseudo enregistré')};
-document.getElementById('exportBtn').onclick=exportProfile;document.getElementById('importBtn').onclick=()=>document.getElementById('importFile').click();document.getElementById('importFile').onchange=e=>e.target.files[0]&&importOwn(e.target.files[0]);document.getElementById('friendImportBtn').onclick=()=>document.getElementById('friendFile').click();document.getElementById('friendFile').onchange=e=>e.target.files[0]&&importFriend(e.target.files[0]);
+  // Mount a poster without ever showing a broken-image icon: fallback is rendered
+  // immediately, then replaced by local/AniList art when available.
+  function hydratePoster(img, anime, sourceBadge){
+    img.src=fallbackPoster(anime);
+    img.alt=anime.title;
+    resolvePoster(anime).then(({url,source})=>{
+      if(!img.isConnected) return;
+      img.crossOrigin = source==='anilist' ? 'anonymous' : null;
+      img.src=url;
+      if(sourceBadge){ sourceBadge.textContent=source==='local'?'LOCAL':source==='anilist'?'ANILIST':'FALLBACK'; }
+      img.onerror=()=>{ img.onerror=null; img.removeAttribute('crossorigin'); img.src=fallbackPoster(anime); if(sourceBadge) sourceBadge.textContent='FALLBACK'; };
+    });
+  }
 
-document.querySelectorAll('[data-appmode]').forEach(b=>b.onclick=()=>setAppMode(b.dataset.appmode));
-document.querySelectorAll('.quick-nav [data-quick-view]').forEach(b=>b.onclick=()=>switchQuickView(b.dataset.quickView));
-document.querySelectorAll('[data-quick-tier]').forEach(b=>b.onclick=()=>quickAssign(b.dataset.quickTier));
-document.getElementById('quickUndo').onclick=quickUndo;document.getElementById('quickSkip').onclick=quickSkip;document.getElementById('quickFromStars').onclick=quickFromStars;document.getElementById('quickImage').onclick=()=>exportTierImage('quick');document.getElementById('quickReset').onclick=resetQuick;document.getElementById('quickPrint').onclick=()=>{document.body.classList.add('print-quick');window.print();setTimeout(()=>document.body.classList.remove('print-quick'),300)};
+  // Lazy hydrate posters in large grids; this keeps the app light on mobile.
+  let observer=null;
+  function observePosters(){
+    observer?.disconnect();
+    observer=new IntersectionObserver(entries=>entries.forEach(e=>{ if(!e.isIntersecting)return; const img=e.target; const anime=byId.get(img.dataset.posterId); if(anime) hydratePoster(img,anime); observer.unobserve(img); }),{rootMargin:'300px'});
+    document.querySelectorAll('img[data-poster-id]').forEach(img=>observer.observe(img));
+  }
 
-document.getElementById('modalClose').onclick=closeModal;document.getElementById('modalBackdrop').onclick=e=>{if(e.target.id==='modalBackdrop')closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();if(document.getElementById('view-deck').classList.contains('active')){if(e.key==='ArrowDown')scrollDeckTo(1);if(e.key==='ArrowUp')scrollDeckTo(-1)}});
-normalizeQuickQueue();renderQuickTier();renderAll();setAppMode(appMode);
+  // ---------- Mode + navigation ----------
+  function setMode(next){ mode=next; route='deck'; localStorage.setItem(STORAGE.mode,mode); document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode)); render(); }
+  document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
+  document.getElementById('settingsBtn').addEventListener('click',()=>settingsDialog.showModal());
+
+  function navItems(){
+    return mode==='quick'
+      ? [['deck','◈','Classer'],['tiers','▦','Tier list']]
+      : [['deck','◈','Classer'],['library','⌕','Biblio'],['tiers','▦','Tiers'],['friends','◎','Amis']];
+  }
+  function renderNav(){ nav.innerHTML=navItems().map(([r,ico,label])=>`<button class="nav-btn ${route===r?'active':''}" data-route="${r}"><i>${ico}</i>${label}</button>`).join(''); nav.querySelectorAll('[data-route]').forEach(b=>b.onclick=()=>{route=b.dataset.route;render();}); }
+
+  // ---------- Queues + deck cards ----------
+  function quickQueue(){ const unranked=CATALOG.filter(a=>!quick.assignments[a.id]); if(!quick.queue.length) quick.queue=unranked.map(a=>a.id); else quick.queue=quick.queue.filter(id=>!quick.assignments[id]&&byId.has(id)); const set=new Set(quick.queue); unranked.forEach(a=>{if(!set.has(a.id))quick.queue.push(a.id)}); return quick.queue; }
+  function shelfQueue(){ const unseen=CATALOG.filter(a=>!(a.id in shelf.ratings)); if(!shelf.queue.length) shelf.queue=unseen.map(a=>a.id); else shelf.queue=shelf.queue.filter(id=>!(id in shelf.ratings)&&byId.has(id)); const set=new Set(shelf.queue); unseen.forEach(a=>{if(!set.has(a.id))shelf.queue.push(a.id)}); return shelf.queue; }
+  function deckCard(anime){ return `<div class="poster-card"><img id="activePoster" src="${fallbackPoster(anime)}" alt="${esc(anime.title)}"><span id="posterSource" class="poster-source">…</span><div class="poster-gradient"></div><div class="poster-meta"><div class="chips"><span class="chip">#${anime.rank}</span><span class="chip">CONSENSUS ${anime.consensus}★</span></div><h2>${esc(anime.title)}</h2></div></div>`; }
+  function progressBlock(done,total,label){ return `<div class="progress"><i style="width:${total?done/total*100:0}%"></i></div><div class="progress-copy"><span>${label}</span><span>${done} / ${total}</span></div>`; }
+
+  function renderQuickDeck(){
+    const q=quickQueue(), anime=byId.get(q[0]); const done=Object.keys(quick.assignments).length;
+    if(!anime){ main.innerHTML=`<section class="page"><div class="hero"><span class="eyebrow">Mode rapide</span><h1>Tout est classé.</h1>${progressBlock(CATALOG.length,CATALOG.length,'Progression')}</div><button class="wide-btn accent" id="goTiers">Voir la tier list</button></section>`; document.getElementById('goTiers').onclick=()=>{route='tiers';render()}; return; }
+    main.innerHTML=`<section class="page"><div class="hero"><span class="eyebrow">Instinct d'abord</span><h1>Tu le mets où ?</h1>${progressBlock(done,CATALOG.length,'Classés')}</div><div class="deck">${deckCard(anime)}</div><div class="quick-actions">${QUICK_TIERS.map(t=>`<button data-tier="${t}">${t}</button>`).join('')}</div><div class="deck-tools"><button class="pill-btn" id="quickUndo">↶ Annuler</button><button class="pill-btn" id="quickSkip">Passer →</button></div></section>`;
+    hydratePoster(document.getElementById('activePoster'),anime,document.getElementById('posterSource'));
+    main.querySelectorAll('[data-tier]').forEach(b=>b.onclick=()=>{quick.assignments[anime.id]=b.dataset.tier;quickHistory.push(anime.id);quick.queue.shift();save();render();});
+    document.getElementById('quickSkip').onclick=()=>{ if(q.length>1){quick.queue.push(quick.queue.shift());save();render();} };
+    document.getElementById('quickUndo').onclick=()=>{const id=quickHistory.pop(); if(!id)return showToast('Rien à annuler'); delete quick.assignments[id]; quick.queue.unshift(id);save();render();};
+  }
+
+  function renderShelfDeck(){
+    const q=shelfQueue(), anime=byId.get(q[0]); const done=Object.keys(shelf.ratings).length;
+    if(!anime){ main.innerHTML=`<section class="page"><div class="hero"><span class="eyebrow">AniShelf</span><h1>Catalogue noté.</h1>${progressBlock(done,CATALOG.length,'Vus')}</div><button id="openLibrary" class="wide-btn accent">Ouvrir la bibliothèque</button></section>`; document.getElementById('openLibrary').onclick=()=>{route='library';render()}; return; }
+    const buttons=[5,4.5,4,3.5,3,2.5,2,0];
+    main.innerHTML=`<section class="page"><div class="hero"><span class="eyebrow">Ton canon personnel</span><h1>Combien d'étoiles ?</h1>${progressBlock(done,CATALOG.length,'Notés')}</div><div class="deck">${deckCard(anime)}</div><div class="star-actions">${buttons.map(v=>`<button class="${v===5?'accent':''}" data-rating="${v}">${v===0?'Pas vu':v+'★'}</button>`).join('')}</div><div class="deck-tools"><button class="pill-btn" id="shelfUndo">↶ Annuler</button><button class="pill-btn" id="shelfSkip">Passer →</button></div></section>`;
+    hydratePoster(document.getElementById('activePoster'),anime,document.getElementById('posterSource'));
+    main.querySelectorAll('[data-rating]').forEach(b=>b.onclick=()=>{const v=Number(b.dataset.rating); shelf.ratings[anime.id]=v;shelfHistory.push(anime.id);shelf.queue.shift();save();render();});
+    document.getElementById('shelfSkip').onclick=()=>{if(q.length>1){shelf.queue.push(shelf.queue.shift());save();render();}};
+    document.getElementById('shelfUndo').onclick=()=>{const id=shelfHistory.pop(); if(!id)return showToast('Rien à annuler'); delete shelf.ratings[id];shelf.queue.unshift(id);save();render();};
+  }
+
+  // ---------- Library ----------
+  function ratingLabel(v){ return v===0?'Pas vu':`${v}★`; }
+  function renderLibrary(){
+    const filtered=CATALOG.filter(a=>a.title.toLowerCase().includes(search.toLowerCase()));
+    const seen=Object.values(shelf.ratings).filter(v=>v>0).length; const fives=Object.values(shelf.ratings).filter(v=>v===5).length; const values=Object.values(shelf.ratings).filter(v=>v>0); const avg=values.length?(values.reduce((a,b)=>a+b,0)/values.length).toFixed(2):'—';
+    main.innerHTML=`<section class="page"><div class="hero"><span class="eyebrow">Bibliothèque</span><h1>${esc(shelf.profileName||'Moi')}</h1></div><div class="stats"><div class="stat"><b>${seen}</b><span>vus</span></div><div class="stat"><b>${avg}</b><span>moyenne</span></div><div class="stat"><b>${fives}</b><span>5 étoiles</span></div></div><div class="searchbar"><input id="searchInput" placeholder="Rechercher un anime…" value="${esc(search)}"><button class="round-btn" id="refreshInline" title="Rafraîchir les posters">↻</button></div><div class="grid">${filtered.map(a=>`<article class="library-card" data-open="${a.id}"><div class="cover"><img data-poster-id="${a.id}" src="${fallbackPoster(a)}" alt="${esc(a.title)}"><span class="cover-badge">${a.id in shelf.ratings?ratingLabel(shelf.ratings[a.id]):'—'}</span></div><h3>${esc(a.title)}</h3><small>#${a.rank}</small></article>`).join('')}</div></section>`;
+    document.getElementById('searchInput').oninput=e=>{search=e.target.value;renderLibrary();};
+    document.getElementById('refreshInline').onclick=refreshMissingPosters;
+    main.querySelectorAll('[data-open]').forEach(el=>el.onclick=()=>renderAnimeDetail(el.dataset.open));
+    observePosters();
+  }
+  function renderAnimeDetail(id){
+    const a=byId.get(id); if(!a)return; const r=shelf.ratings[id]; const fav=shelf.favorites.includes(id);
+    main.innerHTML=`<section class="page"><button class="pill-btn" id="backLib">← Bibliothèque</button><div style="height:12px"></div><div class="poster-card" style="width:min(70vw,300px);margin:auto"><img id="detailPoster" src="${fallbackPoster(a)}" alt="${esc(a.title)}"><span id="detailSource" class="poster-source">…</span><div class="poster-gradient"></div><div class="poster-meta"><h2>${esc(a.title)}</h2></div></div><h2 style="margin-top:18px">Ta note</h2><div class="star-actions">${[5,4.5,4,3.5,3,2.5,2,0].map(v=>`<button class="${r===v?'accent':''}" data-detail-rating="${v}">${v===0?'Pas vu':v+'★'}</button>`).join('')}</div><button id="favBtn" class="wide-btn">${fav?'★ Retirer des favoris':'☆ Ajouter aux favoris'}</button><h3>Note personnelle</h3><textarea id="noteBox" class="note-box" placeholder="Pourquoi cette œuvre mérite cette note ?">${esc(shelf.notes[id]||'')}</textarea></section>`;
+    hydratePoster(document.getElementById('detailPoster'),a,document.getElementById('detailSource'));
+    document.getElementById('backLib').onclick=()=>{route='library';render();};
+    main.querySelectorAll('[data-detail-rating]').forEach(b=>b.onclick=()=>{shelf.ratings[id]=Number(b.dataset.detailRating);save();renderAnimeDetail(id);});
+    document.getElementById('favBtn').onclick=()=>{shelf.favorites=fav?shelf.favorites.filter(x=>x!==id):[...shelf.favorites,id];save();renderAnimeDetail(id);};
+    document.getElementById('noteBox').onchange=e=>{shelf.notes[id]=e.target.value;save();showToast('Note enregistrée');};
+  }
+
+  // ---------- Tier boards ----------
+  function tierThumb(a){return `<div class="tier-thumb" title="${esc(a.title)}"><img data-poster-id="${a.id}" src="${fallbackPoster(a)}" alt="${esc(a.title)}"></div>`;}
+  function renderQuickTiers(){
+    main.innerHTML=`<section class="page"><div class="hero"><span class="eyebrow">Tier list rapide</span><h1>Instinct pur.</h1></div><div class="export-actions"><button class="wide-btn accent" id="pngQuick">Partager en image</button><button class="wide-btn" id="prefillQuick">Depuis AniShelf</button></div><div id="tierCapture" class="tier-board">${QUICK_TIERS.map(t=>`<div class="tier-row"><div class="tier-label tier-${t}">${t}</div><div class="tier-items">${CATALOG.filter(a=>quick.assignments[a.id]===t).map(tierThumb).join('')}</div></div>`).join('')}</div></section>`;
+    document.getElementById('pngQuick').onclick=()=>exportTierPng('quick');
+    document.getElementById('prefillQuick').onclick=()=>{ const map=v=>v===5?'S':v===4.5?'A':v===4?'B':v===3.5?'C':(v>=2?'D':null); CATALOG.forEach(a=>{const t=map(shelf.ratings[a.id]);if(t)quick.assignments[a.id]=t});quick.queue=[];save();showToast('Tier rapide préremplie');render();};
+    observePosters();
+  }
+  function renderShelfTiers(){
+    const useConsensus = !Object.values(shelf.ratings).some(v=>v>0);
+    main.innerHTML=`<section class="page"><div class="hero"><span class="eyebrow">${useConsensus?'Preset par défaut':'Ton classement'}</span><h1>${useConsensus?'Consensus actuel.':'Ta tier list.'}</h1><p class="muted">${useConsensus?'Elle disparaît automatiquement dès que tu commences à noter.':'0 = pas vu et n’apparaît pas ici.'}</p></div><div class="export-actions"><button class="wide-btn accent" id="pngShelf">Partager en image</button><button class="wide-btn" onclick="window.print()">Imprimer / PDF</button></div><div id="tierCapture" class="tier-board">${STAR_TIERS.map(v=>{const items=CATALOG.filter(a=>(useConsensus?a.consensus:shelf.ratings[a.id])===v);return `<div class="tier-row"><div class="tier-label tier-${String(v).replace('.','')}">${v}★</div><div class="tier-items">${items.map(tierThumb).join('')}</div></div>`}).join('')}</div></section>`;
+    document.getElementById('pngShelf').onclick=()=>exportTierPng(useConsensus?'consensus':'shelf'); observePosters();
+  }
+
+  // ---------- Friends / JSON profiles ----------
+  function exportProfile(){ const payload={app:'AniShelf',version:3,exportedAt:new Date().toISOString(),profileName:shelf.profileName||'Moi',ratings:shelf.ratings,notes:shelf.notes,favorites:shelf.favorites}; download(`anishelf-${(shelf.profileName||'profil').toLowerCase().replace(/\s+/g,'-')}.json`,new Blob([JSON.stringify(payload,null,2)],{type:'application/json'})); }
+  function renderFriends(){
+    const common=friendProfile?CATALOG.filter(a=>shelf.ratings[a.id]>0&&friendProfile.ratings?.[a.id]>0):[];
+    const rows=common.map(a=>({a,me:shelf.ratings[a.id],them:friendProfile.ratings[a.id],gap:Math.abs(shelf.ratings[a.id]-friendProfile.ratings[a.id])})).sort((x,y)=>y.gap-x.gap);
+    main.innerHTML=`<section class="page"><div class="hero"><span class="eyebrow">Comparer</span><h1>Qui a les pires takes ?</h1></div><label>Ton pseudo</label><input id="profileName" class="note-box" style="min-height:0;margin:8px 0 16px" value="${esc(shelf.profileName||'Moi')}"><label class="compare-drop">Importer le JSON d’un ami<input id="friendInput" type="file" accept="application/json" hidden></label>${friendProfile?`<h2 style="margin-top:20px">${esc(shelf.profileName||'Moi')} vs ${esc(friendProfile.profileName||'Ami')}</h2><p class="muted">${common.length} anime notés en commun.</p><div class="compare-table">${rows.slice(0,40).map(x=>`<div class="compare-row"><b>${esc(x.a.title)}</b><span>${x.me}★</span><span>${x.them}★</span></div>`).join('')}</div>`:''}</section>`;
+    document.getElementById('profileName').onchange=e=>{shelf.profileName=e.target.value.trim()||'Moi';save();};
+    document.getElementById('friendInput').onchange=e=>readProfileFile(e.target.files[0],p=>{friendProfile=p;renderFriends();});
+  }
+  function readProfileFile(file,done){if(!file)return;const r=new FileReader();r.onload=()=>{try{const p=JSON.parse(r.result);if(!p.ratings)throw new Error();done(p);}catch{showToast('Profil JSON invalide')}};r.readAsText(file);}
+
+  // ---------- PNG export ----------
+  // The canvas exporter never depends on remote CORS succeeding. It tries the
+  // current local/AniList art with crossorigin="anonymous" and falls back to the
+  // same-origin SVG poster if the CDN refuses canvas access.
+  async function canvasImageFor(a){
+    const local=await findLocalPoster(a); if(local){const img=await loadCanvasImage(local,false);if(img)return img;}
+    const remote=posterCache[a.id]?.url; if(remote){const img=await loadCanvasImage(remote,true);if(img)return img;}
+    return await loadCanvasImage(fallbackPoster(a),false);
+  }
+  function loadCanvasImage(url,cors){return new Promise(resolve=>{const i=new Image();if(cors)i.crossOrigin='anonymous';i.onload=()=>resolve(i);i.onerror=()=>resolve(null);i.src=url;});}
+  async function exportTierPng(kind){
+    showToast('Création du PNG…');
+    let defs=[];
+    if(kind==='quick') defs=QUICK_TIERS.map(t=>({label:t,color:{S:'#ff687c',A:'#ffad4d',B:'#61d8a5',C:'#55aaf2',D:'#9b88e7'}[t],items:CATALOG.filter(a=>quick.assignments[a.id]===t)}));
+    else { const consensus=kind==='consensus'; defs=STAR_TIERS.map(v=>({label:`${v}★`,color:{5:'#ff744c',4.5:'#ff9e45',4:'#f4c751',3.5:'#75d7a5',3:'#62b3ef',2.5:'#9a8ee8',2:'#82768f'}[v],items:CATALOG.filter(a=>(consensus?a.consensus:shelf.ratings[a.id])===v)})); }
+    const W=1500,pad=54,labelW=130,thumbW=86,thumbH=129,gap=10,rowPad=14,head=160;
+    const rowHeights=defs.map(d=>Math.max(160,Math.ceil(Math.max(1,d.items.length)/13)*(thumbH+gap)+rowPad*2));
+    const H=head+rowHeights.reduce((a,b)=>a+b+12,0)+70;
+    const c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
+    const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#15111e');g.addColorStop(1,'#261736');x.fillStyle=g;x.fillRect(0,0,W,H);
+    x.fillStyle='#ff8a3d';x.font='900 26px Arial';x.fillText('ANISHELF',pad,56);x.fillStyle='#f8f4ff';x.font='900 54px Arial';x.fillText(kind==='quick'?'TIER LIST RAPIDE':kind==='consensus'?'CONSENSUS ACTUEL':`${shelf.profileName||'MON'} CANON`,pad,116);
+    let y=head;
+    for(let r=0;r<defs.length;r++){
+      const d=defs[r],rh=rowHeights[r];x.fillStyle='#1d1728';roundRect(x,pad,y,W-pad*2,rh,20);x.fill();x.fillStyle=d.color;roundRect(x,pad,y,labelW,rh,20);x.fill();x.fillStyle='#160f1d';x.font='900 28px Arial';x.textAlign='center';x.fillText(d.label,pad+labelW/2,y+48);x.textAlign='left';
+      for(let i=0;i<d.items.length;i++){
+        const a=d.items[i],col=i%13,row=Math.floor(i/13),px=pad+labelW+14+col*(thumbW+gap),py=y+rowPad+row*(thumbH+gap);const img=await canvasImageFor(a);x.save();roundRect(x,px,py,thumbW,thumbH,9);x.clip();if(img)x.drawImage(img,px,py,thumbW,thumbH);else{x.fillStyle='#2b2038';x.fillRect(px,py,thumbW,thumbH)}x.restore();
+      }
+      y+=rh+12;
+    }
+    x.fillStyle='#9f92b3';x.font='18px Arial';x.fillText(`${new Date().toLocaleDateString('fr-CA')} · ${CATALOG.length} œuvres dans le catalogue`,pad,H-30);
+    c.toBlob(async blob=>{if(!blob)return showToast('Export impossible');const file=new File([blob],'anishelf-tier-list.png',{type:'image/png'});if(navigator.canShare?.({files:[file]})){try{await navigator.share({files:[file],title:'Ma tier list AniShelf'});return}catch{}}download(file.name,blob);showToast('PNG téléchargé ✓');},'image/png',.94);
+  }
+  function roundRect(ctx,x,y,w,h,r){const rr=Math.min(r,w/2,h/2);ctx.beginPath();ctx.moveTo(x+rr,y);ctx.arcTo(x+w,y,x+w,y+h,rr);ctx.arcTo(x+w,y+h,x,y+h,rr);ctx.arcTo(x,y+h,x,y,rr);ctx.arcTo(x,y,x+w,y,rr);ctx.closePath();}
+
+  // ---------- Poster maintenance ----------
+  async function refreshMissingPosters(){
+    const missing=CATALOG.filter(a=>!posterCache[a.id]?.url);
+    if(!missing.length)return showToast('Aucune affiche AniList manquante');
+    showToast(`Recherche de ${missing.length} affiches…`);
+    for(let i=0;i<missing.length;i+=10){await Promise.all(missing.slice(i,i+10).map(a=>enqueueAniList(a,true))); await new Promise(r=>setTimeout(r,650));}
+    save();showToast('Affiches actualisées ✓');render();
+  }
+  document.getElementById('refreshMissingPosters').onclick=()=>{settingsDialog.close();refreshMissingPosters();};
+  document.getElementById('clearPosterCache').onclick=()=>{posterCache={};writeJson(STORAGE.posterCache,posterCache);showToast('Cache AniList vidé');settingsDialog.close();render();};
+  document.getElementById('exportProfileBtn').onclick=()=>{exportProfile();settingsDialog.close();};
+  document.getElementById('importProfileInput').onchange=e=>readProfileFile(e.target.files[0],p=>{shelf={...shelf,...p,queue:[]};save();showToast('Profil importé ✓');settingsDialog.close();render();});
+  document.getElementById('resetCurrentMode').onclick=()=>{if(mode==='quick'){quick={assignments:{},queue:[]};quickHistory=[];}else{shelf={ratings:{},notes:{},favorites:[],profileName:shelf.profileName||'Moi',queue:[]};shelfHistory=[];}save();settingsDialog.close();showToast('Mode réinitialisé');render();};
+
+  // ---------- Main render ----------
+  function render(){
+    document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));
+    renderNav();
+    if(mode==='quick'){ if(route==='tiers')renderQuickTiers(); else renderQuickDeck(); }
+    else { if(route==='library')renderLibrary(); else if(route==='tiers')renderShelfTiers(); else if(route==='friends')renderFriends(); else renderShelfDeck(); }
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  render();
+})();

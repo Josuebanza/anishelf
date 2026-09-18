@@ -1,12 +1,9 @@
-/**
- * Tiny dependency-free project audit used before deployment.
- */
-import { readFile, access } from 'node:fs/promises';
-import { constants } from 'node:fs';
-
-const root = new URL('../', import.meta.url);
-const catalog = JSON.parse(await readFile(new URL('data/catalog.json', root), 'utf8'));
-const required = ['index.html','css/styles.css','js/app.js','data/catalog.js','manifest.webmanifest'];
-for (const file of required) await access(new URL(file, root), constants.F_OK);
-for (const anime of catalog) await access(new URL(`assets/posters/${anime.posterSlug}.svg`, root), constants.F_OK);
-console.log(`Audit OK: ${catalog.length} catalog entries and ${catalog.length} fallback posters.`);
+#!/usr/bin/env node
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url));const root=path.resolve(here,'..');
+const c=JSON.parse(await fs.readFile(path.join(root,'data/catalog.json'),'utf8'));
+let ok=true;const ids=new Set();for(const a of c){if(ids.has(a.id)){console.error('Duplicate id',a.id);ok=false}ids.add(a.id);try{await fs.access(path.join(root,'assets/posters',a.id+'.svg'))}catch{console.error('Missing fallback',a.id);ok=false}}
+for(const f of ['index.html','css/styles.css','js/app.js','data/catalog.js','manifest.webmanifest','sw.js'])try{await fs.access(path.join(root,f))}catch{console.error('Missing',f);ok=false}
+console.log(`${c.length} anime · ${ok?'audit OK':'audit FAILED'}`);process.exit(ok?0:1);

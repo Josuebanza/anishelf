@@ -1,2354 +1,1178 @@
 [
   {
-    "id": 1,
-    "rank": 1,
+    "id": "attack-on-titan",
     "title": "Attack on Titan",
+    "rank": 1,
     "searchTitle": "Attack on Titan",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 5,
-    "posterSlug": "attack-on-titan"
+    "consensus": 5
   },
   {
-    "id": 2,
+    "id": "hunter-x-hunter",
+    "title": "Hunter x Hunter",
     "rank": 2,
-    "title": "Hunter × Hunter",
-    "searchTitle": "Hunter × Hunter",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 5,
-    "posterSlug": "hunter-x-hunter"
+    "searchTitle": "Hunter x Hunter",
+    "consensus": 5
   },
   {
-    "id": 3,
+    "id": "fullmetal-alchemist-brotherhood",
+    "title": "Fullmetal Alchemist: Brotherhood",
     "rank": 3,
-    "title": "Fullmetal Alchemist / Brotherhood",
     "searchTitle": "Fullmetal Alchemist: Brotherhood",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 5,
-    "posterSlug": "fullmetal-alchemist-brotherhood"
+    "consensus": 5
   },
   {
-    "id": 4,
-    "rank": 4,
+    "id": "death-note",
     "title": "Death Note",
+    "rank": 4,
     "searchTitle": "Death Note",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 5,
-    "posterSlug": "death-note"
+    "consensus": 5
   },
   {
-    "id": 5,
-    "rank": 5,
+    "id": "code-geass",
     "title": "Code Geass",
+    "rank": 5,
     "searchTitle": "Code Geass",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 5,
-    "posterSlug": "code-geass"
+    "consensus": 5
   },
   {
-    "id": 6,
-    "rank": 6,
+    "id": "naruto",
     "title": "Naruto",
+    "rank": 6,
     "searchTitle": "Naruto",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 5,
-    "posterSlug": "naruto"
+    "consensus": 5
   },
   {
-    "id": 7,
+    "id": "frieren-beyond-journey-s-end",
+    "title": "Frieren: Beyond Journey's End",
     "rank": 7,
-    "title": "Frieren: Beyond Journey’s End",
-    "searchTitle": "Frieren: Beyond Journey’s End",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 4.5,
-    "posterSlug": "frieren-beyond-journey-s-end"
+    "searchTitle": "Frieren: Beyond Journey's End",
+    "consensus": 5
   },
   {
-    "id": 8,
-    "rank": 8,
+    "id": "haikyuu",
     "title": "Haikyuu!!",
+    "rank": 8,
     "searchTitle": "Haikyuu!!",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 4.5,
-    "posterSlug": "haikyuu"
+    "consensus": 5
   },
   {
-    "id": 9,
-    "rank": 9,
+    "id": "steins-gate",
     "title": "Steins;Gate",
+    "rank": 9,
     "searchTitle": "Steins;Gate",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 4.5,
-    "posterSlug": "steins-gate"
+    "consensus": 4.5
   },
   {
-    "id": 10,
-    "rank": 10,
+    "id": "dragon-ball",
     "title": "Dragon Ball",
-    "searchTitle": "Dragon Ball Z",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 4.5,
-    "posterSlug": "dragon-ball-z"
+    "rank": 10,
+    "searchTitle": "Dragon Ball",
+    "consensus": 4.5
   },
   {
-    "id": 11,
-    "rank": 11,
+    "id": "jojo-s-bizarre-adventure",
     "title": "JoJo's Bizarre Adventure",
+    "rank": 11,
     "searchTitle": "JoJo's Bizarre Adventure",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 4.5,
-    "posterSlug": "jojo-s-bizarre-adventure"
+    "consensus": 4.5
   },
   {
-    "id": 12,
-    "rank": 12,
+    "id": "one-piece",
     "title": "One Piece",
+    "rank": 12,
     "searchTitle": "One Piece",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 4.5,
-    "posterSlug": "one-piece"
+    "consensus": 4.5
   },
   {
-    "id": 13,
-    "rank": 13,
+    "id": "neon-genesis-evangelion",
     "title": "Neon Genesis Evangelion",
+    "rank": 13,
     "searchTitle": "Neon Genesis Evangelion",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 4.5,
-    "posterSlug": "neon-genesis-evangelion"
+    "consensus": 4.5
   },
   {
-    "id": 14,
-    "rank": 14,
+    "id": "gintama",
     "title": "Gintama",
+    "rank": 14,
     "searchTitle": "Gintama",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 4.5,
-    "posterSlug": "gintama"
+    "consensus": 4.5
   },
   {
-    "id": 15,
-    "rank": 15,
+    "id": "kaguya-sama-love-is-war",
     "title": "Kaguya-sama: Love Is War",
+    "rank": 15,
     "searchTitle": "Kaguya-sama: Love Is War",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 4.5,
-    "posterSlug": "kaguya-sama-love-is-war"
+    "consensus": 4.5
   },
   {
-    "id": 16,
+    "id": "fate-stay-night",
+    "title": "Fate/Stay Night",
     "rank": 16,
-    "title": "Fate",
-    "searchTitle": "Fate/Zero",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 3,
-    "consensusRating": 4.5,
-    "posterSlug": "fate-zero"
+    "searchTitle": "Fate/Stay Night",
+    "consensus": 4.5
   },
   {
-    "id": 17,
-    "rank": 17,
+    "id": "my-hero-academia",
     "title": "My Hero Academia",
+    "rank": 17,
     "searchTitle": "My Hero Academia",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "my-hero-academia"
+    "consensus": 4.5
   },
   {
-    "id": 18,
-    "rank": 18,
+    "id": "jujutsu-kaisen",
     "title": "Jujutsu Kaisen",
+    "rank": 18,
     "searchTitle": "Jujutsu Kaisen",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "jujutsu-kaisen"
+    "consensus": 4.5
   },
   {
-    "id": 19,
-    "rank": 19,
+    "id": "mob-psycho-100",
     "title": "Mob Psycho 100",
+    "rank": 19,
     "searchTitle": "Mob Psycho 100",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "mob-psycho-100"
+    "consensus": 4.5
   },
   {
-    "id": 20,
-    "rank": 20,
+    "id": "assassination-classroom",
     "title": "Assassination Classroom",
+    "rank": 20,
     "searchTitle": "Assassination Classroom",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "assassination-classroom"
+    "consensus": 4.5
   },
   {
-    "id": 21,
-    "rank": 21,
+    "id": "cowboy-bebop",
     "title": "Cowboy Bebop",
+    "rank": 21,
     "searchTitle": "Cowboy Bebop",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "cowboy-bebop"
+    "consensus": 4
   },
   {
-    "id": 22,
-    "rank": 22,
+    "id": "violet-evergarden",
     "title": "Violet Evergarden",
+    "rank": 22,
     "searchTitle": "Violet Evergarden",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "violet-evergarden"
+    "consensus": 4
   },
   {
-    "id": 23,
-    "rank": 23,
+    "id": "dr-stone",
     "title": "Dr. Stone",
+    "rank": 23,
     "searchTitle": "Dr. Stone",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "dr-stone"
+    "consensus": 4
   },
   {
-    "id": 24,
-    "rank": 24,
+    "id": "the-disastrous-life-of-saiki-k",
     "title": "The Disastrous Life of Saiki K.",
+    "rank": 24,
     "searchTitle": "The Disastrous Life of Saiki K.",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "the-disastrous-life-of-saiki-k"
+    "consensus": 4
   },
   {
-    "id": 25,
-    "rank": 25,
+    "id": "tokyo-ghoul",
     "title": "Tokyo Ghoul",
+    "rank": 25,
     "searchTitle": "Tokyo Ghoul",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "tokyo-ghoul"
+    "consensus": 4
   },
   {
-    "id": 26,
-    "rank": 26,
+    "id": "that-time-i-got-reincarnated-as-a-slime",
     "title": "That Time I Got Reincarnated as a Slime",
+    "rank": 26,
     "searchTitle": "That Time I Got Reincarnated as a Slime",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "that-time-i-got-reincarnated-as-a-slime"
+    "consensus": 4
   },
   {
-    "id": 27,
-    "rank": 27,
+    "id": "one-punch-man",
     "title": "One-Punch Man",
+    "rank": 27,
     "searchTitle": "One-Punch Man",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "one-punch-man"
+    "consensus": 4
   },
   {
-    "id": 28,
-    "rank": 28,
+    "id": "your-lie-in-april",
     "title": "Your Lie in April",
+    "rank": 28,
     "searchTitle": "Your Lie in April",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "your-lie-in-april"
+    "consensus": 4
   },
   {
-    "id": 29,
-    "rank": 29,
+    "id": "natsume-s-book-of-friends",
     "title": "Natsume's Book of Friends",
+    "rank": 29,
     "searchTitle": "Natsume's Book of Friends",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "natsume-s-book-of-friends"
+    "consensus": 4
   },
   {
-    "id": 30,
-    "rank": 30,
+    "id": "re-zero",
     "title": "Re:Zero",
+    "rank": 30,
     "searchTitle": "Re:Zero",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "re-zero"
+    "consensus": 4
   },
   {
-    "id": 31,
-    "rank": 31,
+    "id": "samurai-champloo",
     "title": "Samurai Champloo",
+    "rank": 31,
     "searchTitle": "Samurai Champloo",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "samurai-champloo"
+    "consensus": 4
   },
   {
-    "id": 32,
-    "rank": 32,
+    "id": "made-in-abyss",
     "title": "Made in Abyss",
+    "rank": 32,
     "searchTitle": "Made in Abyss",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "made-in-abyss"
+    "consensus": 4
   },
   {
-    "id": 33,
-    "rank": 33,
+    "id": "demon-slayer",
     "title": "Demon Slayer",
+    "rank": 33,
     "searchTitle": "Demon Slayer",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "demon-slayer"
+    "consensus": 4
   },
   {
-    "id": 34,
+    "id": "erased",
+    "title": "Erased",
     "rank": 34,
-    "title": "ERASED",
-    "searchTitle": "ERASED",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "erased"
+    "searchTitle": "Erased",
+    "consensus": 4
   },
   {
-    "id": 35,
-    "rank": 35,
+    "id": "the-promised-neverland",
     "title": "The Promised Neverland",
+    "rank": 35,
     "searchTitle": "The Promised Neverland",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "the-promised-neverland"
+    "consensus": 4
   },
   {
-    "id": 36,
-    "rank": 36,
+    "id": "mushoku-tensei",
     "title": "Mushoku Tensei",
+    "rank": 36,
     "searchTitle": "Mushoku Tensei",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "mushoku-tensei"
+    "consensus": 4
   },
   {
-    "id": 37,
-    "rank": 37,
+    "id": "the-apothecary-diaries",
     "title": "The Apothecary Diaries",
+    "rank": 37,
     "searchTitle": "The Apothecary Diaries",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "the-apothecary-diaries"
+    "consensus": 4
   },
   {
-    "id": 38,
-    "rank": 38,
+    "id": "legend-of-the-galactic-heroes",
     "title": "Legend of the Galactic Heroes",
+    "rank": 38,
     "searchTitle": "Legend of the Galactic Heroes",
-    "sources": {
-      "japan": true,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "legend-of-the-galactic-heroes"
+    "consensus": 4
   },
   {
-    "id": 39,
-    "rank": 39,
+    "id": "no-game-no-life",
     "title": "No Game No Life",
+    "rank": 39,
     "searchTitle": "No Game No Life",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "no-game-no-life"
+    "consensus": 4
   },
   {
-    "id": 40,
+    "id": "spy-x-family",
+    "title": "Spy x Family",
     "rank": 40,
-    "title": "SPY × FAMILY",
-    "searchTitle": "SPY × FAMILY",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "spy-x-family"
+    "searchTitle": "Spy x Family",
+    "consensus": 4
   },
   {
-    "id": 41,
-    "rank": 41,
+    "id": "psycho-pass",
     "title": "Psycho-Pass",
+    "rank": 41,
     "searchTitle": "Psycho-Pass",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "psycho-pass"
+    "consensus": 4
   },
   {
-    "id": 42,
-    "rank": 42,
+    "id": "rascal-does-not-dream-of-bunny-girl-senpai",
     "title": "Rascal Does Not Dream of Bunny Girl Senpai",
+    "rank": 42,
     "searchTitle": "Rascal Does Not Dream of Bunny Girl Senpai",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "rascal-does-not-dream-of-bunny-girl-senpai"
+    "consensus": 4
   },
   {
-    "id": 43,
+    "id": "konosuba",
+    "title": "Konosuba",
     "rank": 43,
-    "title": "KonoSuba",
-    "searchTitle": "KonoSuba",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "konosuba"
+    "searchTitle": "Konosuba",
+    "consensus": 4
   },
   {
-    "id": 44,
-    "rank": 44,
+    "id": "fruits-basket",
     "title": "Fruits Basket",
+    "rank": 44,
     "searchTitle": "Fruits Basket",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "fruits-basket"
+    "consensus": 4
   },
   {
-    "id": 45,
-    "rank": 45,
+    "id": "overlord",
     "title": "Overlord",
+    "rank": 45,
     "searchTitle": "Overlord",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "overlord"
+    "consensus": 4
   },
   {
-    "id": 46,
-    "rank": 46,
+    "id": "sword-art-online",
     "title": "Sword Art Online",
+    "rank": 46,
     "searchTitle": "Sword Art Online",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "sword-art-online"
+    "consensus": 3.5
   },
   {
-    "id": 47,
-    "rank": 47,
+    "id": "charlotte",
     "title": "Charlotte",
+    "rank": 47,
     "searchTitle": "Charlotte",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "charlotte"
+    "consensus": 3.5
   },
   {
-    "id": 48,
-    "rank": 48,
+    "id": "classroom-of-the-elite",
     "title": "Classroom of the Elite",
+    "rank": 48,
     "searchTitle": "Classroom of the Elite",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "classroom-of-the-elite"
+    "consensus": 3.5
   },
   {
-    "id": 49,
-    "rank": 49,
+    "id": "hell-s-paradise",
     "title": "Hell's Paradise",
+    "rank": 49,
     "searchTitle": "Hell's Paradise",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "hell-s-paradise"
+    "consensus": 3.5
   },
   {
-    "id": 50,
-    "rank": 50,
+    "id": "toradora",
     "title": "Toradora!",
+    "rank": 50,
     "searchTitle": "Toradora!",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "toradora"
+    "consensus": 3.5
   },
   {
-    "id": 51,
-    "rank": 51,
+    "id": "angel-beats",
     "title": "Angel Beats!",
+    "rank": 51,
     "searchTitle": "Angel Beats!",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "angel-beats"
+    "consensus": 3.5
   },
   {
-    "id": 52,
-    "rank": 52,
+    "id": "fire-force",
     "title": "Fire Force",
+    "rank": 52,
     "searchTitle": "Fire Force",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "fire-force"
+    "consensus": 3.5
   },
   {
-    "id": 53,
+    "id": "pokemon",
+    "title": "Pokemon",
     "rank": 53,
-    "title": "Pokémon",
     "searchTitle": "Pokemon",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "pokemon"
+    "consensus": 3.5
   },
   {
-    "id": 54,
-    "rank": 54,
+    "id": "the-irregular-at-magic-high-school",
     "title": "The Irregular at Magic High School",
+    "rank": 54,
     "searchTitle": "The Irregular at Magic High School",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 2,
-    "consensusRating": 4,
-    "posterSlug": "the-irregular-at-magic-high-school"
+    "consensus": 3.5
   },
   {
-    "id": 55,
-    "rank": 55,
+    "id": "ashita-no-joe",
     "title": "Ashita no Joe",
+    "rank": 55,
     "searchTitle": "Ashita no Joe",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "ashita-no-joe"
+    "consensus": 3.5
   },
   {
-    "id": 56,
+    "id": "monogatari",
+    "title": "Monogatari",
     "rank": 56,
-    "title": "Monogatari Series",
-    "searchTitle": "Bakemonogatari",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "bakemonogatari"
+    "searchTitle": "Monogatari",
+    "consensus": 3.5
   },
   {
-    "id": 57,
+    "id": "3-gatsu-no-lion",
+    "title": "3-gatsu no Lion",
     "rank": 57,
-    "title": "March Comes in Like a Lion",
-    "searchTitle": "March Comes in Like a Lion",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "march-comes-in-like-a-lion"
+    "searchTitle": "3-gatsu no Lion",
+    "consensus": 3.5
   },
   {
-    "id": 58,
-    "rank": 58,
+    "id": "mushishi",
     "title": "Mushishi",
+    "rank": 58,
     "searchTitle": "Mushishi",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "mushishi"
+    "consensus": 3.5
   },
   {
-    "id": 59,
-    "rank": 59,
+    "id": "ghost-in-the-shell-stand-alone-complex",
     "title": "Ghost in the Shell: Stand Alone Complex",
+    "rank": 59,
     "searchTitle": "Ghost in the Shell: Stand Alone Complex",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "ghost-in-the-shell-stand-alone-complex"
+    "consensus": 3.5
   },
   {
-    "id": 60,
-    "rank": 60,
+    "id": "black-clover",
     "title": "Black Clover",
+    "rank": 60,
     "searchTitle": "Black Clover",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "black-clover"
+    "consensus": 3.5
   },
   {
-    "id": 61,
-    "rank": 61,
+    "id": "ping-pong-the-animation",
     "title": "Ping Pong the Animation",
+    "rank": 61,
     "searchTitle": "Ping Pong the Animation",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "ping-pong-the-animation"
+    "consensus": 3.5
   },
   {
-    "id": 62,
-    "rank": 62,
+    "id": "slam-dunk",
     "title": "Slam Dunk",
+    "rank": 62,
     "searchTitle": "Slam Dunk",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "slam-dunk"
+    "consensus": 3.5
   },
   {
-    "id": 63,
-    "rank": 63,
+    "id": "the-seven-deadly-sins",
     "title": "The Seven Deadly Sins",
+    "rank": 63,
     "searchTitle": "The Seven Deadly Sins",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "the-seven-deadly-sins"
+    "consensus": 3.5
   },
   {
-    "id": 64,
-    "rank": 64,
+    "id": "anohana",
     "title": "Anohana",
+    "rank": 64,
     "searchTitle": "Anohana",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "anohana"
+    "consensus": 3.5
   },
   {
-    "id": 65,
-    "rank": 65,
+    "id": "great-teacher-onizuka",
     "title": "Great Teacher Onizuka",
+    "rank": 65,
     "searchTitle": "Great Teacher Onizuka",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "great-teacher-onizuka"
+    "consensus": 3.5
   },
   {
-    "id": 66,
-    "rank": 66,
+    "id": "summer-time-rendering",
     "title": "Summer Time Rendering",
+    "rank": 66,
     "searchTitle": "Summer Time Rendering",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "summer-time-rendering"
+    "consensus": 3.5
   },
   {
-    "id": 67,
-    "rank": 67,
+    "id": "vinland-saga",
     "title": "Vinland Saga",
+    "rank": 67,
     "searchTitle": "Vinland Saga",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "vinland-saga"
+    "consensus": 3.5
   },
   {
-    "id": 68,
-    "rank": 68,
+    "id": "oshi-no-ko",
     "title": "Oshi no Ko",
+    "rank": 68,
     "searchTitle": "Oshi no Ko",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "oshi-no-ko"
+    "consensus": 3.5
   },
   {
-    "id": 69,
-    "rank": 69,
+    "id": "the-melancholy-of-haruhi-suzumiya",
     "title": "The Melancholy of Haruhi Suzumiya",
+    "rank": 69,
     "searchTitle": "The Melancholy of Haruhi Suzumiya",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "the-melancholy-of-haruhi-suzumiya"
+    "consensus": 3.5
   },
   {
-    "id": 70,
-    "rank": 70,
+    "id": "bleach",
     "title": "Bleach",
+    "rank": 70,
     "searchTitle": "Bleach",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "bleach"
+    "consensus": 3.5
   },
   {
-    "id": 71,
-    "rank": 71,
+    "id": "puella-magi-madoka-magica",
     "title": "Puella Magi Madoka Magica",
+    "rank": 71,
     "searchTitle": "Puella Magi Madoka Magica",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "puella-magi-madoka-magica"
+    "consensus": 3.5
   },
   {
-    "id": 72,
-    "rank": 72,
+    "id": "fairy-tail",
     "title": "Fairy Tail",
+    "rank": 72,
     "searchTitle": "Fairy Tail",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "fairy-tail"
+    "consensus": 3.5
   },
   {
-    "id": 73,
-    "rank": 73,
+    "id": "detective-conan",
     "title": "Detective Conan",
+    "rank": 73,
     "searchTitle": "Detective Conan",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "detective-conan"
+    "consensus": 3.5
   },
   {
-    "id": 74,
-    "rank": 74,
+    "id": "food-wars",
     "title": "Food Wars!",
+    "rank": 74,
     "searchTitle": "Food Wars!",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "food-wars"
+    "consensus": 3.5
   },
   {
-    "id": 75,
-    "rank": 75,
+    "id": "hajime-no-ippo",
     "title": "Hajime no Ippo",
+    "rank": 75,
     "searchTitle": "Hajime no Ippo",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "hajime-no-ippo"
+    "consensus": 3.5
   },
   {
-    "id": 76,
-    "rank": 76,
+    "id": "parasyte-the-maxim",
     "title": "Parasyte: The Maxim",
+    "rank": 76,
     "searchTitle": "Parasyte: The Maxim",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "parasyte-the-maxim"
+    "consensus": 3.5
   },
   {
-    "id": 77,
-    "rank": 77,
+    "id": "bungo-stray-dogs",
     "title": "Bungo Stray Dogs",
+    "rank": 77,
     "searchTitle": "Bungo Stray Dogs",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "bungo-stray-dogs"
+    "consensus": 3.5
   },
   {
-    "id": 78,
-    "rank": 78,
+    "id": "noragami",
     "title": "Noragami",
+    "rank": 78,
     "searchTitle": "Noragami",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "noragami"
+    "consensus": 3.5
   },
   {
-    "id": 79,
-    "rank": 79,
+    "id": "usagi-drop",
     "title": "Usagi Drop",
+    "rank": 79,
     "searchTitle": "Usagi Drop",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "usagi-drop"
+    "consensus": 3.5
   },
   {
-    "id": 80,
-    "rank": 80,
+    "id": "blue-lock",
     "title": "Blue Lock",
+    "rank": 80,
     "searchTitle": "Blue Lock",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "blue-lock"
+    "consensus": 3.5
   },
   {
-    "id": 81,
-    "rank": 81,
+    "id": "bakemonogatari",
     "title": "Bakemonogatari",
+    "rank": 81,
     "searchTitle": "Bakemonogatari",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "bakemonogatari-2"
+    "consensus": 3
   },
   {
-    "id": 82,
-    "rank": 82,
+    "id": "kino-s-journey",
     "title": "Kino's Journey",
+    "rank": 82,
     "searchTitle": "Kino's Journey",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "kino-s-journey"
+    "consensus": 3
   },
   {
-    "id": 83,
-    "rank": 83,
+    "id": "the-rising-of-the-shield-hero",
     "title": "The Rising of the Shield Hero",
+    "rank": 83,
     "searchTitle": "The Rising of the Shield Hero",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "the-rising-of-the-shield-hero"
+    "consensus": 3
   },
   {
-    "id": 84,
-    "rank": 84,
+    "id": "bocchi-the-rock",
     "title": "Bocchi the Rock!",
+    "rank": 84,
     "searchTitle": "Bocchi the Rock!",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "bocchi-the-rock"
+    "consensus": 3
   },
   {
-    "id": 85,
-    "rank": 85,
+    "id": "the-tatami-galaxy",
     "title": "The Tatami Galaxy",
+    "rank": 85,
     "searchTitle": "The Tatami Galaxy",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "the-tatami-galaxy"
+    "consensus": 3
   },
   {
-    "id": 86,
-    "rank": 86,
+    "id": "akame-ga-kill",
     "title": "Akame ga Kill!",
+    "rank": 86,
     "searchTitle": "Akame ga Kill!",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "akame-ga-kill"
+    "consensus": 3
   },
   {
-    "id": 87,
-    "rank": 87,
+    "id": "chainsaw-man",
     "title": "Chainsaw Man",
+    "rank": 87,
     "searchTitle": "Chainsaw Man",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "chainsaw-man"
+    "consensus": 3
   },
   {
-    "id": 88,
-    "rank": 88,
+    "id": "the-quintessential-quintuplets",
     "title": "The Quintessential Quintuplets",
+    "rank": 88,
     "searchTitle": "The Quintessential Quintuplets",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "the-quintessential-quintuplets"
+    "consensus": 3
   },
   {
-    "id": 89,
+    "id": "my-teen-romantic-comedy-snafu",
+    "title": "My Teen Romantic Comedy SNAFU",
     "rank": 89,
-    "title": "My Teen Romantic Comedy SNAFU / Oregairu",
     "searchTitle": "My Teen Romantic Comedy SNAFU",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "my-teen-romantic-comedy-snafu"
+    "consensus": 3
   },
   {
-    "id": 90,
-    "rank": 90,
+    "id": "monster",
     "title": "Monster",
+    "rank": 90,
     "searchTitle": "Monster",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3.5,
-    "posterSlug": "monster"
+    "consensus": 3
   },
   {
-    "id": 91,
-    "rank": 91,
+    "id": "space-dandy",
     "title": "Space Dandy",
+    "rank": 91,
     "searchTitle": "Space Dandy",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "space-dandy"
+    "consensus": 3
   },
   {
-    "id": 92,
-    "rank": 92,
+    "id": "seraph-of-the-end",
     "title": "Seraph of the End",
+    "rank": 92,
     "searchTitle": "Seraph of the End",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "seraph-of-the-end"
+    "consensus": 3
   },
   {
-    "id": 93,
-    "rank": 93,
+    "id": "a-certain-scientific-railgun",
     "title": "A Certain Scientific Railgun",
+    "rank": 93,
     "searchTitle": "A Certain Scientific Railgun",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "a-certain-scientific-railgun"
+    "consensus": 3
   },
   {
-    "id": 94,
-    "rank": 94,
+    "id": "initial-d",
     "title": "Initial D",
+    "rank": 94,
     "searchTitle": "Initial D",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "initial-d"
+    "consensus": 3
   },
   {
-    "id": 95,
-    "rank": 95,
+    "id": "berserk",
     "title": "Berserk",
+    "rank": 95,
     "searchTitle": "Berserk",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "berserk"
+    "consensus": 3
   },
   {
-    "id": 96,
-    "rank": 96,
+    "id": "black-butler",
     "title": "Black Butler",
+    "rank": 96,
     "searchTitle": "Black Butler",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "black-butler"
+    "consensus": 3
   },
   {
-    "id": 97,
-    "rank": 97,
+    "id": "k-on",
     "title": "K-On!",
+    "rank": 97,
     "searchTitle": "K-On!",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "k-on"
+    "consensus": 3
   },
   {
-    "id": 98,
-    "rank": 98,
+    "id": "clannad-after-story",
     "title": "Clannad: After Story",
+    "rank": 98,
     "searchTitle": "Clannad: After Story",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "clannad-after-story"
+    "consensus": 3
   },
   {
-    "id": 99,
-    "rank": 99,
+    "id": "maid-sama",
     "title": "Maid Sama!",
+    "rank": 99,
     "searchTitle": "Maid Sama!",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "maid-sama"
+    "consensus": 3
   },
   {
-    "id": 100,
-    "rank": 100,
+    "id": "is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon",
     "title": "Is It Wrong to Try to Pick Up Girls in a Dungeon?",
+    "rank": 100,
     "searchTitle": "Is It Wrong to Try to Pick Up Girls in a Dungeon?",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon"
+    "consensus": 3
   },
   {
-    "id": 101,
-    "rank": 101,
+    "id": "mobile-suit-gundam",
     "title": "Mobile Suit Gundam",
+    "rank": 101,
     "searchTitle": "Mobile Suit Gundam",
-    "sources": {
-      "japan": false,
-      "france": true,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "mobile-suit-gundam"
+    "consensus": 3
   },
   {
-    "id": 102,
+    "id": "magi-the-labyrinth-of-magic",
+    "title": "Magi: The Labyrinth of Magic",
     "rank": 102,
-    "title": "Magi",
     "searchTitle": "Magi: The Labyrinth of Magic",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "magi-the-labyrinth-of-magic"
+    "consensus": 3
   },
   {
-    "id": 103,
-    "rank": 103,
+    "id": "a-place-further-than-the-universe",
     "title": "A Place Further Than the Universe",
+    "rank": 103,
     "searchTitle": "A Place Further Than the Universe",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "a-place-further-than-the-universe"
+    "consensus": 3
   },
   {
-    "id": 104,
-    "rank": 104,
+    "id": "higurashi-when-they-cry",
     "title": "Higurashi: When They Cry",
+    "rank": 104,
     "searchTitle": "Higurashi: When They Cry",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "higurashi-when-they-cry"
+    "consensus": 3
   },
   {
-    "id": 105,
-    "rank": 105,
+    "id": "ouran-high-school-host-club",
     "title": "Ouran High School Host Club",
+    "rank": 105,
     "searchTitle": "Ouran High School Host Club",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "ouran-high-school-host-club"
+    "consensus": 3
   },
   {
-    "id": 106,
-    "rank": 106,
+    "id": "hyouka",
     "title": "Hyouka",
+    "rank": 106,
     "searchTitle": "Hyouka",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "hyouka"
+    "consensus": 3
   },
   {
-    "id": 107,
-    "rank": 107,
+    "id": "soul-eater",
     "title": "Soul Eater",
+    "rank": 107,
     "searchTitle": "Soul Eater",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "soul-eater"
+    "consensus": 3
   },
   {
-    "id": 108,
-    "rank": 108,
+    "id": "hellsing",
     "title": "Hellsing",
+    "rank": 108,
     "searchTitle": "Hellsing",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "hellsing"
+    "consensus": 3
   },
   {
-    "id": 109,
-    "rank": 109,
+    "id": "another",
     "title": "Another",
+    "rank": 109,
     "searchTitle": "Another",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "another"
+    "consensus": 3
   },
   {
-    "id": 110,
-    "rank": 110,
+    "id": "kuroko-s-basketball",
     "title": "Kuroko's Basketball",
+    "rank": 110,
     "searchTitle": "Kuroko's Basketball",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "kuroko-s-basketball"
+    "consensus": 3
   },
   {
-    "id": 111,
-    "rank": 111,
+    "id": "future-diary",
     "title": "Future Diary",
+    "rank": 111,
     "searchTitle": "Future Diary",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "future-diary"
+    "consensus": 3
   },
   {
-    "id": 112,
-    "rank": 112,
+    "id": "orb-on-the-movements-of-the-earth",
     "title": "Orb: On the Movements of the Earth",
+    "rank": 112,
     "searchTitle": "Orb: On the Movements of the Earth",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "orb-on-the-movements-of-the-earth"
+    "consensus": 3
   },
   {
-    "id": 113,
-    "rank": 113,
+    "id": "the-eminence-in-shadow",
     "title": "The Eminence in Shadow",
+    "rank": 113,
     "searchTitle": "The Eminence in Shadow",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "the-eminence-in-shadow"
+    "consensus": 3
   },
   {
-    "id": 114,
-    "rank": 114,
+    "id": "death-parade",
     "title": "Death Parade",
+    "rank": 114,
     "searchTitle": "Death Parade",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "death-parade"
+    "consensus": 3
   },
   {
-    "id": 115,
-    "rank": 115,
+    "id": "the-dangers-in-my-heart",
     "title": "The Dangers in My Heart",
+    "rank": 115,
     "searchTitle": "The Dangers in My Heart",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "the-dangers-in-my-heart"
+    "consensus": 3
   },
   {
-    "id": 116,
-    "rank": 116,
+    "id": "golden-kamuy",
     "title": "Golden Kamuy",
+    "rank": 116,
     "searchTitle": "Golden Kamuy",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "golden-kamuy"
+    "consensus": 3
   },
   {
-    "id": 117,
-    "rank": 117,
+    "id": "horimiya",
     "title": "Horimiya",
+    "rank": 117,
     "searchTitle": "Horimiya",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "horimiya"
+    "consensus": 3
   },
   {
-    "id": 118,
-    "rank": 118,
+    "id": "high-school-dxd",
     "title": "High School DxD",
+    "rank": 118,
     "searchTitle": "High School DxD",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "high-school-dxd"
+    "consensus": 3
   },
   {
-    "id": 119,
+    "id": "saenai-heroine-no-sodatekata",
+    "title": "Saenai Heroine no Sodatekata",
     "rank": 119,
-    "title": "Saekano",
-    "searchTitle": "Saekano",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "saekano"
+    "searchTitle": "Saenai Heroine no Sodatekata",
+    "consensus": 3
   },
   {
-    "id": 120,
+    "id": "youjo-senki",
+    "title": "Youjo Senki",
     "rank": 120,
-    "title": "Saga of Tanya the Evil",
-    "searchTitle": "Saga of Tanya the Evil",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "saga-of-tanya-the-evil"
+    "searchTitle": "Youjo Senki",
+    "consensus": 3
   },
   {
-    "id": 121,
-    "rank": 121,
+    "id": "inuyasha",
     "title": "InuYasha",
+    "rank": 121,
     "searchTitle": "InuYasha",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "inuyasha"
+    "consensus": 2.5
   },
   {
-    "id": 122,
-    "rank": 122,
+    "id": "the-elusive-samurai",
     "title": "The Elusive Samurai",
+    "rank": 122,
     "searchTitle": "The Elusive Samurai",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "the-elusive-samurai"
+    "consensus": 2.5
   },
   {
-    "id": 123,
-    "rank": 123,
+    "id": "kingdom",
     "title": "Kingdom",
+    "rank": 123,
     "searchTitle": "Kingdom",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "kingdom"
+    "consensus": 2.5
   },
   {
-    "id": 124,
-    "rank": 124,
+    "id": "tokyo-revengers",
     "title": "Tokyo Revengers",
+    "rank": 124,
     "searchTitle": "Tokyo Revengers",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "tokyo-revengers"
+    "consensus": 2.5
   },
   {
-    "id": 125,
-    "rank": 125,
+    "id": "odd-taxi",
     "title": "Odd Taxi",
+    "rank": 125,
     "searchTitle": "Odd Taxi",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "odd-taxi"
+    "consensus": 2.5
   },
   {
-    "id": 126,
-    "rank": 126,
+    "id": "banana-fish",
     "title": "Banana Fish",
+    "rank": 126,
     "searchTitle": "Banana Fish",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "banana-fish"
+    "consensus": 2.5
   },
   {
-    "id": 127,
-    "rank": 127,
+    "id": "kill-la-kill",
     "title": "Kill la Kill",
+    "rank": 127,
     "searchTitle": "Kill la Kill",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "kill-la-kill"
+    "consensus": 2.5
   },
   {
-    "id": 128,
-    "rank": 128,
+    "id": "nichijou",
     "title": "Nichijou",
+    "rank": 128,
     "searchTitle": "Nichijou",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "nichijou"
+    "consensus": 2.5
   },
   {
-    "id": 129,
-    "rank": 129,
+    "id": "toilet-bound-hanako-kun",
     "title": "Toilet-Bound Hanako-kun",
+    "rank": 129,
     "searchTitle": "Toilet-Bound Hanako-kun",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "toilet-bound-hanako-kun"
+    "consensus": 2.5
   },
   {
-    "id": 130,
-    "rank": 130,
+    "id": "deadman-wonderland",
     "title": "Deadman Wonderland",
+    "rank": 130,
     "searchTitle": "Deadman Wonderland",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 3,
-    "posterSlug": "deadman-wonderland"
+    "consensus": 2.5
   },
   {
-    "id": 131,
-    "rank": 131,
+    "id": "yu-yu-hakusho",
     "title": "Yu Yu Hakusho",
+    "rank": 131,
     "searchTitle": "Yu Yu Hakusho",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "yu-yu-hakusho"
+    "consensus": 2.5
   },
   {
-    "id": 132,
-    "rank": 132,
+    "id": "mashle",
     "title": "Mashle",
+    "rank": 132,
     "searchTitle": "Mashle",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "mashle"
+    "consensus": 2.5
   },
   {
-    "id": 133,
-    "rank": 133,
+    "id": "sound-euphonium",
     "title": "Sound! Euphonium",
+    "rank": 133,
     "searchTitle": "Sound! Euphonium",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "sound-euphonium"
+    "consensus": 2.5
   },
   {
-    "id": 134,
-    "rank": 134,
+    "id": "durarara",
     "title": "Durarara!!",
+    "rank": 134,
     "searchTitle": "Durarara!!",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "durarara"
+    "consensus": 2.5
   },
   {
-    "id": 135,
-    "rank": 135,
+    "id": "yuru-camp",
     "title": "Yuru Camp",
+    "rank": 135,
     "searchTitle": "Yuru Camp",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "yuru-camp"
+    "consensus": 2.5
   },
   {
-    "id": 136,
-    "rank": 136,
+    "id": "call-of-the-night",
     "title": "Call of the Night",
+    "rank": 136,
     "searchTitle": "Call of the Night",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "call-of-the-night"
+    "consensus": 2.5
   },
   {
-    "id": 137,
-    "rank": 137,
+    "id": "gurren-lagann",
     "title": "Gurren Lagann",
+    "rank": 137,
     "searchTitle": "Gurren Lagann",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "gurren-lagann"
+    "consensus": 2.5
   },
   {
-    "id": 138,
-    "rank": 138,
+    "id": "hikaru-no-go",
     "title": "Hikaru no Go",
+    "rank": 138,
     "searchTitle": "Hikaru no Go",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "hikaru-no-go"
+    "consensus": 2.5
   },
   {
-    "id": 139,
-    "rank": 139,
+    "id": "doraemon",
     "title": "Doraemon",
+    "rank": 139,
     "searchTitle": "Doraemon",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "doraemon"
+    "consensus": 2.5
   },
   {
-    "id": 140,
-    "rank": 140,
+    "id": "silent-witch",
     "title": "Silent Witch",
-    "searchTitle": "Secrets of the Silent Witch",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "secrets-of-the-silent-witch"
+    "rank": 140,
+    "searchTitle": "Silent Witch",
+    "consensus": 2.5
   },
   {
-    "id": 141,
-    "rank": 141,
+    "id": "yu-gi-oh",
     "title": "Yu-Gi-Oh!",
+    "rank": 141,
     "searchTitle": "Yu-Gi-Oh!",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "yu-gi-oh"
+    "consensus": 2.5
   },
   {
-    "id": 142,
-    "rank": 142,
+    "id": "medalist",
     "title": "Medalist",
+    "rank": 142,
     "searchTitle": "Medalist",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "medalist"
+    "consensus": 2.5
   },
   {
-    "id": 143,
-    "rank": 143,
+    "id": "k",
     "title": "K",
+    "rank": 143,
     "searchTitle": "K",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "k"
+    "consensus": 2.5
   },
   {
-    "id": 144,
-    "rank": 144,
+    "id": "planetarian",
     "title": "Planetarian",
+    "rank": 144,
     "searchTitle": "Planetarian",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "planetarian"
+    "consensus": 2.5
   },
   {
-    "id": 145,
-    "rank": 145,
+    "id": "cardcaptor-sakura",
     "title": "Cardcaptor Sakura",
+    "rank": 145,
     "searchTitle": "Cardcaptor Sakura",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "cardcaptor-sakura"
+    "consensus": 2.5
   },
   {
-    "id": 146,
-    "rank": 146,
+    "id": "rurouni-kenshin",
     "title": "Rurouni Kenshin",
+    "rank": 146,
     "searchTitle": "Rurouni Kenshin",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "rurouni-kenshin"
+    "consensus": 2.5
   },
   {
-    "id": 147,
-    "rank": 147,
+    "id": "barakamon",
     "title": "Barakamon",
+    "rank": 147,
     "searchTitle": "Barakamon",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "barakamon"
+    "consensus": 2.5
   },
   {
-    "id": 148,
+    "id": "dandadan",
+    "title": "Dandadan",
     "rank": 148,
-    "title": "Dan Da Dan",
-    "searchTitle": "Dan Da Dan",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "dan-da-dan"
+    "searchTitle": "Dandadan",
+    "consensus": 2.5
   },
   {
-    "id": 149,
-    "rank": 149,
+    "id": "elfen-lied",
     "title": "Elfen Lied",
+    "rank": 149,
     "searchTitle": "Elfen Lied",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "elfen-lied"
+    "consensus": 2.5
   },
   {
-    "id": 150,
-    "rank": 150,
+    "id": "gushing-over-magical-girls",
     "title": "Gushing over Magical Girls",
+    "rank": 150,
     "searchTitle": "Gushing over Magical Girls",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "gushing-over-magical-girls"
+    "consensus": 2.5
   },
   {
-    "id": 151,
-    "rank": 151,
+    "id": "black-lagoon",
     "title": "Black Lagoon",
+    "rank": 151,
     "searchTitle": "Black Lagoon",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "black-lagoon"
+    "consensus": 2
   },
   {
-    "id": 152,
-    "rank": 152,
+    "id": "blue-box",
     "title": "Blue Box",
+    "rank": 152,
     "searchTitle": "Blue Box",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "blue-box"
+    "consensus": 2
   },
   {
-    "id": 153,
+    "id": "aria",
+    "title": "Aria",
     "rank": 153,
-    "title": "ARIA",
-    "searchTitle": "ARIA",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "aria"
+    "searchTitle": "Aria",
+    "consensus": 2
   },
   {
-    "id": 154,
+    "id": "darker-than-black",
+    "title": "Darker than Black",
     "rank": 154,
-    "title": "Darker Than Black",
-    "searchTitle": "Darker Than Black",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "darker-than-black"
+    "searchTitle": "Darker than Black",
+    "consensus": 2
   },
   {
-    "id": 155,
-    "rank": 155,
+    "id": "darling-in-the-franxx",
     "title": "Darling in the Franxx",
+    "rank": 155,
     "searchTitle": "Darling in the Franxx",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "darling-in-the-franxx"
+    "consensus": 2
   },
   {
-    "id": 156,
-    "rank": 156,
+    "id": "invaders-of-the-rokujouma",
     "title": "Invaders of the Rokujouma!?",
+    "rank": 156,
     "searchTitle": "Invaders of the Rokujouma!?",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "invaders-of-the-rokujouma"
+    "consensus": 2
   },
   {
-    "id": 157,
+    "id": "free-iwatobi-swim-club",
+    "title": "Free! Iwatobi Swim Club",
     "rank": 157,
-    "title": "Free!",
-    "searchTitle": "Free!",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "free"
+    "searchTitle": "Free! Iwatobi Swim Club",
+    "consensus": 2
   },
   {
-    "id": 158,
+    "id": "mobile-suit-victory-gundam",
+    "title": "Mobile Suit Victory Gundam",
     "rank": 158,
-    "title": "Mobile Suit V Gundam",
-    "searchTitle": "Mobile Suit V Gundam",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "mobile-suit-v-gundam"
+    "searchTitle": "Mobile Suit Victory Gundam",
+    "consensus": 2
   },
   {
-    "id": 159,
-    "rank": 159,
+    "id": "goblin-slayer",
     "title": "Goblin Slayer",
+    "rank": 159,
     "searchTitle": "Goblin Slayer",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "goblin-slayer"
+    "consensus": 2
   },
   {
-    "id": 160,
-    "rank": 160,
+    "id": "gaogaigar",
     "title": "GaoGaiGar",
-    "searchTitle": "The King of Braves GaoGaiGar",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "the-king-of-braves-gaogaigar"
+    "rank": 160,
+    "searchTitle": "GaoGaiGar",
+    "consensus": 2
   },
   {
-    "id": 161,
-    "rank": 161,
+    "id": "log-horizon",
     "title": "Log Horizon",
+    "rank": 161,
     "searchTitle": "Log Horizon",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "log-horizon"
+    "consensus": 2
   },
   {
-    "id": 162,
-    "rank": 162,
+    "id": "kaiju-no-8",
     "title": "Kaiju No. 8",
+    "rank": 162,
     "searchTitle": "Kaiju No. 8",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "kaiju-no-8"
+    "consensus": 2
   },
   {
-    "id": 163,
-    "rank": 163,
+    "id": "the-fragrant-flower-blooms-with-dignity",
     "title": "The Fragrant Flower Blooms with Dignity",
-    "searchTitle": "Kaoru Hana wa Rin to Saku",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "kaoru-hana-wa-rin-to-saku"
+    "rank": 163,
+    "searchTitle": "The Fragrant Flower Blooms with Dignity",
+    "consensus": 2
   },
   {
-    "id": 164,
+    "id": "nagi-no-asukara",
+    "title": "Nagi no Asukara",
     "rank": 164,
-    "title": "Nagi-Asu: A Lull in the Sea",
     "searchTitle": "Nagi no Asukara",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "nagi-no-asukara"
+    "consensus": 2
   },
   {
-    "id": 165,
-    "rank": 165,
+    "id": "trigun",
     "title": "Trigun",
+    "rank": 165,
     "searchTitle": "Trigun",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "trigun"
+    "consensus": 2
   },
   {
-    "id": 166,
-    "rank": 166,
+    "id": "yona-of-the-dawn",
     "title": "Yona of the Dawn",
+    "rank": 166,
     "searchTitle": "Yona of the Dawn",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "yona-of-the-dawn"
+    "consensus": 2
   },
   {
-    "id": 167,
+    "id": "86-eighty-six",
+    "title": "86 Eighty Six",
     "rank": 167,
-    "title": "86 -Eighty Six-",
-    "searchTitle": "86",
-    "sources": {
-      "japan": false,
-      "france": false,
-      "world": true
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "86"
+    "searchTitle": "86 Eighty Six",
+    "consensus": 2
   },
   {
-    "id": 168,
+    "id": "gate",
+    "title": "Gate",
     "rank": 168,
-    "title": "GATE",
-    "searchTitle": "GATE",
-    "sources": {
-      "japan": true,
-      "france": false,
-      "world": false
-    },
-    "sourceCount": 1,
-    "consensusRating": 2.5,
-    "posterSlug": "gate"
+    "searchTitle": "Gate",
+    "consensus": 2
   }
 ]

@@ -1,8 +1,7 @@
 # Posters
 
-- Les `.svg` sont des **fallbacks graphiques générés pour AniShelf** et sont inclus dans le dépôt.
-- Les `.webp` sont optionnels et prennent automatiquement priorité s’ils existent sous le même slug.
-- `scripts/fetch-posters.mjs` peut tenter de générer les `.webp` depuis Jikan/MyAnimeList.
-- Une couverture incorrecte peut être remplacée manuellement en conservant exactement le nom `<posterSlug>.webp`.
+Le nom du fichier doit reprendre exactement l’`id` de `data/catalog.json`.
 
-Le champ `posterSlug` se trouve dans `data/catalog.json`.
+Priorité : `.webp` → `.jpg` → `.jpeg` → `.png` → AniList → `.svg`.
+
+Le bouton **Rafraîchir les affiches manquantes** ne supprime jamais les posters locaux et ne modifie aucune note.

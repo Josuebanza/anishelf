@@ -1,11 +1,5 @@
-# Checklist GitHub Pages
+# Déploiement rapide
 
-- [ ] `node --check js/app.js` ne renvoie aucune erreur.
-- [ ] `node scripts/audit.mjs` affiche `Audit OK`.
-- [ ] Ouvrir le mode RAPIDE et classer au moins une œuvre.
-- [ ] Ouvrir ANISHELF et donner une note + un favori.
-- [ ] Recharger la page : les données doivent rester.
-- [ ] Tester l’export JSON.
-- [ ] Tester l’impression/PDF de chaque tier list.
-- [ ] Vérifier les posters `.webp` téléchargés avant publication.
-- [ ] GitHub → Settings → Pages → `main` + `/ (root)`.
+GitHub → nouveau repository → upload du contenu → Settings → Pages → Deploy from a branch → `main` / `(root)`.
+
+Après une grosse mise à jour du site, recharge une fois la page. Le service worker utilise un numéro de cache (`anishelf-shell-v4`) qui peut être incrémenté dans `sw.js` pour forcer le renouvellement des fichiers statiques.
