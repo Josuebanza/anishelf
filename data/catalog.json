@@ -4,1175 +4,1752 @@
     "title": "Attack on Titan",
     "rank": 1,
     "searchTitle": "Attack on Titan",
-    "consensus": 5
+    "consensus": 5,
+    "synopsis": "Derrière d’immenses remparts, Eren et ses compagnons affrontent les Titans tandis que les vérités sur leur monde bouleversent chaque certitude."
   },
   {
     "id": "hunter-x-hunter",
     "title": "Hunter x Hunter",
     "rank": 2,
     "searchTitle": "Hunter x Hunter",
-    "consensus": 5
+    "consensus": 5,
+    "synopsis": "Gon devient Hunter pour retrouver son père et découvre un monde d’épreuves, d’amitiés, de pouvoirs et de dangers bien plus vaste qu’imaginé."
   },
   {
     "id": "fullmetal-alchemist-brotherhood",
     "title": "Fullmetal Alchemist: Brotherhood",
     "rank": 3,
     "searchTitle": "Fullmetal Alchemist: Brotherhood",
-    "consensus": 5
+    "consensus": 5,
+    "synopsis": "Deux frères alchimistes cherchent la pierre philosophale pour réparer une expérience interdite, au cœur d’un complot qui menace tout leur pays."
   },
   {
     "id": "death-note",
     "title": "Death Note",
     "rank": 4,
     "searchTitle": "Death Note",
-    "consensus": 5
+    "consensus": 5,
+    "synopsis": "Un lycéen découvre un carnet capable de tuer et entreprend de remodeler la société, poursuivi par un détective aussi brillant qu’imprévisible."
   },
   {
     "id": "code-geass",
     "title": "Code Geass",
     "rank": 5,
     "searchTitle": "Code Geass",
-    "consensus": 5
+    "consensus": 5,
+    "synopsis": "Un prince exilé obtient le pouvoir d’imposer ses ordres et mène une rébellion masquée contre l’empire qui a détruit sa famille."
   },
   {
     "id": "naruto",
     "title": "Naruto",
     "rank": 6,
     "searchTitle": "Naruto",
-    "consensus": 5
+    "consensus": 5,
+    "synopsis": "Un jeune ninja rejeté rêve de devenir chef de son village et grandit au fil des missions, rivalités, guerres et liens qu’il refuse d’abandonner."
   },
   {
     "id": "frieren-beyond-journey-s-end",
     "title": "Frieren: Beyond Journey's End",
     "rank": 7,
     "searchTitle": "Frieren: Beyond Journey's End",
-    "consensus": 5
+    "consensus": 5,
+    "synopsis": "Après la victoire des héros, une elfe presque immortelle reprend la route et apprend tardivement la valeur du temps partagé avec les humains."
   },
   {
     "id": "haikyuu",
     "title": "Haikyuu!!",
     "rank": 8,
     "searchTitle": "Haikyuu!!",
-    "consensus": 5
+    "consensus": 5,
+    "synopsis": "Un joueur de volley de petite taille rejoint son rival pour faire renaître une équipe lycéenne et viser les sommets nationaux."
   },
   {
     "id": "steins-gate",
     "title": "Steins;Gate",
     "rank": 9,
     "searchTitle": "Steins;Gate",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "Un groupe d’amis bricolant des expériences temporelles découvre qu’altérer le passé entraîne des conséquences terribles qu’il faudra tenter de réparer."
   },
   {
     "id": "dragon-ball",
     "title": "Dragon Ball",
     "rank": 10,
     "searchTitle": "Dragon Ball",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "Son Goku parcourt le monde à la recherche des Dragon Balls, affrontant des rivaux toujours plus puissants au fil d’une aventure devenue légendaire."
   },
   {
     "id": "jojo-s-bizarre-adventure",
     "title": "JoJo's Bizarre Adventure",
     "rank": 11,
     "searchTitle": "JoJo's Bizarre Adventure",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "À travers plusieurs générations de la famille Joestar, des héros extravagants affrontent des ennemis surnaturels grâce à des pouvoirs toujours plus inventifs."
   },
   {
     "id": "one-piece",
     "title": "One Piece",
     "rank": 12,
     "searchTitle": "One Piece",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "Luffy prend la mer pour trouver le One Piece et devenir Roi des Pirates, rassemblant un équipage au fil d’un monde immense et dangereux."
   },
   {
     "id": "neon-genesis-evangelion",
     "title": "Neon Genesis Evangelion",
     "rank": 13,
     "searchTitle": "Neon Genesis Evangelion",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "Des adolescents pilotent de mystérieux géants pour défendre Tokyo-3, tandis que leurs blessures intimes deviennent aussi menaçantes que les créatures qu’ils combattent."
   },
   {
     "id": "gintama",
     "title": "Gintama",
     "rank": 14,
     "searchTitle": "Gintama",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "Dans un Japon alternatif envahi par des extraterrestres, un samouraï fauché et ses amis enchaînent missions absurdes, parodies et combats étonnamment sérieux."
   },
   {
     "id": "kaguya-sama-love-is-war",
     "title": "Kaguya-sama: Love Is War",
     "rank": 15,
     "searchTitle": "Kaguya-sama: Love Is War",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "Deux élèves brillants s’aiment mais refusent d’avouer leurs sentiments, transformant chaque interaction en duel psychologique aussi ridicule que romantique."
   },
   {
     "id": "fate-stay-night",
     "title": "Fate/Stay Night",
     "rank": 16,
     "searchTitle": "Fate/Stay Night",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "Des mages invoquent des héros légendaires pour une guerre secrète autour du Saint Graal, où idéaux et sacrifices s’entrechoquent."
   },
   {
     "id": "my-hero-academia",
     "title": "My Hero Academia",
     "rank": 17,
     "searchTitle": "My Hero Academia",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "Dans une société où presque tous possèdent un pouvoir, un garçon né sans don intègre l’école des héros après avoir hérité d’une capacité exceptionnelle."
   },
   {
     "id": "jujutsu-kaisen",
     "title": "Jujutsu Kaisen",
     "rank": 18,
     "searchTitle": "Jujutsu Kaisen",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "Après avoir avalé un objet maudit, Yuji rejoint des exorcistes combattant des fléaux nés des émotions humaines tout en partageant son corps avec un monstre."
   },
   {
     "id": "mob-psycho-100",
     "title": "Mob Psycho 100",
     "rank": 19,
     "searchTitle": "Mob Psycho 100",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "Un collégien doté de pouvoirs psychiques immenses cherche surtout à devenir une meilleure personne sans laisser ses émotions explosives le contrôler."
   },
   {
     "id": "assassination-classroom",
     "title": "Assassination Classroom",
     "rank": 20,
     "searchTitle": "Assassination Classroom",
-    "consensus": 4.5
+    "consensus": 4.5,
+    "synopsis": "Une classe d’élèves marginalisés doit assassiner son professeur extraterrestre avant qu’il ne détruise la Terre, tout en recevant de lui leurs meilleures leçons."
   },
   {
     "id": "cowboy-bebop",
     "title": "Cowboy Bebop",
     "rank": 21,
     "searchTitle": "Cowboy Bebop",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Des chasseurs de primes cabossés sillonnent le système solaire, entre contrats ratés, solitude et fantômes d’un passé impossible à semer."
   },
   {
     "id": "violet-evergarden",
     "title": "Violet Evergarden",
     "rank": 22,
     "searchTitle": "Violet Evergarden",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Une ancienne enfant-soldat devient écrivaine publique et découvre peu à peu les émotions humaines en mettant les sentiments des autres en mots."
   },
   {
     "id": "dr-stone",
     "title": "Dr. Stone",
     "rank": 23,
     "searchTitle": "Dr. Stone",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Après la pétrification de l’humanité, un génie scientifique se réveille et entreprend de reconstruire la civilisation, invention après invention."
   },
   {
     "id": "the-disastrous-life-of-saiki-k",
     "title": "The Disastrous Life of Saiki K.",
     "rank": 24,
     "searchTitle": "The Disastrous Life of Saiki K.",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Un lycéen aux pouvoirs psychiques quasiment illimités ne souhaite qu’une vie tranquille, malheureusement sabotée par un entourage particulièrement excentrique."
   },
   {
     "id": "tokyo-ghoul",
     "title": "Tokyo Ghoul",
     "rank": 25,
     "searchTitle": "Tokyo Ghoul",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Transformé en hybride humain-goule, Kaneki doit survivre entre deux mondes ennemis tout en essayant de préserver son identité."
   },
   {
     "id": "that-time-i-got-reincarnated-as-a-slime",
     "title": "That Time I Got Reincarnated as a Slime",
     "rank": 26,
     "searchTitle": "That Time I Got Reincarnated as a Slime",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Réincarné en slime dans un monde fantastique, Rimuru rassemble monstres et peuples autour d’un royaume fondé sur la coopération."
   },
   {
     "id": "one-punch-man",
     "title": "One-Punch Man",
     "rank": 27,
     "searchTitle": "One-Punch Man",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Saitama est devenu si puissant qu’il bat tous ses adversaires d’un coup, et cherche désespérément un combat capable de ranimer son enthousiasme."
   },
   {
     "id": "your-lie-in-april",
     "title": "Your Lie in April",
     "rank": 28,
     "searchTitle": "Your Lie in April",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Un pianiste traumatisé rencontre une violoniste imprévisible qui le pousse à retrouver la musique, la scène et des sentiments qu’il croyait perdus."
   },
   {
     "id": "natsume-s-book-of-friends",
     "title": "Natsume's Book of Friends",
     "rank": 29,
     "searchTitle": "Natsume's Book of Friends",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Un adolescent capable de voir les esprits hérite d’un carnet liant leurs noms et choisit de leur rendre leur liberté."
   },
   {
     "id": "re-zero",
     "title": "Re:Zero",
     "rank": 30,
     "searchTitle": "Re:Zero",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Transporté dans un autre monde, Subaru découvre qu’il revient à un point précis après chaque mort et tente de sauver ceux auxquels il s’attache."
   },
   {
     "id": "samurai-champloo",
     "title": "Samurai Champloo",
     "rank": 31,
     "searchTitle": "Samurai Champloo",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Une jeune fille entraîne deux sabreurs que tout oppose dans une traversée du Japon à la recherche d’un samouraï qui sent le tournesol."
   },
   {
     "id": "made-in-abyss",
     "title": "Made in Abyss",
     "rank": 32,
     "searchTitle": "Made in Abyss",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Une jeune exploratrice descend dans un gouffre gigantesque rempli de reliques et de créatures pour retrouver sa mère disparue."
   },
   {
     "id": "demon-slayer",
     "title": "Demon Slayer",
     "rank": 33,
     "searchTitle": "Demon Slayer",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Après le massacre de sa famille, Tanjiro rejoint les pourfendeurs de démons afin de sauver sa sœur transformée et retrouver le responsable."
   },
   {
     "id": "erased",
     "title": "Erased",
     "rank": 34,
     "searchTitle": "Erased",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Un homme projeté dans son enfance tente d’empêcher une série d’enlèvements et de meurtres liés à un traumatisme qu’il n’a jamais oublié."
   },
   {
     "id": "the-promised-neverland",
     "title": "The Promised Neverland",
     "rank": 35,
     "searchTitle": "The Promised Neverland",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Des enfants découvrent l’effroyable vérité derrière leur orphelinat idyllique et organisent une évasion face à des adultes qui anticipent chacun de leurs gestes."
   },
   {
     "id": "mushoku-tensei",
     "title": "Mushoku Tensei",
     "rank": 36,
     "searchTitle": "Mushoku Tensei",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Un homme réincarné dans un monde de magie décide de vivre sa seconde existence pleinement, malgré ses défauts et les conséquences de ses choix."
   },
   {
     "id": "the-apothecary-diaries",
     "title": "The Apothecary Diaries",
     "rank": 37,
     "searchTitle": "The Apothecary Diaries",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Une apothicaire brillante est entraînée dans les intrigues du palais impérial, où son sens de l’observation résout empoisonnements, maladies et secrets politiques."
   },
   {
     "id": "legend-of-the-galactic-heroes",
     "title": "Legend of the Galactic Heroes",
     "rank": 38,
     "searchTitle": "Legend of the Galactic Heroes",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Deux stratèges d’exception s’affrontent dans une guerre interstellaire opposant empire autoritaire et démocratie fragile."
   },
   {
     "id": "no-game-no-life",
     "title": "No Game No Life",
     "rank": 39,
     "searchTitle": "No Game No Life",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Un frère et une sœur invaincus aux jeux sont transportés dans un monde où tous les conflits, jusqu’aux frontières des nations, se règlent par des parties."
   },
   {
     "id": "spy-x-family",
     "title": "Spy x Family",
     "rank": 40,
     "searchTitle": "Spy x Family",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Un espion doit créer une fausse famille pour sa mission, ignorant que sa femme est tueuse et que leur fille adoptive lit les pensées."
   },
   {
     "id": "psycho-pass",
     "title": "Psycho-Pass",
     "rank": 41,
     "searchTitle": "Psycho-Pass",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Dans une société qui mesure le potentiel criminel des citoyens, une jeune inspectrice découvre les contradictions d’un système qui prétend prévenir le crime."
   },
   {
     "id": "rascal-does-not-dream-of-bunny-girl-senpai",
     "title": "Rascal Does Not Dream of Bunny Girl Senpai",
     "rank": 42,
     "searchTitle": "Rascal Does Not Dream of Bunny Girl Senpai",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Un lycéen rencontre des adolescentes touchées par d’étranges phénomènes surnaturels liés à leurs blessures émotionnelles et sociales."
   },
   {
     "id": "konosuba",
     "title": "Konosuba",
     "rank": 43,
     "searchTitle": "Konosuba",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Réincarné dans un monde fantastique, Kazuma forme avec trois aventurières catastrophiques une équipe aussi inefficace qu’hilarante."
   },
   {
     "id": "fruits-basket",
     "title": "Fruits Basket",
     "rank": 44,
     "searchTitle": "Fruits Basket",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Une orpheline découvre qu’une famille entière est frappée par une malédiction liée au zodiaque chinois et devient peu à peu leur refuge émotionnel."
   },
   {
     "id": "overlord",
     "title": "Overlord",
     "rank": 45,
     "searchTitle": "Overlord",
-    "consensus": 4
+    "consensus": 4,
+    "synopsis": "Un joueur reste piégé dans son avatar de seigneur mort-vivant et part explorer un nouveau monde à la tête de ses puissants serviteurs."
   },
   {
     "id": "sword-art-online",
     "title": "Sword Art Online",
     "rank": 46,
     "searchTitle": "Sword Art Online",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "anilistId": 11757,
+    "year": 2012,
+    "synopsis": "Des milliers de joueurs se retrouvent enfermés dans un jeu en réalité virtuelle où mourir dans le monde numérique signifie mourir réellement."
   },
   {
     "id": "charlotte",
     "title": "Charlotte",
     "rank": 47,
     "searchTitle": "Charlotte",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Des adolescents développent temporairement des pouvoirs surnaturels et sont réunis pour empêcher que ces capacités ne détruisent leurs vies."
   },
   {
     "id": "classroom-of-the-elite",
     "title": "Classroom of the Elite",
     "rank": 48,
     "searchTitle": "Classroom of the Elite",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Dans un lycée d’élite où les classes s’affrontent par la stratégie, un élève discret dissimule des capacités bien supérieures à ce qu’il montre."
   },
   {
     "id": "hell-s-paradise",
     "title": "Hell's Paradise",
     "rank": 49,
     "searchTitle": "Hell's Paradise",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un ninja condamné à mort est envoyé sur une île mystérieuse afin de retrouver un élixir d’immortalité parmi monstres et criminels rivaux."
   },
   {
     "id": "toradora",
     "title": "Toradora!",
     "rank": 50,
     "searchTitle": "Toradora!",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Deux lycéens à la réputation trompeuse s’entraident pour séduire leurs amis respectifs avant que leur propre relation ne se complique."
   },
   {
     "id": "angel-beats",
     "title": "Angel Beats!",
     "rank": 51,
     "searchTitle": "Angel Beats!",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Des adolescents morts trop tôt se rebellent dans un étrange au-delà scolaire avant d’affronter les regrets qui les empêchent d’avancer."
   },
   {
     "id": "fire-force",
     "title": "Fire Force",
     "rank": 52,
     "searchTitle": "Fire Force",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Des brigades spécialisées combattent des humains transformés en torches vivantes tandis qu’un jeune pompier cherche la vérité sur l’incendie de son enfance."
   },
   {
     "id": "pokemon",
     "title": "Pokemon",
     "rank": 53,
     "searchTitle": "Pokemon",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un jeune dresseur parcourt le monde avec Pikachu pour rencontrer des Pokémon, relever des défis et poursuivre son rêve de devenir Maître Pokémon."
   },
   {
     "id": "the-irregular-at-magic-high-school",
     "title": "The Irregular at Magic High School",
     "rank": 54,
     "searchTitle": "The Irregular at Magic High School",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Dans une école où la magie est une technologie, un étudiant sous-estimé cache des capacités capables de bouleverser l’équilibre militaire."
   },
   {
     "id": "ashita-no-joe",
     "title": "Ashita no Joe",
     "rank": 55,
     "searchTitle": "Ashita no Joe",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un jeune bagarreur marginal découvre la boxe et se forge, combat après combat, une identité faite d’orgueil, de douleur et de dépassement."
   },
   {
     "id": "monogatari",
     "title": "Monogatari",
     "rank": 56,
     "searchTitle": "Monogatari",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un lycéen ayant survécu à une attaque vampirique aide des jeunes filles confrontées à des phénomènes surnaturels reflétant leurs blessures intimes."
   },
   {
     "id": "3-gatsu-no-lion",
     "title": "3-gatsu no Lion",
     "rank": 57,
     "searchTitle": "3-gatsu no Lion",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un jeune joueur professionnel de shogi isolé retrouve peu à peu un foyer et le goût de vivre auprès de trois sœurs chaleureuses."
   },
   {
     "id": "mushishi",
     "title": "Mushishi",
     "rank": 58,
     "searchTitle": "Mushishi",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Ginko voyage de village en village pour étudier les mushi, formes de vie mystérieuses dont la présence bouleverse discrètement les humains."
   },
   {
     "id": "ghost-in-the-shell-stand-alone-complex",
     "title": "Ghost in the Shell: Stand Alone Complex",
     "rank": 59,
     "searchTitle": "Ghost in the Shell: Stand Alone Complex",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Une unité de sécurité cybernétique enquête sur crimes, terrorisme et manipulations politiques dans une société où humains et machines se confondent."
   },
   {
     "id": "black-clover",
     "title": "Black Clover",
     "rank": 60,
     "searchTitle": "Black Clover",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Né sans magie dans un royaume qui la vénère, Asta vise pourtant le titre de Roi-Mage grâce à une étrange anti-magie."
   },
   {
     "id": "ping-pong-the-animation",
     "title": "Ping Pong the Animation",
     "rank": 61,
     "searchTitle": "Ping Pong the Animation",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Deux amis prodiges du tennis de table suivent des trajectoires opposées tandis que compétition, talent et identité mettent leur amitié à l’épreuve."
   },
   {
     "id": "slam-dunk",
     "title": "Slam Dunk",
     "rank": 62,
     "searchTitle": "Slam Dunk",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un délinquant rejoint l’équipe de basket pour impressionner une fille, avant de découvrir une passion et un talent qu’il ne soupçonnait pas."
   },
   {
     "id": "the-seven-deadly-sins",
     "title": "The Seven Deadly Sins",
     "rank": 63,
     "searchTitle": "The Seven Deadly Sins",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Une princesse recherche un groupe de chevaliers légendaires accusés de trahison pour sauver un royaume tombé aux mains de conspirateurs."
   },
   {
     "id": "anohana",
     "title": "Anohana",
     "rank": 64,
     "searchTitle": "Anohana",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Des amis d’enfance séparés par la mort de l’une des leurs se réunissent lorsque son fantôme revient demander qu’un dernier souhait soit accompli."
   },
   {
     "id": "great-teacher-onizuka",
     "title": "Great Teacher Onizuka",
     "rank": 65,
     "searchTitle": "Great Teacher Onizuka",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un ancien voyou devient professeur et utilise des méthodes complètement hors normes pour aider une classe déterminée à faire fuir ses enseignants."
   },
   {
     "id": "summer-time-rendering",
     "title": "Summer Time Rendering",
     "rank": 66,
     "searchTitle": "Summer Time Rendering",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "De retour sur son île pour des funérailles, Shinpei découvre des doubles meurtriers et une boucle temporelle au cœur d’un complot surnaturel."
   },
   {
     "id": "vinland-saga",
     "title": "Vinland Saga",
     "rank": 67,
     "searchTitle": "Vinland Saga",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un jeune Viking consumé par la vengeance traverse guerres et esclavage avant de chercher une autre manière de donner un sens à sa vie."
   },
   {
     "id": "oshi-no-ko",
     "title": "Oshi no Ko",
     "rank": 68,
     "searchTitle": "Oshi no Ko",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Deux enfants nés dans le monde du spectacle découvrent son envers brutal, entre célébrité, manipulation et quête de vérité sur la mort de leur mère."
   },
   {
     "id": "the-melancholy-of-haruhi-suzumiya",
     "title": "The Melancholy of Haruhi Suzumiya",
     "rank": 69,
     "searchTitle": "The Melancholy of Haruhi Suzumiya",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un lycéen rejoint malgré lui le club d’une fille excentrique qui ignore que ses désirs peuvent modifier la réalité."
   },
   {
     "id": "bleach",
     "title": "Bleach",
     "rank": 70,
     "searchTitle": "Bleach",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un adolescent capable de voir les esprits devient Shinigami remplaçant et se retrouve entraîné dans les conflits du monde des âmes."
   },
   {
     "id": "puella-magi-madoka-magica",
     "title": "Puella Magi Madoka Magica",
     "rank": 71,
     "searchTitle": "Puella Magi Madoka Magica",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Des collégiennes peuvent devenir magical girls en échange d’un vœu, mais le prix réel du contrat se révèle bien plus sombre qu’annoncé."
   },
   {
     "id": "fairy-tail",
     "title": "Fairy Tail",
     "rank": 72,
     "searchTitle": "Fairy Tail",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Une guilde de mages turbulents accomplit des missions dangereuses et affronte des ennemis toujours plus puissants en faisant de l’amitié sa force principale."
   },
   {
     "id": "detective-conan",
     "title": "Detective Conan",
     "rank": 73,
     "searchTitle": "Detective Conan",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Rajeuni par un poison, un détective lycéen poursuit l’organisation responsable tout en résolvant d’innombrables crimes sous l’identité d’un enfant."
   },
   {
     "id": "food-wars",
     "title": "Food Wars!",
     "rank": 74,
     "searchTitle": "Food Wars!",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un jeune cuisinier intègre une académie gastronomique où les élèves règlent rivalités et ambitions dans des duels culinaires spectaculaires."
   },
   {
     "id": "hajime-no-ippo",
     "title": "Hajime no Ippo",
     "rank": 75,
     "searchTitle": "Hajime no Ippo",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un lycéen timide découvre la boxe, développe une puissance inattendue et gravit patiemment les échelons du ring professionnel."
   },
   {
     "id": "parasyte-the-maxim",
     "title": "Parasyte: The Maxim",
     "rank": 76,
     "searchTitle": "Parasyte: The Maxim",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Une créature parasite échoue à contrôler le cerveau d’un adolescent et fusionne avec sa main, forçant les deux êtres à survivre ensemble."
   },
   {
     "id": "bungo-stray-dogs",
     "title": "Bungo Stray Dogs",
     "rank": 77,
     "searchTitle": "Bungo Stray Dogs",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Des détectives aux pouvoirs inspirés d’écrivains célèbres affrontent mafias, organisations rivales et menaces surnaturelles dans Yokohama."
   },
   {
     "id": "noragami",
     "title": "Noragami",
     "rank": 78,
     "searchTitle": "Noragami",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un dieu mineur sans sanctuaire accepte des petits boulots pour gagner des fidèles, accompagné d’une lycéenne dont l’âme se détache de son corps."
   },
   {
     "id": "usagi-drop",
     "title": "Usagi Drop",
     "rank": 79,
     "searchTitle": "Usagi Drop",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Un célibataire décide d’élever la petite fille illégitime de son grand-père et apprend progressivement les joies et contraintes de la parentalité."
   },
   {
     "id": "blue-lock",
     "title": "Blue Lock",
     "rank": 80,
     "searchTitle": "Blue Lock",
-    "consensus": 3.5
+    "consensus": 3.5,
+    "synopsis": "Des centaines d’attaquants japonais sont enfermés dans un programme impitoyable visant à fabriquer l’avant-centre le plus égoïste et décisif du monde."
   },
   {
     "id": "bakemonogatari",
     "title": "Bakemonogatari",
     "rank": 81,
     "searchTitle": "Bakemonogatari",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Après avoir survécu au vampirisme, Koyomi aide plusieurs filles touchées par des apparitions liées à leurs problèmes personnels."
   },
   {
     "id": "kino-s-journey",
     "title": "Kino's Journey",
     "rank": 82,
     "searchTitle": "Kino's Journey",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Kino voyage à moto de pays en pays, observant des sociétés étranges sans jamais rester plus de trois jours au même endroit."
   },
   {
     "id": "the-rising-of-the-shield-hero",
     "title": "The Rising of the Shield Hero",
     "rank": 83,
     "searchTitle": "The Rising of the Shield Hero",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Invoqué comme héros dans un autre monde puis trahi, Naofumi doit reconstruire sa réputation en combattant avec un bouclier."
   },
   {
     "id": "bocchi-the-rock",
     "title": "Bocchi the Rock!",
     "rank": 84,
     "searchTitle": "Bocchi the Rock!",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Une guitariste extrêmement anxieuse rejoint un groupe et tente de transformer son talent solitaire en véritable relation avec les autres."
   },
   {
     "id": "the-tatami-galaxy",
     "title": "The Tatami Galaxy",
     "rank": 85,
     "searchTitle": "The Tatami Galaxy",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un étudiant revit différentes versions de ses années universitaires, persuadé qu’un autre choix de club lui offrirait enfin la vie idéale."
   },
   {
     "id": "akame-ga-kill",
     "title": "Akame ga Kill!",
     "rank": 86,
     "searchTitle": "Akame ga Kill!",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un jeune combattant rejoint un groupe d’assassins révolutionnaires qui s’attaque aux dirigeants corrompus d’un empire brutal."
   },
   {
     "id": "chainsaw-man",
     "title": "Chainsaw Man",
     "rank": 87,
     "searchTitle": "Chainsaw Man",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un chasseur de démons misérable fusionne avec son démon-tronçonneuse et rejoint une unité gouvernementale où chaque promesse cache un piège."
   },
   {
     "id": "the-quintessential-quintuplets",
     "title": "The Quintessential Quintuplets",
     "rank": 88,
     "searchTitle": "The Quintessential Quintuplets",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un lycéen brillant mais fauché devient professeur particulier de cinq sœurs identiques qui détestent étudier et ont chacune une personnalité très différente."
   },
   {
     "id": "my-teen-romantic-comedy-snafu",
     "title": "My Teen Romantic Comedy SNAFU",
     "rank": 89,
     "searchTitle": "My Teen Romantic Comedy SNAFU",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un lycéen cynique rejoint un club d’entraide et découvre que résoudre les problèmes des autres ne suffit pas à comprendre ses propres sentiments."
   },
   {
     "id": "monster",
     "title": "Monster",
     "rank": 90,
     "searchTitle": "Monster",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un chirurgien sauve la vie d’un enfant qui devient des années plus tard un meurtrier, puis traverse l’Europe pour réparer les conséquences de son choix."
   },
   {
     "id": "space-dandy",
     "title": "Space Dandy",
     "rank": 91,
     "searchTitle": "Space Dandy",
-    "consensus": 3
+    "consensus": 3,
+    "anilistId": 20057,
+    "year": 2014,
+    "synopsis": "Un chasseur d’extraterrestres vaniteux sillonne la galaxie avec un robot et un alien-chat dans des aventures qui changent constamment de ton et de réalité."
   },
   {
     "id": "seraph-of-the-end",
     "title": "Seraph of the End",
     "rank": 92,
     "searchTitle": "Seraph of the End",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Après qu’un virus a décimé les adultes, des vampires dominent les survivants et un garçon rejoint l’armée pour venger sa famille adoptive."
   },
   {
     "id": "a-certain-scientific-railgun",
     "title": "A Certain Scientific Railgun",
     "rank": 93,
     "searchTitle": "A Certain Scientific Railgun",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Une puissante esper et ses amies affrontent les expériences secrètes et les crimes cachés derrière la ville scientifique où elles étudient."
   },
   {
     "id": "initial-d",
     "title": "Initial D",
     "rank": 94,
     "searchTitle": "Initial D",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un lycéen livre du tofu au volant sans réaliser que ses années sur les routes de montagne ont fait de lui un pilote de drift exceptionnel."
   },
   {
     "id": "berserk",
     "title": "Berserk",
     "rank": 95,
     "searchTitle": "Berserk",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un mercenaire solitaire rejoint une troupe ambitieuse menée par un chef charismatique, avant que rêve, pouvoir et trahison ne les entraînent dans l’horreur."
   },
   {
     "id": "black-butler",
     "title": "Black Butler",
     "rank": 96,
     "searchTitle": "Black Butler",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un jeune aristocrate victorien enquête pour la reine avec l’aide d’un majordome démoniaque auquel il a promis son âme."
   },
   {
     "id": "k-on",
     "title": "K-On!",
     "rank": 97,
     "searchTitle": "K-On!",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Des lycéennes rejoignent un club de musique légère, jouent parfois, mangent souvent des gâteaux et construisent surtout une amitié devenue leur meilleur souvenir."
   },
   {
     "id": "clannad-after-story",
     "title": "Clannad: After Story",
     "rank": 98,
     "searchTitle": "Clannad: After Story",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Après le lycée, Tomoya et Nagisa affrontent ensemble le travail, la famille et les épreuves de l’âge adulte avec une intensité bouleversante."
   },
   {
     "id": "maid-sama",
     "title": "Maid Sama!",
     "rank": 99,
     "searchTitle": "Maid Sama!",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "La présidente autoritaire d’un lycée cache qu’elle travaille dans un maid café, secret découvert par le garçon le plus populaire de l’école."
   },
   {
     "id": "is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon",
     "title": "Is It Wrong to Try to Pick Up Girls in a Dungeon?",
     "rank": 100,
     "searchTitle": "Is It Wrong to Try to Pick Up Girls in a Dungeon?",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un jeune aventurier explore un immense donjon sous une cité peuplée de dieux, de guildes et de héros en quête de gloire."
   },
   {
     "id": "mobile-suit-gundam",
     "title": "Mobile Suit Gundam",
     "rank": 101,
     "searchTitle": "Mobile Suit Gundam",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un adolescent se retrouve aux commandes d’un prototype de robot au milieu d’une guerre spatiale où chaque camp paie un lourd tribut."
   },
   {
     "id": "magi-the-labyrinth-of-magic",
     "title": "Magi: The Labyrinth of Magic",
     "rank": 102,
     "searchTitle": "Magi: The Labyrinth of Magic",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Deux jeunes aventuriers explorent des donjons magiques, rencontrent rois et esclaves et se retrouvent au cœur d’un conflit qui dépasse leurs ambitions initiales."
   },
   {
     "id": "a-place-further-than-the-universe",
     "title": "A Place Further Than the Universe",
     "rank": 103,
     "searchTitle": "A Place Further Than the Universe",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Quatre adolescentes décident de partir en Antarctique, transformant un rêve improbable en voyage d’amitié, de deuil et de dépassement."
   },
   {
     "id": "higurashi-when-they-cry",
     "title": "Higurashi: When They Cry",
     "rank": 104,
     "searchTitle": "Higurashi: When They Cry",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Dans un village paisible, un adolescent découvre que le festival annuel cache des disparitions, des meurtres et une réalité qui semble recommencer sans cesse."
   },
   {
     "id": "ouran-high-school-host-club",
     "title": "Ouran High School Host Club",
     "rank": 105,
     "searchTitle": "Ouran High School Host Club",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Une élève boursière casse un vase hors de prix et doit travailler dans le club d’hôtes excentrique de son lycée pour rembourser sa dette."
   },
   {
     "id": "hyouka",
     "title": "Hyouka",
     "rank": 106,
     "searchTitle": "Hyouka",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un lycéen économe en énergie se retrouve entraîné par une camarade curieuse dans de petits mystères où l’observation révèle beaucoup sur leur entourage."
   },
   {
     "id": "soul-eater",
     "title": "Soul Eater",
     "rank": 107,
     "searchTitle": "Soul Eater",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Des élèves combattent sorcières et monstres dans une école où certaines armes prennent forme humaine et doivent dévorer des âmes maléfiques."
   },
   {
     "id": "hellsing",
     "title": "Hellsing",
     "rank": 108,
     "searchTitle": "Hellsing",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Une organisation britannique secrète protège le pays des créatures surnaturelles grâce notamment à Alucard, un vampire d’une puissance terrifiante."
   },
   {
     "id": "another",
     "title": "Another",
     "rank": 109,
     "searchTitle": "Another",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un collégien rejoint une classe marquée par une malédiction mortelle et tente de comprendre pourquoi une camarade semble ignorée par tous."
   },
   {
     "id": "kuroko-s-basketball",
     "title": "Kuroko's Basketball",
     "rank": 110,
     "searchTitle": "Kuroko's Basketball",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un joueur discret capable de disparaître du regard s’allie à un prodige athlétique pour vaincre ses anciens coéquipiers de la Génération des Miracles."
   },
   {
     "id": "future-diary",
     "title": "Future Diary",
     "rank": 111,
     "searchTitle": "Future Diary",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Des participants munis de journaux capables de prédire l’avenir s’entretuent dans un jeu où le survivant deviendra dieu."
   },
   {
     "id": "orb-on-the-movements-of-the-earth",
     "title": "Orb: On the Movements of the Earth",
     "rank": 112,
     "searchTitle": "Orb: On the Movements of the Earth",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Dans une Europe médiévale fictive, plusieurs personnages risquent leur vie pour transmettre une idée scientifique interdite sur le mouvement des astres."
   },
   {
     "id": "the-eminence-in-shadow",
     "title": "The Eminence in Shadow",
     "rank": 113,
     "searchTitle": "The Eminence in Shadow",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Réincarné dans un monde fantasy, un garçon joue au mystérieux maître de l’ombre sans réaliser que ses improvisations décrivent un véritable complot."
   },
   {
     "id": "death-parade",
     "title": "Death Parade",
     "rank": 114,
     "searchTitle": "Death Parade",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Dans un bar de l’au-delà, des morts participent à des jeux cruels destinés à révéler leur nature avant qu’un arbitre ne décide de leur sort."
   },
   {
     "id": "the-dangers-in-my-heart",
     "title": "The Dangers in My Heart",
     "rank": 115,
     "searchTitle": "The Dangers in My Heart",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un collégien persuadé d’être sombre et dangereux se rapproche progressivement de la fille la plus populaire de sa classe."
   },
   {
     "id": "golden-kamuy",
     "title": "Golden Kamuy",
     "rank": 116,
     "searchTitle": "Golden Kamuy",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un vétéran et une jeune Aïnoue parcourent Hokkaido à la recherche d’un trésor dont la carte est tatouée sur des évadés de prison."
   },
   {
     "id": "horimiya",
     "title": "Horimiya",
     "rank": 117,
     "searchTitle": "Horimiya",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Deux lycéens découvrent les facettes cachées l’un de l’autre loin du regard de leurs camarades et construisent une relation étonnamment naturelle."
   },
   {
     "id": "high-school-dxd",
     "title": "High School DxD",
     "rank": 118,
     "searchTitle": "High School DxD",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un lycéen obsédé est ressuscité comme démon et rejoint un club surnaturel plongé dans les rivalités entre anges, démons et autres factions."
   },
   {
     "id": "saenai-heroine-no-sodatekata",
     "title": "Saenai Heroine no Sodatekata",
     "rank": 119,
     "searchTitle": "Saenai Heroine no Sodatekata",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un otaku décide de créer le visual novel idéal et recrute plusieurs camarades talentueuses, dont une héroïne beaucoup moins spectaculaire qu’il ne l’espérait."
   },
   {
     "id": "youjo-senki",
     "title": "Youjo Senki",
     "rank": 120,
     "searchTitle": "Youjo Senki",
-    "consensus": 3
+    "consensus": 3,
+    "synopsis": "Un salaryman cynique est réincarné en petite fille dans un monde en guerre et utilise magie et stratégie pour gravir les rangs militaires."
   },
   {
     "id": "inuyasha",
     "title": "InuYasha",
     "rank": 121,
     "searchTitle": "InuYasha",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Une collégienne traverse un puits vers le Japon féodal et s’allie à un demi-démon pour retrouver les fragments d’un joyau magique."
   },
   {
     "id": "the-elusive-samurai",
     "title": "The Elusive Samurai",
     "rank": 122,
     "searchTitle": "The Elusive Samurai",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Après la chute de son clan, un jeune héritier doté d’un talent extraordinaire pour fuir tente de reconquérir son nom dans le Japon médiéval."
   },
   {
     "id": "kingdom",
     "title": "Kingdom",
     "rank": 123,
     "searchTitle": "Kingdom",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "anilistId": 12031,
+    "year": 2012,
+    "synopsis": "Un orphelin rêve de devenir grand général et rejoint l’ascension du futur roi de Qin au milieu des guerres qui façonneront la Chine."
   },
   {
     "id": "tokyo-revengers",
     "title": "Tokyo Revengers",
     "rank": 124,
     "searchTitle": "Tokyo Revengers",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Un adulte raté découvre qu’il peut revenir dans son adolescence et infiltre un gang afin d’empêcher la mort de la femme qu’il aime."
   },
   {
     "id": "odd-taxi",
     "title": "Odd Taxi",
     "rank": 125,
     "searchTitle": "Odd Taxi",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Un chauffeur de taxi morose transporte des passagers étranges dont les histoires finissent par converger autour de la disparition d’une adolescente."
   },
   {
     "id": "banana-fish",
     "title": "Banana Fish",
     "rank": 126,
     "searchTitle": "Banana Fish",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Un chef de gang new-yorkais enquête avec un jeune photographe japonais sur une mystérieuse drogue liée à son passé et à de puissantes organisations criminelles."
   },
   {
     "id": "kill-la-kill",
     "title": "Kill la Kill",
     "rank": 127,
     "searchTitle": "Kill la Kill",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Une lycéenne armée d’une demi-lame cherche le meurtrier de son père dans une école dominée par des uniformes conférant des pouvoirs surhumains."
   },
   {
     "id": "nichijou",
     "title": "Nichijou",
     "rank": 128,
     "searchTitle": "Nichijou",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Le quotidien d’élèves, d’une enfant scientifique, d’un robot et d’un principal devient une succession d’absurdités traitées avec un sérieux spectaculaire."
   },
   {
     "id": "toilet-bound-hanako-kun",
     "title": "Toilet-Bound Hanako-kun",
     "rank": 129,
     "searchTitle": "Toilet-Bound Hanako-kun",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Une lycéenne invoque l’esprit Hanako dans les toilettes de son école et se retrouve mêlée aux mystères surnaturels qui hantent l’établissement."
   },
   {
     "id": "deadman-wonderland",
     "title": "Deadman Wonderland",
     "rank": 130,
     "searchTitle": "Deadman Wonderland",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Accusé à tort d’un massacre, un collégien est envoyé dans une prison-parc d’attractions où les détenus doivent survivre à des jeux mortels."
   },
   {
     "id": "yu-yu-hakusho",
     "title": "Yu Yu Hakusho",
     "rank": 131,
     "searchTitle": "Yu Yu Hakusho",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Après être mort en sauvant un enfant, un délinquant revient comme détective du monde spirituel et affronte démons et combattants surnaturels."
   },
   {
     "id": "mashle",
     "title": "Mashle",
     "rank": 132,
     "searchTitle": "Mashle",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Dans un monde où la magie définit le statut social, un garçon sans magie compense avec une force physique absurde et entre dans une prestigieuse académie."
   },
   {
     "id": "sound-euphonium",
     "title": "Sound! Euphonium",
     "rank": 133,
     "searchTitle": "Sound! Euphonium",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Une lycéenne rejoint l’orchestre de son école et découvre les tensions, ambitions et émotions derrière la quête d’une performance nationale."
   },
   {
     "id": "durarara",
     "title": "Durarara!!",
     "rank": 134,
     "searchTitle": "Durarara!!",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "À Ikebukuro, gangs, informateurs, créatures surnaturelles et habitants excentriques se croisent jusqu’à former un réseau de secrets et de conflits."
   },
   {
     "id": "yuru-camp",
     "title": "Yuru Camp",
     "rank": 135,
     "searchTitle": "Yuru Camp",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Des lycéennes découvrent le camping à travers des escapades tranquilles, des paysages magnifiques et le plaisir simple de voyager ensemble ou seules."
   },
   {
     "id": "call-of-the-night",
     "title": "Call of the Night",
     "rank": 136,
     "searchTitle": "Call of the Night",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Un adolescent insomniaque erre la nuit et rencontre une vampire qui lui propose une existence nocturne à condition qu’il tombe amoureux d’elle."
   },
   {
     "id": "gurren-lagann",
     "title": "Gurren Lagann",
     "rank": 137,
     "searchTitle": "Gurren Lagann",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Deux jeunes vivant sous terre découvrent un robot et lancent une rébellion démesurée qui finit par dépasser toutes les limites imaginables."
   },
   {
     "id": "hikaru-no-go",
     "title": "Hikaru no Go",
     "rank": 138,
     "searchTitle": "Hikaru no Go",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Un garçon réveille l’esprit d’un ancien maître de go et découvre progressivement sa propre passion pour un jeu qu’il ne connaissait pas."
   },
   {
     "id": "doraemon",
     "title": "Doraemon",
     "rank": 139,
     "searchTitle": "Doraemon",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Un robot-chat venu du futur aide un garçon maladroit avec des gadgets extraordinaires qui résolvent rarement les problèmes comme prévu."
   },
   {
     "id": "silent-witch",
     "title": "Silent Witch",
     "rank": 140,
     "searchTitle": "Silent Witch",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Une mage prodige capable de lancer des sorts sans incantation reçoit une mission secrète qui l’oblige à affronter sa terrible timidité sociale."
   },
   {
     "id": "yu-gi-oh",
     "title": "Yu-Gi-Oh!",
     "rank": 141,
     "searchTitle": "Yu-Gi-Oh!",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Un adolescent passionné de jeux se retrouve au cœur de duels de cartes où anciennes légendes, rivalités et pouvoirs mystiques se mêlent."
   },
   {
     "id": "medalist",
     "title": "Medalist",
     "rank": 142,
     "searchTitle": "Medalist",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Une jeune fille rêvant de patinage artistique rencontre un entraîneur débutant qui décide de l’aider à viser les plus hauts niveaux de compétition."
   },
   {
     "id": "k",
     "title": "K",
     "rank": 143,
     "searchTitle": "K",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Des clans aux pouvoirs surnaturels se disputent Tokyo tandis qu’un lycéen amnésique est accusé d’un meurtre qu’il ne se souvient pas avoir commis."
   },
   {
     "id": "planetarian",
     "title": "Planetarian",
     "rank": 144,
     "searchTitle": "Planetarian",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Dans une ville dévastée, un soldat rencontre une androïde qui continue inlassablement de guider les visiteurs d’un planétarium abandonné."
   },
   {
     "id": "cardcaptor-sakura",
     "title": "Cardcaptor Sakura",
     "rank": 145,
     "searchTitle": "Cardcaptor Sakura",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Une écolière libère accidentellement des cartes magiques et doit les capturer une à une tout en découvrant les sentiments qui grandissent autour d’elle."
   },
   {
     "id": "rurouni-kenshin",
     "title": "Rurouni Kenshin",
     "rank": 146,
     "searchTitle": "Rurouni Kenshin",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Un ancien assassin de la révolution Meiji jure de ne plus tuer et protège les innocents avec un sabre à lame inversée."
   },
   {
     "id": "barakamon",
     "title": "Barakamon",
     "rank": 147,
     "searchTitle": "Barakamon",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Un jeune calligraphe arrogant est envoyé sur une île rurale où les habitants l’aident malgré lui à retrouver inspiration et simplicité."
   },
   {
     "id": "dandadan",
     "title": "Dandadan",
     "rank": 148,
     "searchTitle": "Dandadan",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Deux adolescents en désaccord sur fantômes et extraterrestres découvrent que les deux existent et affrontent ensemble des phénomènes surnaturels complètement déchaînés."
   },
   {
     "id": "elfen-lied",
     "title": "Elfen Lied",
     "rank": 149,
     "searchTitle": "Elfen Lied",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Une jeune mutante extrêmement dangereuse s’échappe d’un laboratoire et développe une personnalité innocente après avoir été blessée."
   },
   {
     "id": "gushing-over-magical-girls",
     "title": "Gushing over Magical Girls",
     "rank": 150,
     "searchTitle": "Gushing over Magical Girls",
-    "consensus": 2.5
+    "consensus": 2.5,
+    "synopsis": "Une admiratrice de magical girls découvre qu’elle a été recrutée du côté des méchantes et révèle un enthousiasme beaucoup plus particulier que prévu."
   },
   {
     "id": "black-lagoon",
     "title": "Black Lagoon",
     "rank": 151,
     "searchTitle": "Black Lagoon",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Un salaryman kidnappé rejoint des mercenaires pirates et découvre la violence sans règles d’une ville criminelle d’Asie du Sud-Est."
   },
   {
     "id": "blue-box",
     "title": "Blue Box",
     "rank": 152,
     "searchTitle": "Blue Box",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Un joueur de badminton tombe amoureux d’une basketteuse plus âgée et tente de concilier ambitions sportives et sentiments quotidiens."
   },
   {
     "id": "aria",
     "title": "Aria",
     "rank": 153,
     "searchTitle": "Aria",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Sur une Mars terraformée devenue monde aquatique, une apprentie gondolière découvre la beauté tranquille de Neo-Venezia et de ses habitants."
   },
   {
     "id": "darker-than-black",
     "title": "Darker than Black",
     "rank": 154,
     "searchTitle": "Darker than Black",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Après l’apparition d’une zone surnaturelle à Tokyo, des individus dotés de pouvoirs mais soumis à un prix précis deviennent espions et assassins."
   },
   {
     "id": "darling-in-the-franxx",
     "title": "Darling in the Franxx",
     "rank": 155,
     "searchTitle": "Darling in the Franxx",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Des adolescents élevés pour piloter des mechas affrontent des monstres tout en découvrant amour, liberté et mensonges sur leur société."
   },
   {
     "id": "invaders-of-the-rokujouma",
     "title": "Invaders of the Rokujouma!?",
     "rank": 156,
     "searchTitle": "Invaders of the Rokujouma!?",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Un étudiant loue une chambre minuscule bientôt revendiquée par fantôme, extraterrestres et autres prétendantes qui refusent toutes de partir."
   },
   {
     "id": "free-iwatobi-swim-club",
     "title": "Free! Iwatobi Swim Club",
     "rank": 157,
     "searchTitle": "Free! Iwatobi Swim Club",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "D’anciens amis nageurs se retrouvent au lycée et renouent leur rivalité à travers compétitions, relais et recherche de leur propre voie."
   },
   {
     "id": "mobile-suit-victory-gundam",
     "title": "Mobile Suit Victory Gundam",
     "rank": 158,
     "searchTitle": "Mobile Suit Victory Gundam",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Un très jeune pilote se retrouve entraîné dans une guerre meurtrière contre un empire spatial en utilisant le mobile suit Victory Gundam."
   },
   {
     "id": "goblin-slayer",
     "title": "Goblin Slayer",
     "rank": 159,
     "searchTitle": "Goblin Slayer",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Un aventurier obsédé par l’extermination des gobelins rejoint une prêtresse et une équipe qui découvre la brutalité cachée derrière ces quêtes jugées mineures."
   },
   {
     "id": "gaogaigar",
     "title": "GaoGaiGar",
     "rank": 160,
     "searchTitle": "GaoGaiGar",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Une organisation secrète et son héros cyborg pilotent des robots transformables pour défendre la Terre contre une menace extraterrestre mécanisée."
   },
   {
     "id": "log-horizon",
     "title": "Log Horizon",
     "rank": 161,
     "searchTitle": "Log Horizon",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Des joueurs piégés dans un MMORPG doivent reconstruire une société viable et comprendre les nouvelles règles politiques, économiques et physiques de leur monde."
   },
   {
     "id": "kaiju-no-8",
     "title": "Kaiju No. 8",
     "rank": 162,
     "searchTitle": "Kaiju No. 8",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Un nettoyeur de restes de monstres devient lui-même un kaiju tout en poursuivant son vieux rêve d’intégrer les forces de défense."
   },
   {
     "id": "the-fragrant-flower-blooms-with-dignity",
     "title": "The Fragrant Flower Blooms with Dignity",
     "rank": 163,
     "searchTitle": "The Fragrant Flower Blooms with Dignity",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Un lycéen à l’apparence intimidante se rapproche d’une élève d’une école rivale et découvre une romance douce malgré les préjugés de leur entourage."
   },
   {
     "id": "nagi-no-asukara",
     "title": "Nagi no Asukara",
     "rank": 164,
     "searchTitle": "Nagi no Asukara",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Des adolescents vivant sous la mer sont forcés de fréquenter une école à la surface, où leurs relations évoluent avec un monde en plein changement."
   },
   {
     "id": "trigun",
     "title": "Trigun",
     "rank": 165,
     "searchTitle": "Trigun",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Un tireur légendaire recherché pour des destructions colossales traverse une planète désertique en refusant obstinément de tuer ses adversaires."
   },
   {
     "id": "yona-of-the-dawn",
     "title": "Yona of the Dawn",
     "rank": 166,
     "searchTitle": "Yona of the Dawn",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Une princesse chassée de son palais après un coup d’État entreprend un voyage qui transforme son innocence en détermination politique."
   },
   {
     "id": "86-eighty-six",
     "title": "86 Eighty Six",
     "rank": 167,
     "searchTitle": "86 Eighty Six",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Une république prétend mener une guerre sans victimes tandis que des soldats discriminés combattent réellement dans des machines télécommandées depuis l’arrière."
   },
   {
     "id": "gate",
     "title": "Gate",
     "rank": 168,
     "searchTitle": "Gate",
-    "consensus": 2
+    "consensus": 2,
+    "synopsis": "Un portail vers un monde fantasy s’ouvre au cœur de Tokyo et les forces japonaises établissent une présence de l’autre côté."
+  },
+  {
+    "id": "saint-seiya",
+    "title": "Saint Seiya",
+    "searchTitle": "Saint Seiya",
+    "anilistId": 1254,
+    "year": 1986,
+    "badge": "CLASSIQUE",
+    "rank": 169,
+    "consensus": null,
+    "synopsis": "De jeunes chevaliers portant des armures inspirées des constellations protègent Athéna dans des combats où loyauté, cosmos et sacrifice atteignent des proportions mythologiques."
+  },
+  {
+    "id": "city-hunter",
+    "title": "City Hunter (Nicky Larson)",
+    "searchTitle": "City Hunter",
+    "year": 1987,
+    "aliases": [
+      "Nicky Larson"
+    ],
+    "badge": "CLASSIQUE",
+    "rank": 170,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Un nettoyeur surdoué et incorrigible dragueur accepte des missions dangereuses dans Tokyo avec une partenaire qui sait très bien le remettre à sa place."
+  },
+  {
+    "id": "space-adventure-cobra",
+    "title": "Space Adventure Cobra",
+    "searchTitle": "Space Cobra",
+    "anilistId": 2451,
+    "year": 1982,
+    "aliases": [
+      "Cobra"
+    ],
+    "badge": "CLASSIQUE",
+    "rank": 171,
+    "consensus": null,
+    "synopsis": "Un aventurier spatial au bras-canon retrouve sa mémoire et reprend une vie de pirate intergalactique entre trésors, femmes fatales et organisations criminelles."
+  },
+  {
+    "id": "baki-the-grappler",
+    "title": "Baki the Grappler",
+    "searchTitle": "Grappler Baki (TV)",
+    "anilistId": 287,
+    "year": 2001,
+    "aliases": [
+      "Baki"
+    ],
+    "badge": "CLASSIQUE",
+    "rank": 172,
+    "consensus": null,
+    "synopsis": "Un jeune combattant s’entraîne sans relâche pour dépasser les meilleurs artistes martiaux et affronter un jour son père, considéré comme l’homme le plus fort."
+  },
+  {
+    "id": "fist-of-the-north-star",
+    "title": "Fist of the North Star",
+    "searchTitle": "Hokuto no Ken",
+    "anilistId": 967,
+    "year": 1984,
+    "aliases": [
+      "Hokuto no Ken"
+    ],
+    "badge": "CLASSIQUE",
+    "rank": 173,
+    "consensus": null,
+    "synopsis": "Dans un monde post-apocalyptique, Kenshiro utilise un art martial mortel pour protéger les faibles et retrouver ceux qui lui ont été arrachés."
+  },
+  {
+    "id": "lupin-iii",
+    "title": "Lupin III",
+    "searchTitle": "Lupin III",
+    "anilistId": 1412,
+    "year": 1971,
+    "badge": "CLASSIQUE",
+    "rank": 174,
+    "consensus": null,
+    "synopsis": "Le petit-fils d’Arsène Lupin voyage avec une bande de voleurs talentueux, toujours poursuivi par l’inspecteur Zenigata après des braquages impossibles."
+  },
+  {
+    "id": "captain-tsubasa",
+    "title": "Captain Tsubasa (Olive et Tom)",
+    "searchTitle": "Captain Tsubasa",
+    "anilistId": 2116,
+    "year": 1983,
+    "aliases": [
+      "Olive et Tom"
+    ],
+    "badge": "CLASSIQUE",
+    "rank": 175,
+    "consensus": null,
+    "synopsis": "Un jeune prodige du football rêve de Coupe du monde et grandit à travers matchs, rivaux et équipes qui ont marqué plusieurs générations."
+  },
+  {
+    "id": "ranma-1-2",
+    "title": "Ranma ½",
+    "searchTitle": "Ranma 1/2",
+    "anilistId": 210,
+    "year": 1989,
+    "badge": "CLASSIQUE",
+    "rank": 176,
+    "consensus": null,
+    "synopsis": "Un jeune artiste martial se transforme en fille au contact de l’eau froide, compliquant encore davantage ses fiançailles arrangées et ses nombreux rivaux."
+  },
+  {
+    "id": "the-rose-of-versailles",
+    "title": "The Rose of Versailles (Lady Oscar)",
+    "searchTitle": "Versailles no Bara",
+    "anilistId": 338,
+    "year": 1979,
+    "aliases": [
+      "Lady Oscar"
+    ],
+    "badge": "CLASSIQUE",
+    "rank": 177,
+    "consensus": null,
+    "synopsis": "Élevée comme un homme, Oscar sert à la cour de Versailles et observe de près les tensions qui conduisent à la Révolution française."
+  },
+  {
+    "id": "macross",
+    "title": "Macross",
+    "searchTitle": "Choujikuu Yousai Macross",
+    "anilistId": 1088,
+    "year": 1982,
+    "badge": "CLASSIQUE",
+    "rank": 178,
+    "consensus": null,
+    "synopsis": "Une forteresse extraterrestre transformée en vaisseau entraîne l’humanité dans une guerre spatiale où musique, culture et triangle amoureux jouent un rôle inattendu."
+  },
+  {
+    "id": "maison-ikkoku",
+    "title": "Maison Ikkoku",
+    "searchTitle": "Maison Ikkoku",
+    "year": 1986,
+    "badge": "CLASSIQUE",
+    "rank": 179,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Un étudiant malchanceux tombe amoureux de la jeune veuve qui gère sa pension, entouré de voisins dont l’ingérence transforme chaque progrès romantique en chaos."
+  },
+  {
+    "id": "urusei-yatsura",
+    "title": "Urusei Yatsura",
+    "searchTitle": "Urusei Yatsura",
+    "year": 1981,
+    "badge": "CLASSIQUE",
+    "rank": 180,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Un lycéen malchanceux se retrouve fiancé à une princesse extraterrestre jalouse après avoir sauvé la Terre dans un jeu absurde."
+  },
+  {
+    "id": "touch",
+    "title": "Touch",
+    "searchTitle": "Touch",
+    "year": 1985,
+    "badge": "CLASSIQUE",
+    "rank": 181,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Deux frères jumeaux et leur amie d’enfance grandissent autour du baseball, des sentiments tus et d’un rêve partagé de tournoi national."
+  },
+  {
+    "id": "sakamoto-days",
+    "title": "SAKAMOTO DAYS",
+    "searchTitle": "SAKAMOTO DAYS",
+    "anilistId": 177709,
+    "year": 2025,
+    "badge": "NOUVEAU",
+    "rank": 182,
+    "consensus": null,
+    "synopsis": "Un ancien tueur légendaire devenu père de famille tient une supérette paisible jusqu’à ce que son passé criminel revienne réclamer sa tête."
+  },
+  {
+    "id": "solo-leveling",
+    "title": "Solo Leveling",
+    "searchTitle": "Ore dake Level Up na Ken",
+    "anilistId": 151807,
+    "year": 2024,
+    "badge": "NOUVEAU",
+    "rank": 183,
+    "consensus": null,
+    "synopsis": "Le plus faible des chasseurs obtient après une catastrophe la capacité unique de progresser comme dans un jeu et devient rapidement une force hors norme."
+  },
+  {
+    "id": "delicious-in-dungeon",
+    "title": "Delicious in Dungeon",
+    "searchTitle": "Dungeon Meshi",
+    "anilistId": 153518,
+    "year": 2024,
+    "aliases": [
+      "Dungeon Meshi"
+    ],
+    "badge": "NOUVEAU",
+    "rank": 184,
+    "consensus": null,
+    "synopsis": "Des aventuriers retournent dans un donjon pour sauver une camarade et survivent en cuisinant les monstres rencontrés sur le chemin."
+  },
+  {
+    "id": "pluto",
+    "title": "PLUTO",
+    "searchTitle": "PLUTO",
+    "anilistId": 99088,
+    "year": 2023,
+    "badge": "MODERNE",
+    "rank": 185,
+    "consensus": null,
+    "synopsis": "Un détective robot enquête sur une série de meurtres visant les robots les plus puissants du monde et les humains liés à leurs créateurs."
+  },
+  {
+    "id": "heavenly-delusion",
+    "title": "Heavenly Delusion",
+    "searchTitle": "Tengoku Daimakyou",
+    "year": 2023,
+    "aliases": [
+      "Tengoku Daimakyou"
+    ],
+    "badge": "MODERNE",
+    "rank": 186,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Deux jeunes traversent un Japon ravagé à la recherche d’un lieu appelé le Paradis, tandis que des enfants vivent isolés dans un mystérieux établissement."
+  },
+  {
+    "id": "cyberpunk-edgerunners",
+    "title": "Cyberpunk: Edgerunners",
+    "searchTitle": "Cyberpunk: Edgerunners",
+    "anilistId": 120377,
+    "year": 2022,
+    "badge": "MODERNE",
+    "rank": 187,
+    "consensus": null,
+    "synopsis": "Dans Night City, un adolescent sans avenir devient mercenaire cybernétique et rejoint une bande où chaque amélioration rapproche autant du pouvoir que de la folie."
+  },
+  {
+    "id": "wind-breaker",
+    "title": "WIND BREAKER",
+    "searchTitle": "WIND BREAKER",
+    "anilistId": 163270,
+    "year": 2024,
+    "badge": "NOUVEAU",
+    "rank": 188,
+    "consensus": null,
+    "synopsis": "Un lycéen bagarreur arrive dans une école célèbre pour sa force et découvre que ses élèves utilisent leurs poings pour protéger le quartier."
+  },
+  {
+    "id": "gachiakuta",
+    "title": "Gachiakuta",
+    "searchTitle": "Gachiakuta",
+    "anilistId": 178025,
+    "year": 2025,
+    "badge": "NOUVEAU",
+    "rank": 189,
+    "consensus": null,
+    "synopsis": "Jeté dans un immense dépotoir après une fausse accusation, un garçon découvre des monstres nés des déchets et des armes façonnées par la valeur des objets."
+  },
+  {
+    "id": "the-summer-hikaru-died",
+    "title": "The Summer Hikaru Died",
+    "searchTitle": "Hikaru ga Shinda Natsu",
+    "year": 2025,
+    "aliases": [
+      "Hikaru ga Shinda Natsu"
+    ],
+    "badge": "NOUVEAU",
+    "rank": 190,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Un adolescent comprend que son meilleur ami revenu d’une montagne n’est plus vraiment humain, mais choisit malgré tout de rester près de lui."
+  },
+  {
+    "id": "takopis-original-sin",
+    "title": "Takopi's Original Sin",
+    "searchTitle": "Takopii no Genzai",
+    "year": 2025,
+    "aliases": [
+      "Takopii no Genzai"
+    ],
+    "badge": "NOUVEAU",
+    "rank": 191,
+    "consensus": null,
+    "synopsis": "Un extraterrestre naïf venu répandre le bonheur rencontre une enfant profondément malheureuse et découvre que ses gadgets ne peuvent réparer des blessures humaines simples."
+  },
+  {
+    "id": "witch-watch",
+    "title": "WITCH WATCH",
+    "searchTitle": "Witch Watch",
+    "year": 2025,
+    "badge": "NOUVEAU",
+    "rank": 192,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Un jeune ogre devient le familier et garde du corps de son amie d’enfance sorcière, dont les sorts transforment leur quotidien en catastrophe comique."
+  },
+  {
+    "id": "lazarus",
+    "title": "Lazarus",
+    "searchTitle": "Lazarus",
+    "year": 2025,
+    "badge": "NOUVEAU",
+    "rank": 193,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Dans un futur proche, une équipe d’agents doit retrouver le créateur d’un médicament miracle dont les utilisateurs sont soudain condamnés à mourir."
+  },
+  {
+    "id": "my-happy-marriage",
+    "title": "My Happy Marriage",
+    "searchTitle": "Watashi no Shiawase na Kekkon",
+    "anilistId": 147103,
+    "year": 2023,
+    "badge": "MODERNE",
+    "rank": 194,
+    "consensus": null,
+    "synopsis": "Maltraitée par sa famille, une jeune femme est promise à un militaire réputé froid et découvre auprès de lui une vie où respect et pouvoirs surnaturels se mêlent."
+  },
+  {
+    "id": "zom-100",
+    "title": "Zom 100: Bucket List of the Dead",
+    "searchTitle": "Zom 100: Zombie ni Naru Made ni Shitai 100 no Koto",
+    "year": 2023,
+    "badge": "MODERNE",
+    "rank": 195,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Lorsqu’une apocalypse zombie libère enfin un employé de son travail infernal, il décide d’accomplir cent choses avant de devenir lui-même zombie."
+  },
+  {
+    "id": "lycoris-recoil",
+    "title": "Lycoris Recoil",
+    "searchTitle": "Lycoris Recoil",
+    "year": 2022,
+    "badge": "MODERNE",
+    "rank": 196,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Des jeunes agentes entraînées pour empêcher discrètement le crime travaillent depuis un café où deux partenaires aux méthodes opposées deviennent inséparables."
+  },
+  {
+    "id": "skip-and-loafer",
+    "title": "Skip and Loafer",
+    "searchTitle": "Skip to Loafer",
+    "year": 2023,
+    "badge": "MODERNE",
+    "rank": 197,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Une lycéenne ambitieuse venue de la campagne découvre Tokyo, les maladresses sociales et une amitié inattendue avec un garçon naturellement populaire."
+  },
+  {
+    "id": "ranking-of-kings",
+    "title": "Ranking of Kings",
+    "searchTitle": "Ousama Ranking",
+    "year": 2021,
+    "badge": "MODERNE",
+    "rank": 198,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Un petit prince sourd et physiquement faible rêve de devenir un grand roi malgré les moqueries, les complots et les attentes de son royaume."
+  },
+  {
+    "id": "beastars",
+    "title": "BEASTARS",
+    "searchTitle": "BEASTARS",
+    "year": 2019,
+    "badge": "MODERNE",
+    "rank": 199,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Dans une société d’animaux anthropomorphes, un loup timide lutte contre ses instincts et ses sentiments après un meurtre qui ravive les tensions entre herbivores et carnivores."
+  },
+  {
+    "id": "land-of-the-lustrous",
+    "title": "Land of the Lustrous",
+    "searchTitle": "Houseki no Kuni",
+    "year": 2017,
+    "badge": "MODERNE",
+    "rank": 200,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Des êtres faits de gemmes défendent leur monde contre des envahisseurs lunaires tandis que la plus fragile d’entre eux cherche un rôle qui lui corresponde."
+  },
+  {
+    "id": "devilman-crybaby",
+    "title": "Devilman Crybaby",
+    "searchTitle": "DEVILMAN crybaby",
+    "year": 2018,
+    "badge": "MODERNE",
+    "rank": 201,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Un adolescent fusionne avec un démon pour combattre ses semblables tout en conservant son cœur humain dans une société gagnée par la peur et la violence."
+  },
+  {
+    "id": "sonny-boy",
+    "title": "Sonny Boy",
+    "searchTitle": "Sonny Boy",
+    "year": 2021,
+    "badge": "MODERNE",
+    "rank": 202,
+    "consensus": null,
+    "preferredFormat": "TV",
+    "synopsis": "Une classe entière dérive dans des mondes parallèles où certains élèves développent des pouvoirs et doivent comprendre les règles d’une réalité sans adultes."
   }
 ]

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6d4aff"/><stop offset="1" stop-color="#15111e"/></linearGradient><pattern id="p" width="52" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(18)"><rect width="10" height="52" fill="#ff8b3d" opacity=".11"/></pattern></defs>
+<rect width="600" height="900" rx="28" fill="url(#g)"/><rect width="600" height="900" fill="url(#p)"/>
+<circle cx="500" cy="120" r="170" fill="#ff8b3d" opacity=".18"/><circle cx="90" cy="760" r="230" fill="#6d4aff" opacity=".24"/>
+<text x="50" y="78" fill="#ff8b3d" font-family="Arial,sans-serif" font-size="20" font-weight="800" letter-spacing="3">ANISHELF / 178</text>
+<foreignObject x="50" y="300" width="500" height="250"><div xmlns="http://www.w3.org/1999/xhtml" style="color:#f7f2ff;font-family:Arial,sans-serif;font-size:36px;font-weight:800;line-height:1.1;word-break:break-word">Macross</div></foreignObject>
+<text x="50" y="800" fill="#ff8b3d" font-family="Arial,sans-serif" font-size="16" font-weight="800" letter-spacing="2">CLASSIQUE</text>
+<text x="50" y="830" fill="#d6cfee" opacity=".75" font-family="Arial,sans-serif" font-size="18">LOCAL FALLBACK POSTER</text>
+<rect x="48" y="852" width="160" height="7" rx="3.5" fill="#ff8b3d"/>
+</svg>

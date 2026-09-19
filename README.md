@@ -1,74 +1,152 @@
 # AniShelf
 
-Mini application mobile-first de tier list anime, prévue pour **GitHub Pages**.
+AniShelf est une petite application **mobile-first**, sans backend et sans framework, prévue pour être hébergée directement sur **GitHub Pages**.
 
-## Deux modes
+Cette version unifie les anciens modes en une seule navigation :
 
-- **Rapide** : classement S / A / B / C / D.
-- **AniShelf** : notation 0–5★, bibliothèque, notes, favoris, tier list et comparaison JSON entre amis.
+- **Accueil** : résumé et raccourcis explicites.
+- **Ma liste** : En attente / En cours / Fini / Pas suivi.
+- **Tri rapide** : unique source de la tier list.
+- **Mes tops** : classements personnels par catégorie, avec non-classés et glisser-déposer.
+- **Profil** : notes, favoris, export/import et comparaison entre amis.
 
-Les données personnelles restent dans `localStorage` du navigateur. Aucun compte ni backend n'est requis.
+Les données personnelles restent dans `localStorage`. Aucun compte ni serveur n'est requis.
 
-## Affiches : ordre de priorité
+## Tier list : une seule source
 
-AniShelf ne dépend jamais complètement d'un service externe :
+Le **Tri rapide** alimente l'unique tier list **et enregistre automatiquement la note étoile correspondante** :
 
-1. **Poster local personnalisé** dans `assets/posters/` (`.webp`, `.jpg`, `.jpeg` ou `.png`).
-2. **AniList** via GraphQL, avec URL mise en cache dans `localStorage`.
-3. **Poster SVG fallback** livré dans le repo.
+- `S` — **5★** — Immense
+- `A` — **4.5★** — Chef-d’œuvre
+- `B` — **4★** — Excellent
+- `C` — **3.5★** — Mérite d’être vu
+- `D` — **3★** — Bon / solide
+- `E` — **2.5★** — Correct / oubliable
+- `F` — **2★** — Moyen / échec
+- `Pas fini` — sans note
+- `Pas vu` — sans note
 
-Exemple pour Attack on Titan :
+Un titre passé avec le bouton **Passer** reste non classé. `Pas vu` est au contraire un choix explicite qui permet de terminer le tri sans prétendre avoir vu l'œuvre.
+
+Les étoiles restent disponibles sur les fiches pour voter ou corriger une note manuellement. Si l'œuvre repasse ensuite par le Tri rapide, le choix du tier resynchronise automatiquement la note.
+
+Lors de la migration depuis la v6, l'ancien `D` (qui signifiait « Correct / oubliable ») est converti en `E = 2.5★` afin de conserver son sens.
+
+## Suivi de lecture / visionnage
+
+Chaque fiche anime possède un statut :
+
+- Pas suivi
+- En attente
+- En cours
+- Fini
+
+La page **Ma liste** peut être filtrée par statut.
+
+## Tops personnels par catégorie
+
+La page **Mes tops** propose 10 sélections éditoriales. Pour chaque catégorie :
+
+- les œuvres commencent dans **Non classés** ;
+- un tap sur `+ Ajouter` les ajoute au classement ;
+- la poignée `≡` permet de les réordonner par glisser-déposer sur mobile ou desktop ;
+- `↑` et `↓` constituent l'alternative accessible au drag ;
+- `×` renvoie l'œuvre dans Non classés ;
+- `Passer` fait défiler le prochain candidat sans le classer ;
+- `Préremplir` charge l'ordre éditorial AniShelf comme point de départ.
+
+Ces tops ne modifient ni les étoiles ni la tier list rapide.
+
+## Synopsis intégrés
+
+Les **202 œuvres** possèdent désormais un synopsis court directement dans :
 
 ```text
-assets/posters/attack-on-titan.webp   # prioritaire si présent
-assets/posters/attack-on-titan.jpg    # accepté aussi
-assets/posters/attack-on-titan.svg    # fallback permanent
+data/catalog.json
 ```
 
-Dans l'app, **Réglages → Rafraîchir les affiches manquantes** retente AniList sans effacer tes notes.
+Ils sont donc disponibles hors-ligne et ne dépendent ni d'AniList ni d'une autre API.
 
-## Télécharger toutes les affiches AniList dans le repo
+Pour modifier un synopsis, édite simplement la propriété :
 
-Avec Node.js 18+ :
+```json
+{
+  "id": "attack-on-titan",
+  "title": "Attack on Titan",
+  "synopsis": "Ton texte ici."
+}
+```
+
+Puis régénère les données navigateur :
+
+```bash
+node scripts/build-catalog.mjs
+```
+
+## Affiches
+
+Ordre de priorité :
+
+1. poster local dans `assets/posters/<id>.webp|jpg|jpeg|png` ;
+2. AniList, avec matching vérifié et cache local ;
+3. SVG AniShelf livré dans le repo.
+
+Les IDs AniList explicites dans `catalog.json` sont prioritaires pour les titres ambigus.
+
+Pour télécharger les affiches AniList directement dans le repo :
 
 ```bash
 node scripts/fetch-posters.mjs
 ```
 
-Pour remplacer aussi les images locales déjà téléchargées :
+Pour tout retélécharger :
 
 ```bash
 node scripts/fetch-posters.mjs --force
 ```
 
-Le script ne nécessite aucun `npm install`. Il interroge AniList par lots, télécharge les images et conserve tous les SVG fallback.
+Aucun `npm install` n'est nécessaire ; Node.js 18+ suffit.
 
-> Vérifie les résultats avant publication : une recherche textuelle peut occasionnellement choisir un remake, une saison ou un titre homonyme.
+## Modifier catalogue et catégories
 
-## Modifier le catalogue
+Sources éditables :
 
-Édite `data/catalog.json`, puis :
+```text
+data/catalog.json
+data/categories.json
+```
+
+Après modification :
 
 ```bash
 node scripts/build-catalog.mjs
 node scripts/audit.mjs
 ```
 
-`id` doit rester stable lorsque des utilisateurs ont déjà des données sauvegardées : les notes sont indexées par cet identifiant.
+`audit.mjs` contrôle notamment les IDs, fallbacks de posters, références de catégories et la présence des synopsis.
 
 ## Déploiement GitHub Pages
 
-1. Crée un repository GitHub.
-2. Place **le contenu de ce dossier** à la racine de la branche `main`.
-3. `Settings → Pages`.
-4. Source : `Deploy from a branch`.
-5. Branche : `main`, dossier : `/ (root)`.
+1. Mets le contenu du dossier à la racine de ton repo.
+2. `Settings → Pages`.
+3. `Deploy from a branch`.
+4. Branche `main`, dossier `/ (root)`.
 
-Le fichier `.nojekyll` évite le traitement Jekyll inutile.
+Après une grosse mise à jour, fais une fois `Ctrl + Shift + R` pour forcer la nouvelle version du service worker.
 
-## Export PNG
+## Export / sauvegarde
 
-La tier list peut être exportée en PNG. Le moteur essaie les posters locaux/AniList et retombe sur le SVG local si une image distante ne peut pas être dessinée dans le canvas à cause de CORS.
+Le menu Réglages permet d'exporter un JSON contenant :
+
+- tier list rapide ;
+- étoiles ;
+- statuts de suivi ;
+- notes ;
+- favoris ;
+- tops par catégorie ;
+- pseudo.
+
+La tier list rapide peut aussi être exportée en **PNG** pour le partage.
 
 ## Structure
 
@@ -79,6 +157,8 @@ js/app.js
 js/pwa.js
 data/catalog.json
 data/catalog.js
+data/categories.json
+data/categories.js
 assets/posters/
 assets/icons/
 scripts/fetch-posters.mjs
@@ -88,6 +168,4 @@ manifest.webmanifest
 sw.js
 ```
 
-## Notes techniques
-
-Le projet n'utilise aucun framework. C'est volontaire : le repo reste lisible, léger et facilement modifiable. Si AniShelf grandit (authentification, comptes partagés, recherche complète, listes cloud), il sera alors raisonnable de migrer vers un bundler/framework.
+Le code est volontairement commenté par sections pour rester facile à reprendre avant une éventuelle migration vers une stack plus lourde.

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#15111e">
-  <meta name="description" content="AniShelf — tier list anime mobile, notes personnelles et comparaison entre amis.">
+  <meta name="description" content="AniShelf — suivi, notes, tier list rapide et tops anime personnels.">
   <title>AniShelf</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icons/icon-192.svg" type="image/svg+xml">
@@ -13,16 +13,12 @@
 <body>
   <div id="app" class="app-shell">
     <header class="topbar">
-      <a class="brand" href="#" aria-label="AniShelf accueil"><span>ANI</span>SHELF</a>
-      <div class="mode-switch" role="tablist" aria-label="Mode de classement">
-        <button class="mode-btn active" data-mode="quick" role="tab">Rapide</button>
-        <button class="mode-btn" data-mode="shelf" role="tab">AniShelf</button>
-      </div>
+      <button id="homeBrand" class="brand brand-button" aria-label="Retour à l'accueil"><span>ANI</span>SHELF</button>
+      <div class="topbar-copy"><strong id="topbarTitle">Accueil</strong><small id="topbarHint">Ton anime shelf personnel</small></div>
       <button id="settingsBtn" class="round-btn" aria-label="Réglages">•••</button>
     </header>
 
     <main id="main"></main>
-
     <nav id="bottomNav" class="bottom-nav" aria-label="Navigation principale"></nav>
   </div>
 
@@ -31,17 +27,18 @@
   <dialog id="settingsDialog" class="dialog">
     <form method="dialog" class="dialog-card">
       <div class="dialog-head"><strong>Réglages</strong><button class="round-btn" value="cancel" aria-label="Fermer">×</button></div>
-      <p class="muted">Les vraies affiches sont résolues dans cet ordre : fichier local → AniList → poster SVG de secours.</p>
+      <p class="muted">Poster : fichier local → AniList vérifié → SVG AniShelf. Tes données restent dans ce navigateur tant que tu ne les exportes pas.</p>
       <button type="button" id="refreshMissingPosters" class="wide-btn accent">↻ Rafraîchir les affiches manquantes</button>
-      <button type="button" id="clearPosterCache" class="wide-btn">Vider le cache AniList</button>
-      <button type="button" id="exportProfileBtn" class="wide-btn">Exporter mon profil JSON</button>
-      <label class="wide-btn file-label">Importer un profil JSON<input id="importProfileInput" type="file" accept="application/json" hidden></label>
+      <button type="button" id="clearPosterCache" class="wide-btn">Réinitialiser le cache des affiches</button>
+      <button type="button" id="exportProfileBtn" class="wide-btn">Exporter toutes mes données JSON</button>
+      <label class="wide-btn file-label">Importer mes données JSON<input id="importProfileInput" type="file" accept="application/json" hidden></label>
       <hr>
-      <button type="button" id="resetCurrentMode" class="wide-btn danger">Réinitialiser le mode actuel</button>
+      <button type="button" id="resetAllData" class="wide-btn danger">Effacer mes classements et suivis</button>
     </form>
   </dialog>
 
   <script src="data/catalog.js"></script>
+  <script src="data/categories.js"></script>
   <script src="js/app.js"></script>
   <script src="js/pwa.js"></script>
 </body>
